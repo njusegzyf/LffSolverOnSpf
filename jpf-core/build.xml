@@ -1,6 +1,10 @@
 <?xml version="1.0" ?>
 
 <!--
+  This build script is modified to add `Class-Path` attribute to `RunJPF.jar`,
+  which will include all the jars in the '../lib-lff' directory.
+  When run `RunJPF.jar`, there should be a link called lib in the same directory, which links to the '../lib-lff' directory.
+
   build.xml - the JPF core build script
               using Ant (http://jakarta.apache.org/ant)
   public targets:
@@ -205,6 +209,26 @@
   	  </fileset>
     </jar>
 
+    <path id="lib-classpath">
+      <fileset dir="../lib-lff">
+        <include name="*.jar"/>
+      </fileset>
+    </path>
+
+       <!--Create a property containing all .jar files,
+        prefix lib/, and seperated with a space-->
+        <pathconvert property="mf.classpath" pathsep=" ">
+            <mapper>
+                <chainedmapper>
+                    <!-- jar包文件只留文件名，去掉目录信息 -->
+                    <flattenmapper/>
+                    <!-- add lib/ prefix -->
+                    <globmapper from="*" to="lib/*"/>
+                </chainedmapper>
+            </mapper>
+            <path refid="lib-classpath"/>
+         </pathconvert>
+
     <jar jarfile="build/RunJPF.jar">
       <fileset dir="build/main">
         <include name="gov/nasa/jpf/tool/Run.class"/>
@@ -222,13 +246,14 @@
         <include name="gov/nasa/jpf/util/StringMatcher.class"/>
         <include name="gov/nasa/jpf/util/Pair.class"/>        
       </fileset>
-      
+
       <manifest>
         <attribute name="Built-By" value="${user.name}"/>
         <attribute name="Implementation-Vendor" value="NASA Ames Research Center"/>
         <attribute name="Implementation-Title" value="Java Pathfinder core launch system"/>
         <attribute name="Implementation-Version" value="${jpf.version}"/>
         <attribute name="Main-Class" value="gov.nasa.jpf.tool.RunJPF"/>
+        <attribute name="Class-Path" value="${mf.classpath}"/>
       </manifest>
     </jar>
 

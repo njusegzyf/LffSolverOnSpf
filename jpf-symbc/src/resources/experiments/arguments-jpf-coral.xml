@@ -1,0 +1,4 @@
+<project>
+  <!-- This is modified for running JPF with LFF solver. -->
+  <property name="jpf.arguments" value="+symbolic.dp=lff" />
+</project>

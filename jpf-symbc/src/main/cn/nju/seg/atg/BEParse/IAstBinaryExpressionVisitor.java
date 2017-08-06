@@ -9,11 +9,11 @@ import org.eclipse.cdt.core.dom.ast.IASTBinaryExpression;
 import org.eclipse.cdt.core.dom.ast.IASTExpression;
 import org.eclipse.cdt.core.dom.ast.IASTUnaryExpression;
 
-public class IASTBinaryExprssionVisitor extends ASTVisitor{
+public class IAstBinaryExpressionVisitor extends ASTVisitor{
 	
 	private IASTExpression iabe;
 	
-	public IASTBinaryExprssionVisitor() {
+	public IAstBinaryExpressionVisitor() {
 		// TODO Auto-generated constructor stub
 		this.shouldVisitExpressions=true;	
 	}

@@ -4,12 +4,22 @@
     <buildFile url="file://$PROJECT_DIR$/jpf-core/build.xml" />
     <buildFile url="file://$PROJECT_DIR$/jpf-symbc/build.xml" />
   </component>
+  <component name="CompilerConfiguration">
+    <option name="DEFAULT_COMPILER" value="Eclipse" />
+    <bytecodeTargetLevel target="1.7" />
+  </component>
   <component name="Encoding">
     <file url="PROJECT" charset="UTF-8" />
   </component>
   <component name="InspectionProjectProfileManager">
     <profile version="1.0">
       <option name="myName" value="Project Default" />
+      <inspection_tool class="UnnecessaryBoxing" enabled="true" level="WARNING" enabled_by_default="true">
+        <option name="onlyReportSuperfluouslyBoxed" value="true" />
+      </inspection_tool>
+      <inspection_tool class="UnnecessaryUnboxing" enabled="true" level="WARNING" enabled_by_default="true">
+        <option name="onlyReportSuperfluouslyUnboxed" value="true" />
+      </inspection_tool>
     </profile>
     <version value="1.0" />
   </component>
@@ -32,6 +42,9 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.scala.compiler.ScalaCompileServerForm" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+  </component>
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
   <component name="masterDetails">
     <states>

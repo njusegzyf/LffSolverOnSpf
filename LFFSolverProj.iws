@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f78841da-5fe1-4156-80d0-fd73e9bf4faf" name="Default" comment="" />
+    <list default="true" id="f78841da-5fe1-4156-80d0-fd73e9bf4faf" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/BEParse/IASTBinaryExprssionVisitor.java" afterPath="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/BEParse/IAstBinaryExpressionVisitor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LFFSolverProj.ipr" afterPath="$PROJECT_DIR$/LFFSolverProj.ipr" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LFFSolverProj.iws" afterPath="$PROJECT_DIR$/LFFSolverProj.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jpf-core/build.xml" afterPath="$PROJECT_DIR$/jpf-core/build.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jpf-core/jpf-core.iml" afterPath="$PROJECT_DIR$/jpf-core/jpf-core.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jpf-symbc/jpf-symbc.iml" afterPath="$PROJECT_DIR$/jpf-symbc/jpf-symbc.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/BEParse/BinaryExpressionParse.java" afterPath="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/BEParse/BinaryExpressionParse.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/solver/runByLFF.java" afterPath="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/solver/runByLFF.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/numeric/SymbolicConstraintsGeneral.java" afterPath="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/numeric/SymbolicConstraintsGeneral.java" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,13 +23,226 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ProblemCompare.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/numeric/solvers/ProblemCompare.java">
+      <file leaf-file-name="ProblemLff.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/ProblemLff.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="77">
-              <caret line="701" column="11" lean-forward="false" selection-start-line="701" selection-start-column="11" selection-end-line="701" selection-end-column="11" />
+            <state relative-caret-position="90">
+              <caret line="6" column="38" lean-forward="false" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
               <folding>
-                <element signature="method#mixed#0;class#ProblemCompare#0" expanded="true" />
+                <element signature="docComment;class#ProblemLff#0" expanded="true" />
+                <element signature="method#ProblemLff#0;class#ProblemLff#0" expanded="true" />
+                <element signature="method#checkExclusive#0;class#ProblemLff#0" expanded="true" />
+                <element signature="method#solve#0;class#ProblemLff#0" expanded="true" />
+                <element signature="method#makeVar#0;class#ProblemLff#0" expanded="true" />
+                <element signature="e#2547#2548#0" expanded="true" />
+                <element signature="e#2651#2652#0" expanded="true" />
+                <element signature="e#2720#2721#0" expanded="true" />
+                <element signature="e#2756#2757#0" expanded="true" />
+                <element signature="method#eq#2;class#ProblemLff#0" expanded="true" />
+                <element signature="e#3018#3019#0" expanded="true" />
+                <element signature="e#3122#3123#0" expanded="true" />
+                <element signature="e#3194#3195#0" expanded="true" />
+                <element signature="e#3230#3231#0" expanded="true" />
+                <element signature="e#3334#3335#0" expanded="true" />
+                <element signature="e#3438#3439#0" expanded="true" />
+                <element signature="e#3508#3509#0" expanded="true" />
+                <element signature="e#3545#3546#0" expanded="true" />
+                <element signature="method#neq#2;class#ProblemLff#0" expanded="true" />
+                <element signature="e#3809#3810#0" expanded="true" />
+                <element signature="e#3913#3914#0" expanded="true" />
+                <element signature="e#3986#3987#0" expanded="true" />
+                <element signature="e#4023#4024#0" expanded="true" />
+                <element signature="e#4128#4129#0" expanded="true" />
+                <element signature="e#4232#4233#0" expanded="true" />
+                <element signature="e#4300#4301#0" expanded="true" />
+                <element signature="e#4336#4337#0" expanded="true" />
+                <element signature="method#leq#2;class#ProblemLff#0" expanded="true" />
+                <element signature="e#4600#4601#0" expanded="true" />
+                <element signature="e#4704#4705#0" expanded="true" />
+                <element signature="e#4777#4778#0" expanded="true" />
+                <element signature="e#4813#4814#0" expanded="true" />
+                <element signature="e#4918#4919#0" expanded="true" />
+                <element signature="e#5022#5023#0" expanded="true" />
+                <element signature="e#5092#5093#0" expanded="true" />
+                <element signature="e#5128#5129#0" expanded="true" />
+                <element signature="method#geq#2;class#ProblemLff#0" expanded="true" />
+                <element signature="e#5392#5393#0" expanded="true" />
+                <element signature="e#5496#5497#0" expanded="true" />
+                <element signature="e#5569#5570#0" expanded="true" />
+                <element signature="e#5605#5606#0" expanded="true" />
+                <element signature="e#5708#5709#0" expanded="true" />
+                <element signature="e#5811#5812#0" expanded="true" />
+                <element signature="e#5880#5881#0" expanded="true" />
+                <element signature="e#5917#5918#0" expanded="true" />
+                <element signature="method#lt#2;class#ProblemLff#0" expanded="true" />
+                <element signature="e#6178#6179#0" expanded="true" />
+                <element signature="e#6281#6282#0" expanded="true" />
+                <element signature="e#6353#6354#0" expanded="true" />
+                <element signature="e#6390#6391#0" expanded="true" />
+                <element signature="e#6492#6493#0" expanded="true" />
+                <element signature="e#6595#6596#0" expanded="true" />
+                <element signature="e#6664#6665#0" expanded="true" />
+                <element signature="e#6701#6702#0" expanded="true" />
+                <element signature="method#gt#2;class#ProblemLff#0" expanded="true" />
+                <element signature="e#6962#6963#0" expanded="true" />
+                <element signature="e#7065#7066#0" expanded="true" />
+                <element signature="e#7137#7138#0" expanded="true" />
+                <element signature="e#7174#7175#0" expanded="true" />
+                <element signature="e#7280#7281#0" expanded="true" />
+                <element signature="e#7383#7384#0" expanded="true" />
+                <element signature="e#7454#7455#0" expanded="true" />
+                <element signature="e#7543#7544#0" expanded="true" />
+                <element signature="method#plus#2;class#ProblemLff#0" expanded="true" />
+                <element signature="e#7808#7809#0" expanded="true" />
+                <element signature="e#7911#7912#0" expanded="true" />
+                <element signature="e#7985#7986#0" expanded="true" />
+                <element signature="e#8074#8075#0" expanded="true" />
+                <element signature="e#8184#8185#0" expanded="true" />
+                <element signature="e#8287#8288#0" expanded="true" />
+                <element signature="e#8359#8360#0" expanded="true" />
+                <element signature="e#8448#8449#0" expanded="true" />
+                <element signature="e#8523#8524#0" expanded="true" />
+                <element signature="e#8626#8627#0" expanded="true" />
+                <element signature="e#8701#8702#0" expanded="true" />
+                <element signature="e#8804#8805#0" expanded="true" />
+                <element signature="e#8879#8880#0" expanded="true" />
+                <element signature="e#8968#8969#0" expanded="true" />
+                <element signature="e#9077#9078#0" expanded="true" />
+                <element signature="e#9180#9181#0" expanded="true" />
+                <element signature="e#9251#9252#0" expanded="true" />
+                <element signature="e#9340#9341#0" expanded="true" />
+                <element signature="e#9414#9415#0" expanded="true" />
+                <element signature="e#9517#9518#0" expanded="true" />
+                <element signature="e#9591#9592#0" expanded="true" />
+                <element signature="e#9694#9695#0" expanded="true" />
+                <element signature="e#9768#9769#0" expanded="true" />
+                <element signature="e#9857#9858#0" expanded="true" />
+                <element signature="e#9963#9964#0" expanded="true" />
+                <element signature="e#10066#10067#0" expanded="true" />
+                <element signature="e#10136#10137#0" expanded="true" />
+                <element signature="e#10225#10226#0" expanded="true" />
+                <element signature="e#10298#10299#0" expanded="true" />
+                <element signature="e#10401#10402#0" expanded="true" />
+                <element signature="e#10474#10475#0" expanded="true" />
+                <element signature="e#10577#10578#0" expanded="true" />
+                <element signature="e#10650#10651#0" expanded="true" />
+                <element signature="e#10739#10740#0" expanded="true" />
+                <element signature="e#10833#10834#0" expanded="true" />
+                <element signature="e#10893#10894#0" expanded="true" />
+                <element signature="e#10940#10941#0" expanded="true" />
+                <element signature="e#11000#11001#0" expanded="true" />
+                <element signature="e#11049#11050#0" expanded="true" />
+                <element signature="e#11111#11112#0" expanded="true" />
+                <element signature="e#11158#11159#0" expanded="true" />
+                <element signature="e#11218#11219#0" expanded="true" />
+                <element signature="e#11266#11267#0" expanded="true" />
+                <element signature="e#11327#11328#0" expanded="true" />
+                <element signature="e#11375#11376#0" expanded="true" />
+                <element signature="e#11436#11437#0" expanded="true" />
+                <element signature="e#11484#11485#0" expanded="true" />
+                <element signature="e#11545#11546#0" expanded="true" />
+                <element signature="e#11592#11593#0" expanded="true" />
+                <element signature="e#11652#11653#0" expanded="true" />
+                <element signature="e#11699#11700#0" expanded="true" />
+                <element signature="e#11759#11760#0" expanded="true" />
+                <element signature="e#11807#11808#0" expanded="true" />
+                <element signature="e#11867#11868#0" expanded="true" />
+                <element signature="e#11930#11931#0" expanded="true" />
+                <element signature="e#11999#12000#0" expanded="true" />
+                <element signature="e#12062#12063#0" expanded="true" />
+                <element signature="e#12131#12132#0" expanded="true" />
+                <element signature="e#12194#12195#0" expanded="true" />
+                <element signature="e#12263#12264#0" expanded="true" />
+                <element signature="e#12326#12327#0" expanded="true" />
+                <element signature="e#12395#12396#0" expanded="true" />
+                <element signature="e#12458#12459#0" expanded="true" />
+                <element signature="e#12527#12528#0" expanded="true" />
+                <element signature="e#12590#12591#0" expanded="true" />
+                <element signature="e#12659#12660#0" expanded="true" />
+                <element signature="method#post#0;class#ProblemLff#0" expanded="true" />
+                <element signature="method#postLogicalOR#0;class#ProblemLff#0" expanded="true" />
+                <element signature="method#getValValueByName#0;class#ProblemLff#0" expanded="true" />
+                <element signature="method#getRealValue#0;class#ProblemLff#0" expanded="true" />
+                <element signature="method#getIntValue#0;class#ProblemLff#0" expanded="true" />
+                <element signature="e#14158#14159#0" expanded="true" />
+                <element signature="e#14204#14205#0" expanded="true" />
+                <element signature="e#14271#14272#0" expanded="true" />
+                <element signature="e#14290#14291#0" expanded="true" />
+                <element signature="e#14428#14429#0" expanded="true" />
+                <element signature="e#14466#14467#0" expanded="true" />
+                <element signature="e#14534#14535#0" expanded="true" />
+                <element signature="e#14572#14573#0" expanded="true" />
+                <element signature="e#14643#14644#0" expanded="true" />
+                <element signature="e#14681#14682#0" expanded="true" />
+                <element signature="e#14748#14749#0" expanded="true" />
+                <element signature="e#14786#14787#0" expanded="true" />
+                <element signature="e#14853#14854#0" expanded="true" />
+                <element signature="e#14891#14892#0" expanded="true" />
+                <element signature="e#14961#14962#0" expanded="true" />
+                <element signature="e#14999#15000#0" expanded="true" />
+                <element signature="e#15067#15068#0" expanded="true" />
+                <element signature="e#15105#15106#0" expanded="true" />
+                <element signature="e#15173#15174#0" expanded="true" />
+                <element signature="e#15211#15212#0" expanded="true" />
+                <element signature="e#15282#15283#0" expanded="true" />
+                <element signature="e#15320#15321#0" expanded="true" />
+                <element signature="e#15391#15392#0" expanded="true" />
+                <element signature="e#15429#15430#0" expanded="true" />
+                <element signature="e#15500#15501#0" expanded="true" />
+                <element signature="e#15538#15539#0" expanded="true" />
+                <element signature="e#15612#15613#0" expanded="true" />
+                <element signature="e#15650#15651#0" expanded="true" />
+                <element signature="e#15721#15722#0" expanded="true" />
+                <element signature="e#15759#15760#0" expanded="true" />
+                <element signature="e#15830#15831#0" expanded="true" />
+                <element signature="e#15868#15869#0" expanded="true" />
+                <element signature="e#15942#15943#0" expanded="true" />
+                <element signature="e#15980#15981#0" expanded="true" />
+                <element signature="e#16052#16053#0" expanded="true" />
+                <element signature="e#16090#16091#0" expanded="true" />
+                <element signature="e#16162#16163#0" expanded="true" />
+                <element signature="e#16200#16201#0" expanded="true" />
+                <element signature="e#16275#16276#0" expanded="true" />
+                <element signature="e#16313#16314#0" expanded="true" />
+                <element signature="e#16386#16387#0" expanded="true" />
+                <element signature="e#16424#16425#0" expanded="true" />
+                <element signature="e#16729#16730#0" expanded="true" />
+                <element signature="e#16758#16759#0" expanded="true" />
+                <element signature="e#16854#16855#0" expanded="true" />
+                <element signature="e#16900#16901#0" expanded="true" />
+                <element signature="e#16999#17000#0" expanded="true" />
+                <element signature="e#17064#17065#0" expanded="true" />
+                <element signature="method#toFunctionCallString#1;class#ProblemLff#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SymbolicConstraintsGeneral.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/numeric/SymbolicConstraintsGeneral.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="95" column="8" lean-forward="false" selection-start-line="95" selection-start-column="6" selection-end-line="95" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jpf-symbc/build.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="49" column="20" lean-forward="false" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
+              <folding>
+                <element signature="n#fileset#0;n#path#0;n#project#0;n#!!top" expanded="true" />
+                <element signature="n#fileset#1;n#path#0;n#project#0;n#!!top" expanded="true" />
+                <element signature="n#target#9;n#project#0;n#!!top" expanded="true" />
+                <element signature="n#jar#0;n#target#9;n#project#0;n#!!top" expanded="true" />
+                <element signature="n#target#10;n#project#0;n#!!top" expanded="true" />
+                <element signature="n#jar#0;n#target#10;n#project#0;n#!!top" expanded="true" />
+                <element signature="n#target#11;n#project#0;n#!!top" expanded="true" />
+                <element signature="n#jar#0;n#target#11;n#project#0;n#!!top" expanded="true" />
+                <element signature="n#target#14;n#project#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -27,10 +250,55 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>lib</find>
+      <find>return null</find>
+      <find>solve</find>
+      <find>and</find>
+      <find>or</find>
+      <find>mixed</find>
+      <find>POst</find>
+      <find>post</find>
+      <find>UnsupportedOperationException</find>
+      <find>Post</find>
+      <find>heuristic</find>
+      <find>&lt;</find>
+      <find>MIJ</find>
+      <find>MI</find>
+      <find>M</find>
+      <find>MJ</find>
+      <find>MJI</find>
+      <find>MJIE</find>
+      <find>MJIEn</find>
+      <find>MJIEnv</find>
+      <find>getRealValue</find>
+      <find>toExprString</find>
+      <find>ecli</find>
+      <find>ProblemLff.castToExpInstance(value)</find>
     </findStrings>
+    <replaceStrings>
+      <replace>throw new UnsupportedOperationException();</replace>
+      <replace>RunTimeException</replace>
+      <replace>RuntimeException</replace>
+      <replace>throw new UnsupportedOperationException()</replace>
+      <replace>ProblemLff.toExprString</replace>
+      <replace>String.valueOf(value)</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>C:\ProjsIdea\LffSolverProj\jpf-symbc</dir>
+      <dir>C:\ProjsIdea\LffSolverProj</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -38,14 +306,50 @@
         <option value="$PROJECT_DIR$/LFFSolver/src/cn/nju/seg/atg/parse/LineChart.java" />
         <option value="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/model/Constraint.java" />
         <option value="$PROJECT_DIR$/jpf-symbc/build.xml" />
+        <option value="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/solver/runByLFF.java" />
+        <option value="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/numeric/SymbolicConstraintsGeneral.java" />
+        <option value="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/BEParse/BinaryExpressionParse.java" />
+        <option value="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/LffSolverUtils.java" />
+        <option value="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/ProblemLff.java" />
       </list>
     </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState />
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
     <option name="height" value="744" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Java</id>
+          </State>
+          <State>
+            <id>Java 5Java language level migration aidsJava</id>
+          </State>
+          <State>
+            <id>Java language level migration aidsJava</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>UnnecessaryUnboxing</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -105,48 +409,8 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="LFFSolverProj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LffSolverProj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jpf-symbc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LFFSolverProj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LffSolverProj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jpf-symbc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
+              <option name="myItemId" value="tests" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -171,18 +435,6 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="symbc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="numeric" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -198,40 +450,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="symbc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="numeric" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="solvers" />
+              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/jpf-symbc/lib/fel-0.8.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/jpf-symbc/lib/guava-20.0.jar!/" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/ProjsIdea/LffSolverProj/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/ProblemLff.java" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -420,21 +657,21 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5695581" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3737705" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.59016395" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35854766" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30257186" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40347072" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3547655" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33131617" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -442,7 +679,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -456,100 +692,830 @@
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
     <buildFile url="file://$PROJECT_DIR$/jpf-core/build.xml">
+      <targetFilters>
+        <filter targetName="-init" isVisible="false" />
+        <filter targetName="compile" isVisible="true" />
+        <filter targetName="-compile-annotations" isVisible="false" />
+        <filter targetName="-compile-main" isVisible="false" />
+        <filter targetName="-compile-peers" isVisible="false" />
+        <filter targetName="-compile-classes" isVisible="false" />
+        <filter targetName="-compile-tests" isVisible="false" />
+        <filter targetName="-compile-examples" isVisible="false" />
+        <filter targetName="-version" isVisible="false" />
+        <filter targetName="build" isVisible="true" />
+        <filter targetName="clean" isVisible="true" />
+        <filter targetName="-cond-clean" isVisible="true" />
+        <filter targetName="buildinfo" isVisible="true" />
+        <filter targetName="dist" isVisible="true" />
+        <filter targetName="src-dist" isVisible="true" />
+        <filter targetName="test" isVisible="true" />
+      </targetFilters>
       <expanded value="false" />
     </buildFile>
     <buildFile url="file://$PROJECT_DIR$/jpf-symbc/build.xml">
+      <targetFilters>
+        <filter targetName="-init" isVisible="false" />
+        <filter targetName="compile" isVisible="true" />
+        <filter targetName="-compile-annotations" isVisible="false" />
+        <filter targetName="-compile-main" isVisible="false" />
+        <filter targetName="-compile-peers" isVisible="false" />
+        <filter targetName="-compile-classes" isVisible="false" />
+        <filter targetName="-compile-tests" isVisible="false" />
+        <filter targetName="-compile-examples" isVisible="false" />
+        <filter targetName="build" isVisible="true" />
+        <filter targetName="-jar-jvm" isVisible="false" />
+        <filter targetName="-jar-jpf" isVisible="false" />
+        <filter targetName="-jar-annotations" isVisible="false" />
+        <filter targetName="dist" isVisible="true" />
+        <filter targetName="clean" isVisible="false" />
+        <filter targetName="test" isVisible="true" />
+      </targetFilters>
       <expanded value="true" />
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/numeric/solvers/ProblemCompare.java">
+    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/walk/ConcolicWalkSolver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="105">
+          <caret line="67" column="13" lean-forward="false" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
           <folding>
-            <element signature="method#mixed#0;class#ProblemCompare#0" expanded="true" />
+            <element signature="e#0#20087#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="docComment;class#ConcolicWalkSolver#0" expanded="false" />
+            <element signature="docComment;field#ITERATIONS_PER_CONSTRAINT#0;class#ConcolicWalkSolver#0" expanded="false" />
+            <element signature="docComment;field#NEIGHBORS_GENERATED_PER_ITERATION#0;class#ConcolicWalkSolver#0" expanded="false" />
+            <element signature="docComment;field#TABU_ITERATIONS_PER_VARIABLE#0;class#ConcolicWalkSolver#0" expanded="false" />
+            <element signature="docComment;field#MIN_TABU_ITERATIONS#0;class#ConcolicWalkSolver#0" expanded="false" />
+            <element signature="docComment;field#ENABLE_SEEDING#0;class#ConcolicWalkSolver#0" expanded="false" />
+            <element signature="docComment;field#ENABLE_BISECTION#0;class#ConcolicWalkSolver#0" expanded="false" />
+            <element signature="docComment;field#NAN_ERROR#0;class#ConcolicWalkSolver#0" expanded="false" />
+            <element signature="docComment;method#isSatisfiable#0;class#ConcolicWalkSolver#0" expanded="false" />
+            <element signature="e#5025#5026#0" expanded="false" />
+            <element signature="e#5059#5060#0" expanded="false" />
+            <element signature="docComment;method#solve#0;class#ConcolicWalkSolver#0" expanded="false" />
+            <element signature="method#solve#0;class#ConcolicWalkSolver#0" expanded="false" />
+            <element signature="docComment;method#solveWithAdaptiveVariableSearch#0;class#ConcolicWalkSolver#0" expanded="false" />
+            <element signature="method#solveWithAdaptiveVariableSearch#0;class#ConcolicWalkSolver#0" expanded="false" />
+            <element signature="docComment;method#makeRandomNeighborInPolytope#0;class#ConcolicWalkSolver#0" expanded="false" />
+            <element signature="method#makeRandomNeighborInPolytope#0;class#ConcolicWalkSolver#0" expanded="false" />
+            <element signature="docComment;method#linearlyEstimateZero#0;class#ConcolicWalkSolver#0" expanded="false" />
+            <element signature="method#linearlyEstimateZero#0;class#ConcolicWalkSolver#0" expanded="false" />
+            <element signature="docComment;method#makeVectorFromSolutions#0;class#ConcolicWalkSolver#0" expanded="false" />
+            <element signature="method#makeVectorFromSolutions#0;class#ConcolicWalkSolver#0" expanded="false" />
+            <element signature="docComment;method#computeError#0;class#ConcolicWalkSolver#0" expanded="false" />
+            <element signature="method#computeError#0;class#ConcolicWalkSolver#0" expanded="false" />
+            <element signature="method#computeError#1;class#ConcolicWalkSolver#0" expanded="false" />
+            <element signature="e#17945#17946#0" expanded="false" />
+            <element signature="e#18007#18008#0" expanded="false" />
+            <element signature="method#computeError#3;class#ConcolicWalkSolver#0" expanded="false" />
+            <element signature="method#incrementElements#0;class#ConcolicWalkSolver#0" expanded="false" />
+            <element signature="method#decrementElements#0;class#ConcolicWalkSolver#0" expanded="false" />
+            <element signature="method#indexOfMaxIgnoringTabu#0;class#ConcolicWalkSolver#0" expanded="false" />
+            <element signature="method#populateLookupTables#0;class#ConcolicWalkSolver#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LFFSolver/src/cn/nju/seg/atg/parse/LineChart.java" />
-    <entry file="file://$PROJECT_DIR$/LFFSolver/src/cn/nju/seg/atg/util/ComputeEngine.java" />
-    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/util/ComputeEngine.java">
+    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/walk/ConstraintIterator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="7" column="26" lean-forward="false" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+          <caret line="33" column="6" lean-forward="false" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#1947#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="docComment;class#ConstraintIterator#0" expanded="false" />
+            <element signature="e#1328#1329#0" expanded="false" />
+            <element signature="e#1370#1371#0" expanded="false" />
+            <element signature="e#1412#1413#0" expanded="false" />
+            <element signature="e#1451#1452#0" expanded="false" />
+            <element signature="method#next#0;class#ConstraintIterator#0" expanded="false" />
+            <element signature="e#1641#1642#0" expanded="false" />
+            <element signature="e#1692#1693#0" expanded="false" />
+            <element signature="method#eachConstraint#0;class#ConstraintIterator#0" expanded="false" />
+            <element signature="class#1788:1939" expanded="false" />
+            <element signature="e#1874#1875#0" expanded="false" />
+            <element signature="e#1932#1933#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/model/Constraint.java">
+    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/walk/ConstraintSplitter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-649">
-          <caret line="98" column="2" lean-forward="true" selection-start-line="98" selection-start-column="2" selection-end-line="98" selection-end-column="2" />
+        <state relative-caret-position="105">
+          <caret line="42" column="6" lean-forward="false" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#4449#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="docComment;class#ConstraintSplitter#0" expanded="false" />
+            <element signature="method#ConstraintSplitter#0;class#ConstraintSplitter#0" expanded="false" />
+            <element signature="e#2368#2369#0" expanded="false" />
+            <element signature="e#2419#2420#0" expanded="false" />
+            <element signature="e#2503#2504#0" expanded="false" />
+            <element signature="e#2554#2555#0" expanded="false" />
+            <element signature="e#2620#2621#0" expanded="false" />
+            <element signature="e#2700#2701#0" expanded="false" />
+            <element signature="e#2774#2775#0" expanded="false" />
+            <element signature="e#2862#2863#0" expanded="false" />
+            <element signature="method#preVisit#4;class#ConstraintSplitter#0" expanded="false" />
+            <element signature="e#3276#3277#0" expanded="false" />
+            <element signature="e#3355#3356#0" expanded="false" />
+            <element signature="e#3422#3423#0" expanded="false" />
+            <element signature="e#3502#3503#0" expanded="false" />
+            <element signature="method#isLinear#0;class#ConstraintSplitter#0" expanded="false" />
+            <element signature="e#3905#3906#0" expanded="false" />
+            <element signature="e#3996#3997#0" expanded="false" />
+            <element signature="method#prepend#0;class#ConstraintSplitter#0" expanded="false" />
+            <element signature="method#splitInto#0;class#ConstraintSplitter#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jpf-core/build.xml">
+    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/walk/Util.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="353" column="0" lean-forward="false" selection-start-line="353" selection-start-column="0" selection-end-line="353" selection-end-column="0" />
+        <state relative-caret-position="435">
+          <caret line="149" column="0" lean-forward="false" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#8815#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="method#preVisitAllAfterCast#0;class#Util#0" expanded="false" />
+            <element signature="method#preVisitAfterCast#0;class#Util#0" expanded="false" />
+            <element signature="method#variablesIn#0;class#Util#0" expanded="false" />
+            <element signature="method#variablesIn#1;class#Util#0" expanded="false" />
+            <element signature="method#variablesIn#2;class#Util#0" expanded="false" />
+            <element signature="method#evaluateAndSubtractSides#0;class#Util#0" expanded="false" />
+            <element signature="method#isSatisfied#0;class#Util#0" expanded="false" />
+            <element signature="method#isSatisfied#1;class#Util#0" expanded="false" />
+            <element signature="e#5717#5718#0" expanded="false" />
+            <element signature="e#5778#5779#0" expanded="false" />
+            <element signature="method#isSatisfied#3;class#Util#0" expanded="false" />
+            <element signature="e#6268#6269#0" expanded="false" />
+            <element signature="e#6302#6303#0" expanded="false" />
+            <element signature="method#union#0;class#Util#0" expanded="false" />
+            <element signature="method#printDebug#0;class#Util#0" expanded="false" />
+            <element signature="method#printDebug#1;class#Util#0" expanded="false" />
+            <element signature="method#printDebug#2;class#Util#0" expanded="false" />
+            <element signature="method#printDebug#3;class#Util#0" expanded="false" />
+            <element signature="method#printDebug#4;class#Util#0" expanded="false" />
+            <element signature="e#8092#8093#0" expanded="false" />
+            <element signature="e#8140#8141#0" expanded="false" />
+            <element signature="method#printDebug#6;class#Util#0" expanded="false" />
+            <element signature="method#defaultStringRepresentation#0;class#Util#0" expanded="false" />
+            <element signature="e#8756#8757#0" expanded="false" />
+            <element signature="e#8811#8812#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/numeric/solvers/ProblemCoral.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="61" column="25" lean-forward="false" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#18988#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="docComment;class#ProblemCoral#0" expanded="false" />
+            <element signature="e#2418#2419#0" expanded="false" />
+            <element signature="e#2442#2443#0" expanded="false" />
+            <element signature="e#2488#2489#0" expanded="false" />
+            <element signature="e#2523#2524#0" expanded="false" />
+            <element signature="e#2551#2552#0" expanded="false" />
+            <element signature="e#2567#2568#0" expanded="false" />
+            <element signature="docComment;method#configure#0;class#ProblemCoral#0" expanded="false" />
+            <element signature="method#configure#0;class#ProblemCoral#0" expanded="false" />
+            <element signature="method#cleanup#0;class#ProblemCoral#0" expanded="false" />
+            <element signature="docComment;method#makeIntVar#0;class#ProblemCoral#0" expanded="false" />
+            <element signature="e#4791#4792#0" expanded="false" />
+            <element signature="e#4846#4847#0" expanded="false" />
+            <element signature="e#4924#4925#0" expanded="false" />
+            <element signature="e#4980#4981#0" expanded="false" />
+            <element signature="e#5035#5036#0" expanded="false" />
+            <element signature="e#5097#5098#0" expanded="false" />
+            <element signature="e#5152#5153#0" expanded="false" />
+            <element signature="e#5214#5215#0" expanded="false" />
+            <element signature="method#eq#2;class#ProblemCoral#0" expanded="false" />
+            <element signature="e#5568#5569#0" expanded="false" />
+            <element signature="e#5633#5634#0" expanded="false" />
+            <element signature="e#5691#5692#0" expanded="false" />
+            <element signature="e#5756#5757#0" expanded="false" />
+            <element signature="e#5812#5813#0" expanded="false" />
+            <element signature="e#5874#5875#0" expanded="false" />
+            <element signature="e#5930#5931#0" expanded="false" />
+            <element signature="e#5992#5993#0" expanded="false" />
+            <element signature="method#neq#2;class#ProblemCoral#0" expanded="false" />
+            <element signature="e#6348#6349#0" expanded="false" />
+            <element signature="e#6412#6413#0" expanded="false" />
+            <element signature="e#6471#6472#0" expanded="false" />
+            <element signature="e#6536#6537#0" expanded="false" />
+            <element signature="e#6592#6593#0" expanded="false" />
+            <element signature="e#6654#6655#0" expanded="false" />
+            <element signature="e#6710#6711#0" expanded="false" />
+            <element signature="e#6772#6773#0" expanded="false" />
+            <element signature="method#leq#2;class#ProblemCoral#0" expanded="false" />
+            <element signature="e#7128#7129#0" expanded="false" />
+            <element signature="e#7193#7194#0" expanded="false" />
+            <element signature="e#7252#7253#0" expanded="false" />
+            <element signature="e#7317#7318#0" expanded="false" />
+            <element signature="e#7373#7374#0" expanded="false" />
+            <element signature="e#7435#7436#0" expanded="false" />
+            <element signature="e#7491#7492#0" expanded="false" />
+            <element signature="e#7553#7554#0" expanded="false" />
+            <element signature="method#geq#2;class#ProblemCoral#0" expanded="false" />
+            <element signature="e#7909#7910#0" expanded="false" />
+            <element signature="e#7974#7975#0" expanded="false" />
+            <element signature="e#8033#8034#0" expanded="false" />
+            <element signature="e#8098#8099#0" expanded="false" />
+            <element signature="e#8153#8154#0" expanded="false" />
+            <element signature="e#8215#8216#0" expanded="false" />
+            <element signature="e#8270#8271#0" expanded="false" />
+            <element signature="e#8332#8333#0" expanded="false" />
+            <element signature="method#lt#2;class#ProblemCoral#0" expanded="false" />
+            <element signature="e#8681#8682#0" expanded="false" />
+            <element signature="e#8746#8747#0" expanded="false" />
+            <element signature="e#8804#8805#0" expanded="false" />
+            <element signature="e#8869#8870#0" expanded="false" />
+            <element signature="e#8924#8925#0" expanded="false" />
+            <element signature="e#8986#8987#0" expanded="false" />
+            <element signature="e#9041#9042#0" expanded="false" />
+            <element signature="e#9103#9104#0" expanded="false" />
+            <element signature="method#gt#2;class#ProblemCoral#0" expanded="false" />
+            <element signature="e#9457#9458#0" expanded="false" />
+            <element signature="e#9522#9523#0" expanded="false" />
+            <element signature="e#9580#9581#0" expanded="false" />
+            <element signature="e#9645#9646#0" expanded="false" />
+            <element signature="e#9702#9703#0" expanded="false" />
+            <element signature="e#9765#9766#0" expanded="false" />
+            <element signature="e#9822#9823#0" expanded="false" />
+            <element signature="e#9885#9886#0" expanded="false" />
+            <element signature="method#plus#2;class#ProblemCoral#0" expanded="false" />
+            <element signature="e#10245#10246#0" expanded="false" />
+            <element signature="e#10311#10312#0" expanded="false" />
+            <element signature="e#10371#10372#0" expanded="false" />
+            <element signature="e#10437#10438#0" expanded="false" />
+            <element signature="e#10495#10496#0" expanded="false" />
+            <element signature="e#10557#10558#0" expanded="false" />
+            <element signature="e#10615#10616#0" expanded="false" />
+            <element signature="e#10677#10678#0" expanded="false" />
+            <element signature="method#minus#2;class#ProblemCoral#0" expanded="false" />
+            <element signature="e#11039#11040#0" expanded="false" />
+            <element signature="e#11104#11105#0" expanded="false" />
+            <element signature="e#11165#11166#0" expanded="false" />
+            <element signature="e#11230#11231#0" expanded="false" />
+            <element signature="e#11287#11288#0" expanded="false" />
+            <element signature="e#11350#11351#0" expanded="false" />
+            <element signature="e#11407#11408#0" expanded="false" />
+            <element signature="e#11470#11471#0" expanded="false" />
+            <element signature="method#mult#2;class#ProblemCoral#0" expanded="false" />
+            <element signature="e#11830#11831#0" expanded="false" />
+            <element signature="e#11896#11897#0" expanded="false" />
+            <element signature="e#11956#11957#0" expanded="false" />
+            <element signature="e#12022#12023#0" expanded="false" />
+            <element signature="e#12078#12079#0" expanded="false" />
+            <element signature="e#12141#12142#0" expanded="false" />
+            <element signature="e#12197#12198#0" expanded="false" />
+            <element signature="e#12260#12261#0" expanded="false" />
+            <element signature="method#div#2;class#ProblemCoral#0" expanded="false" />
+            <element signature="e#12618#12619#0" expanded="false" />
+            <element signature="e#12684#12685#0" expanded="false" />
+            <element signature="e#12743#12744#0" expanded="false" />
+            <element signature="e#12809#12810#0" expanded="false" />
+            <element signature="e#12865#12866#0" expanded="false" />
+            <element signature="e#12932#12933#0" expanded="false" />
+            <element signature="e#12988#12989#0" expanded="false" />
+            <element signature="e#13055#13056#0" expanded="false" />
+            <element signature="e#13114#13115#0" expanded="false" />
+            <element signature="e#13166#13167#0" expanded="false" />
+            <element signature="e#13221#13222#0" expanded="false" />
+            <element signature="e#13287#13288#0" expanded="false" />
+            <element signature="e#13342#13343#0" expanded="false" />
+            <element signature="e#13408#13409#0" expanded="false" />
+            <element signature="e#13466#13467#0" expanded="false" />
+            <element signature="e#13517#13518#0" expanded="false" />
+            <element signature="e#13573#13574#0" expanded="false" />
+            <element signature="e#13640#13641#0" expanded="false" />
+            <element signature="e#13696#13697#0" expanded="false" />
+            <element signature="e#13763#13764#0" expanded="false" />
+            <element signature="e#13822#13823#0" expanded="false" />
+            <element signature="e#13874#13875#0" expanded="false" />
+            <element signature="e#13933#13934#0" expanded="false" />
+            <element signature="e#13995#13996#0" expanded="false" />
+            <element signature="e#14054#14055#0" expanded="false" />
+            <element signature="e#14116#14117#0" expanded="false" />
+            <element signature="e#14178#14179#0" expanded="false" />
+            <element signature="e#14227#14228#0" expanded="false" />
+            <element signature="e#14286#14287#0" expanded="false" />
+            <element signature="e#14348#14349#0" expanded="false" />
+            <element signature="e#14407#14408#0" expanded="false" />
+            <element signature="e#14469#14470#0" expanded="false" />
+            <element signature="e#14531#14532#0" expanded="false" />
+            <element signature="e#14580#14581#0" expanded="false" />
+            <element signature="e#14640#14641#0" expanded="false" />
+            <element signature="e#14703#14704#0" expanded="false" />
+            <element signature="e#14763#14764#0" expanded="false" />
+            <element signature="e#14826#14827#0" expanded="false" />
+            <element signature="e#14889#14890#0" expanded="false" />
+            <element signature="e#14939#14940#0" expanded="false" />
+            <element signature="method#mixed#0;class#ProblemCoral#0" expanded="false" />
+            <element signature="e#15277#15278#0" expanded="false" />
+            <element signature="e#15315#15316#0" expanded="false" />
+            <element signature="e#15349#15350#0" expanded="false" />
+            <element signature="e#15387#15388#0" expanded="false" />
+            <element signature="e#15423#15424#0" expanded="false" />
+            <element signature="e#15463#15464#0" expanded="false" />
+            <element signature="e#15497#15498#0" expanded="false" />
+            <element signature="e#15535#15536#0" expanded="false" />
+            <element signature="e#15570#15571#0" expanded="false" />
+            <element signature="e#15609#15610#0" expanded="false" />
+            <element signature="e#15644#15645#0" expanded="false" />
+            <element signature="e#15683#15684#0" expanded="false" />
+            <element signature="e#15718#15719#0" expanded="false" />
+            <element signature="e#15757#15758#0" expanded="false" />
+            <element signature="e#15791#15792#0" expanded="false" />
+            <element signature="e#15829#15830#0" expanded="false" />
+            <element signature="e#15863#15864#0" expanded="false" />
+            <element signature="e#15901#15902#0" expanded="false" />
+            <element signature="e#15936#15937#0" expanded="false" />
+            <element signature="e#15975#15976#0" expanded="false" />
+            <element signature="e#16025#16026#0" expanded="false" />
+            <element signature="e#16081#16082#0" expanded="false" />
+            <element signature="e#16131#16132#0" expanded="false" />
+            <element signature="e#16197#16198#0" expanded="false" />
+            <element signature="e#16247#16248#0" expanded="false" />
+            <element signature="e#16313#16314#0" expanded="false" />
+            <element signature="e#16363#16364#0" expanded="false" />
+            <element signature="e#16421#16422#0" expanded="false" />
+            <element signature="e#16471#16472#0" expanded="false" />
+            <element signature="e#16539#16540#0" expanded="false" />
+            <element signature="e#16589#16590#0" expanded="false" />
+            <element signature="e#16657#16658#0" expanded="false" />
+            <element signature="method#solve#0;class#ProblemCoral#0" expanded="false" />
+            <element signature="method#solveIt#0;class#ProblemCoral#0" expanded="false" />
+            <element signature="class#17358:17530" expanded="false" />
+            <element signature="method#run#0;class#17358:17530" expanded="false" />
+            <element signature="e#17980#17981#0" expanded="false" />
+            <element signature="e#17996#17997#0" expanded="false" />
+            <element signature="e#18055#18056#0" expanded="false" />
+            <element signature="e#18071#18072#0" expanded="false" />
+            <element signature="method#getIntValue#0;class#ProblemCoral#0" expanded="false" />
+            <element signature="e#18596#18597#0" expanded="false" />
+            <element signature="e#18640#18641#0" expanded="false" />
+            <element signature="method#postLogicalOR#0;class#ProblemCoral#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/numeric/solvers/ProblemGeneral.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1680">
+          <caret line="169" column="37" lean-forward="false" selection-start-line="169" selection-start-column="25" selection-end-line="169" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#7186#0" expanded="false" />
+            <element signature="e#4938#4939#0" expanded="false" />
+            <element signature="e#5007#5008#0" expanded="false" />
+            <element signature="e#5041#5042#0" expanded="false" />
+            <element signature="e#5110#5111#0" expanded="false" />
+            <element signature="e#5143#5144#0" expanded="false" />
+            <element signature="e#5212#5213#0" expanded="false" />
+            <element signature="e#5248#5249#0" expanded="false" />
+            <element signature="e#5319#5320#0" expanded="false" />
+            <element signature="e#5352#5353#0" expanded="false" />
+            <element signature="e#5421#5422#0" expanded="false" />
+            <element signature="method#asin#0;class#ProblemGeneral#0" expanded="false" />
+            <element signature="method#acos#0;class#ProblemGeneral#0" expanded="false" />
+            <element signature="method#atan#0;class#ProblemGeneral#0" expanded="false" />
+            <element signature="method#log#0;class#ProblemGeneral#0" expanded="false" />
+            <element signature="method#tan#0;class#ProblemGeneral#0" expanded="false" />
+            <element signature="method#sqrt#0;class#ProblemGeneral#0" expanded="false" />
+            <element signature="e#6096#6097#0" expanded="false" />
+            <element signature="e#6167#6168#0" expanded="false" />
+            <element signature="e#6216#6217#0" expanded="false" />
+            <element signature="e#6287#6288#0" expanded="false" />
+            <element signature="e#6336#6337#0" expanded="false" />
+            <element signature="e#6407#6408#0" expanded="false" />
+            <element signature="e#6457#6458#0" expanded="false" />
+            <element signature="e#6528#6529#0" expanded="false" />
+            <element signature="e#6577#6578#0" expanded="false" />
+            <element signature="e#6648#6649#0" expanded="false" />
+            <element signature="e#6697#6698#0" expanded="false" />
+            <element signature="e#6768#6769#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/SymbolicInstructionFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4005">
+          <caret line="470" column="25" lean-forward="false" selection-start-line="470" selection-start-column="25" selection-end-line="470" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#21395#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#1585#1586#0" expanded="false" />
+            <element signature="e#1680#1681#0" expanded="false" />
+            <element signature="e#1717#1718#0" expanded="false" />
+            <element signature="e#1790#1791#0" expanded="false" />
+            <element signature="e#1826#1827#0" expanded="false" />
+            <element signature="e#1899#1900#0" expanded="false" />
+            <element signature="e#1935#1936#0" expanded="false" />
+            <element signature="e#2008#2009#0" expanded="false" />
+            <element signature="e#2044#2045#0" expanded="false" />
+            <element signature="e#2117#2118#0" expanded="false" />
+            <element signature="e#2150#2151#0" expanded="false" />
+            <element signature="e#2218#2219#0" expanded="false" />
+            <element signature="e#2251#2252#0" expanded="false" />
+            <element signature="e#2320#2321#0" expanded="false" />
+            <element signature="method#iinc#0;class#SymbolicInstructionFactory#0" expanded="false" />
+            <element signature="e#2541#2542#0" expanded="false" />
+            <element signature="e#2610#2611#0" expanded="false" />
+            <element signature="e#2643#2644#0" expanded="false" />
+            <element signature="e#2712#2713#0" expanded="false" />
+            <element signature="e#2745#2746#0" expanded="false" />
+            <element signature="e#2814#2815#0" expanded="false" />
+            <element signature="e#2859#2860#0" expanded="false" />
+            <element signature="e#2944#2945#0" expanded="false" />
+            <element signature="e#2989#2990#0" expanded="false" />
+            <element signature="e#3074#3075#0" expanded="false" />
+            <element signature="e#3119#3120#0" expanded="false" />
+            <element signature="e#3203#3204#0" expanded="false" />
+            <element signature="e#3248#3249#0" expanded="false" />
+            <element signature="e#3332#3333#0" expanded="false" />
+            <element signature="e#3377#3378#0" expanded="false" />
+            <element signature="e#3461#3462#0" expanded="false" />
+            <element signature="e#3506#3507#0" expanded="false" />
+            <element signature="e#3590#3591#0" expanded="false" />
+            <element signature="method#invokestatic#0;class#SymbolicInstructionFactory#0" expanded="false" />
+            <element signature="method#invokevirtual#0;class#SymbolicInstructionFactory#0" expanded="false" />
+            <element signature="method#invokeinterface#0;class#SymbolicInstructionFactory#0" expanded="false" />
+            <element signature="method#invokespecial#0;class#SymbolicInstructionFactory#0" expanded="false" />
+            <element signature="e#4680#4681#0" expanded="false" />
+            <element signature="e#4775#4776#0" expanded="false" />
+            <element signature="e#4825#4826#0" expanded="false" />
+            <element signature="e#4920#4921#0" expanded="false" />
+            <element signature="e#4970#4971#0" expanded="false" />
+            <element signature="e#5065#5066#0" expanded="false" />
+            <element signature="e#5115#5116#0" expanded="false" />
+            <element signature="e#5210#5211#0" expanded="false" />
+            <element signature="e#5243#5244#0" expanded="false" />
+            <element signature="e#5311#5312#0" expanded="false" />
+            <element signature="e#5344#5345#0" expanded="false" />
+            <element signature="e#5412#5413#0" expanded="false" />
+            <element signature="e#5445#5446#0" expanded="false" />
+            <element signature="e#5513#5514#0" expanded="false" />
+            <element signature="e#5547#5548#0" expanded="false" />
+            <element signature="e#5617#5618#0" expanded="false" />
+            <element signature="e#5650#5651#0" expanded="false" />
+            <element signature="e#5718#5719#0" expanded="false" />
+            <element signature="e#5750#5751#0" expanded="false" />
+            <element signature="e#5816#5817#0" expanded="false" />
+            <element signature="e#5849#5850#0" expanded="false" />
+            <element signature="e#5917#5918#0" expanded="false" />
+            <element signature="e#5967#5968#0" expanded="false" />
+            <element signature="e#6062#6063#0" expanded="false" />
+            <element signature="e#6112#6113#0" expanded="false" />
+            <element signature="e#6207#6208#0" expanded="false" />
+            <element signature="e#6241#6242#0" expanded="false" />
+            <element signature="e#6309#6310#0" expanded="false" />
+            <element signature="e#6342#6343#0" expanded="false" />
+            <element signature="e#6410#6411#0" expanded="false" />
+            <element signature="e#6443#6444#0" expanded="false" />
+            <element signature="e#6511#6512#0" expanded="false" />
+            <element signature="e#6544#6545#0" expanded="false" />
+            <element signature="e#6612#6613#0" expanded="false" />
+            <element signature="e#6645#6646#0" expanded="false" />
+            <element signature="e#6713#6714#0" expanded="false" />
+            <element signature="e#6746#6747#0" expanded="false" />
+            <element signature="e#6814#6815#0" expanded="false" />
+            <element signature="method#fcmpg#0;class#SymbolicInstructionFactory#0" expanded="false" />
+            <element signature="e#6960#6961#0" expanded="false" />
+            <element signature="e#7032#7033#0" expanded="false" />
+            <element signature="e#7065#7066#0" expanded="false" />
+            <element signature="e#7135#7136#0" expanded="false" />
+            <element signature="e#7169#7170#0" expanded="false" />
+            <element signature="e#7241#7242#0" expanded="false" />
+            <element signature="e#7275#7276#0" expanded="false" />
+            <element signature="e#7347#7348#0" expanded="false" />
+            <element signature="e#7380#7381#0" expanded="false" />
+            <element signature="e#7450#7451#0" expanded="false" />
+            <element signature="e#7483#7484#0" expanded="false" />
+            <element signature="e#7553#7554#0" expanded="false" />
+            <element signature="e#7586#7587#0" expanded="false" />
+            <element signature="e#7656#7657#0" expanded="false" />
+            <element signature="e#7689#7690#0" expanded="false" />
+            <element signature="e#7759#7760#0" expanded="false" />
+            <element signature="e#7792#7793#0" expanded="false" />
+            <element signature="e#7862#7863#0" expanded="false" />
+            <element signature="e#7895#7896#0" expanded="false" />
+            <element signature="e#7965#7966#0" expanded="false" />
+            <element signature="e#7998#7999#0" expanded="false" />
+            <element signature="e#8069#8070#0" expanded="false" />
+            <element signature="e#8102#8103#0" expanded="false" />
+            <element signature="e#8172#8173#0" expanded="false" />
+            <element signature="e#8205#8206#0" expanded="false" />
+            <element signature="e#8275#8276#0" expanded="false" />
+            <element signature="e#8308#8309#0" expanded="false" />
+            <element signature="e#8378#8379#0" expanded="false" />
+            <element signature="e#8411#8412#0" expanded="false" />
+            <element signature="e#8481#8482#0" expanded="false" />
+            <element signature="e#8513#8514#0" expanded="false" />
+            <element signature="e#8579#8580#0" expanded="false" />
+            <element signature="e#8612#8613#0" expanded="false" />
+            <element signature="e#8680#8681#0" expanded="false" />
+            <element signature="e#8713#8714#0" expanded="false" />
+            <element signature="e#8781#8782#0" expanded="false" />
+            <element signature="e#8814#8815#0" expanded="false" />
+            <element signature="e#8882#8883#0" expanded="false" />
+            <element signature="e#8915#8916#0" expanded="false" />
+            <element signature="e#8983#8984#0" expanded="false" />
+            <element signature="e#9017#9018#0" expanded="false" />
+            <element signature="e#9087#9088#0" expanded="false" />
+            <element signature="e#9120#9121#0" expanded="false" />
+            <element signature="e#9188#9189#0" expanded="false" />
+            <element signature="e#9220#9221#0" expanded="false" />
+            <element signature="e#9286#9287#0" expanded="false" />
+            <element signature="e#9318#9319#0" expanded="false" />
+            <element signature="e#9384#9385#0" expanded="false" />
+            <element signature="e#9416#9417#0" expanded="false" />
+            <element signature="e#9483#9484#0" expanded="false" />
+            <element signature="e#9515#9516#0" expanded="false" />
+            <element signature="e#9582#9583#0" expanded="false" />
+            <element signature="e#9614#9615#0" expanded="false" />
+            <element signature="e#9681#9682#0" expanded="false" />
+            <element signature="e#9713#9714#0" expanded="false" />
+            <element signature="e#9780#9781#0" expanded="false" />
+            <element signature="e#9812#9813#0" expanded="false" />
+            <element signature="e#9879#9880#0" expanded="false" />
+            <element signature="e#9911#9912#0" expanded="false" />
+            <element signature="e#9978#9979#0" expanded="false" />
+            <element signature="method#lookupswitch#0;class#SymbolicInstructionFactory#0" expanded="false" />
+            <element signature="method#tableswitch#0;class#SymbolicInstructionFactory#0" expanded="false" />
+            <element signature="e#10432#10433#0" expanded="false" />
+            <element signature="e#10499#10500#0" expanded="false" />
+            <element signature="e#10531#10532#0" expanded="false" />
+            <element signature="e#10598#10599#0" expanded="false" />
+            <element signature="e#10630#10631#0" expanded="false" />
+            <element signature="e#10697#10698#0" expanded="false" />
+            <element signature="e#10729#10730#0" expanded="false" />
+            <element signature="e#10797#10798#0" expanded="false" />
+            <element signature="e#10829#10830#0" expanded="false" />
+            <element signature="e#10896#10897#0" expanded="false" />
+            <element signature="e#10928#10929#0" expanded="false" />
+            <element signature="e#10996#10997#0" expanded="false" />
+            <element signature="e#11028#11029#0" expanded="false" />
+            <element signature="e#11096#11097#0" expanded="false" />
+            <element signature="method#getfield#0;class#SymbolicInstructionFactory#0" expanded="false" />
+            <element signature="method#getstatic#0;class#SymbolicInstructionFactory#0" expanded="false" />
+            <element signature="e#11668#11669#0" expanded="false" />
+            <element signature="e#11751#11752#0" expanded="false" />
+            <element signature="e#11800#11801#0" expanded="false" />
+            <element signature="e#11896#11897#0" expanded="false" />
+            <element signature="e#11942#11943#0" expanded="false" />
+            <element signature="e#12032#12033#0" expanded="false" />
+            <element signature="e#12080#12081#0" expanded="false" />
+            <element signature="e#12176#12177#0" expanded="false" />
+            <element signature="method#multianewarray#0;class#SymbolicInstructionFactory#0" expanded="false" />
+            <element signature="method#setupGreen#0;class#SymbolicInstructionFactory#0" expanded="false" />
+            <element signature="method#SymbolicInstructionFactory#0;class#SymbolicInstructionFactory#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/tests/gov/nasa/jpf/symbc/TestLazy.jpf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/tests/gov/nasa/jpf/symbc/ExSymExeCoral.jpf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="17" lean-forward="true" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/parse/TestBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/numeric/SymbolicConstraintsGeneral.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="95" column="8" lean-forward="false" selection-start-line="95" selection-start-column="6" selection-end-line="95" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/jpf-symbc/build.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="54" column="23" lean-forward="true" selection-start-line="54" selection-start-column="23" selection-end-line="54" selection-end-column="23" />
+        <state relative-caret-position="126">
+          <caret line="49" column="20" lean-forward="false" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
           <folding>
             <element signature="n#fileset#0;n#path#0;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#target#0;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#condition#0;n#target#0;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#or#0;n#condition#0;n#target#0;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#condition#1;n#target#0;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#or#0;n#condition#1;n#target#0;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#target#1;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#target#2;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#javac#0;n#target#2;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#target#3;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#javac#0;n#target#3;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#target#4;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#javac#0;n#target#4;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#target#5;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#javac#0;n#target#5;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#classpath#0;n#javac#0;n#target#5;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#target#6;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#javac#0;n#target#6;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#classpath#0;n#javac#0;n#target#6;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#target#7;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#javac#0;n#target#7;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#classpath#0;n#javac#0;n#target#7;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#target#8;n#project#0;n#!!top" expanded="true" />
+            <element signature="n#fileset#1;n#path#0;n#project#0;n#!!top" expanded="true" />
             <element signature="n#target#9;n#project#0;n#!!top" expanded="true" />
             <element signature="n#jar#0;n#target#9;n#project#0;n#!!top" expanded="true" />
             <element signature="n#target#10;n#project#0;n#!!top" expanded="true" />
             <element signature="n#jar#0;n#target#10;n#project#0;n#!!top" expanded="true" />
             <element signature="n#target#11;n#project#0;n#!!top" expanded="true" />
             <element signature="n#jar#0;n#target#11;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#target#12;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#zip#0;n#target#12;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#target#13;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#delete#1;n#target#13;n#project#0;n#!!top" expanded="true" />
             <element signature="n#target#14;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#junit#0;n#target#14;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#classpath#0;n#junit#0;n#target#14;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#batchtest#0;n#junit#0;n#target#14;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#fileset#0;n#batchtest#0;n#junit#0;n#target#14;n#project#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/numeric/solvers/ProblemCompare.java">
+    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/ProblemLff.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="701" column="11" lean-forward="false" selection-start-line="701" selection-start-column="11" selection-end-line="701" selection-end-column="11" />
+        <state relative-caret-position="90">
+          <caret line="6" column="38" lean-forward="false" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
           <folding>
-            <element signature="method#mixed#0;class#ProblemCompare#0" expanded="true" />
+            <element signature="docComment;class#ProblemLff#0" expanded="true" />
+            <element signature="method#ProblemLff#0;class#ProblemLff#0" expanded="true" />
+            <element signature="method#checkExclusive#0;class#ProblemLff#0" expanded="true" />
+            <element signature="method#solve#0;class#ProblemLff#0" expanded="true" />
+            <element signature="method#makeVar#0;class#ProblemLff#0" expanded="true" />
+            <element signature="e#2547#2548#0" expanded="true" />
+            <element signature="e#2651#2652#0" expanded="true" />
+            <element signature="e#2720#2721#0" expanded="true" />
+            <element signature="e#2756#2757#0" expanded="true" />
+            <element signature="method#eq#2;class#ProblemLff#0" expanded="true" />
+            <element signature="e#3018#3019#0" expanded="true" />
+            <element signature="e#3122#3123#0" expanded="true" />
+            <element signature="e#3194#3195#0" expanded="true" />
+            <element signature="e#3230#3231#0" expanded="true" />
+            <element signature="e#3334#3335#0" expanded="true" />
+            <element signature="e#3438#3439#0" expanded="true" />
+            <element signature="e#3508#3509#0" expanded="true" />
+            <element signature="e#3545#3546#0" expanded="true" />
+            <element signature="method#neq#2;class#ProblemLff#0" expanded="true" />
+            <element signature="e#3809#3810#0" expanded="true" />
+            <element signature="e#3913#3914#0" expanded="true" />
+            <element signature="e#3986#3987#0" expanded="true" />
+            <element signature="e#4023#4024#0" expanded="true" />
+            <element signature="e#4128#4129#0" expanded="true" />
+            <element signature="e#4232#4233#0" expanded="true" />
+            <element signature="e#4300#4301#0" expanded="true" />
+            <element signature="e#4336#4337#0" expanded="true" />
+            <element signature="method#leq#2;class#ProblemLff#0" expanded="true" />
+            <element signature="e#4600#4601#0" expanded="true" />
+            <element signature="e#4704#4705#0" expanded="true" />
+            <element signature="e#4777#4778#0" expanded="true" />
+            <element signature="e#4813#4814#0" expanded="true" />
+            <element signature="e#4918#4919#0" expanded="true" />
+            <element signature="e#5022#5023#0" expanded="true" />
+            <element signature="e#5092#5093#0" expanded="true" />
+            <element signature="e#5128#5129#0" expanded="true" />
+            <element signature="method#geq#2;class#ProblemLff#0" expanded="true" />
+            <element signature="e#5392#5393#0" expanded="true" />
+            <element signature="e#5496#5497#0" expanded="true" />
+            <element signature="e#5569#5570#0" expanded="true" />
+            <element signature="e#5605#5606#0" expanded="true" />
+            <element signature="e#5708#5709#0" expanded="true" />
+            <element signature="e#5811#5812#0" expanded="true" />
+            <element signature="e#5880#5881#0" expanded="true" />
+            <element signature="e#5917#5918#0" expanded="true" />
+            <element signature="method#lt#2;class#ProblemLff#0" expanded="true" />
+            <element signature="e#6178#6179#0" expanded="true" />
+            <element signature="e#6281#6282#0" expanded="true" />
+            <element signature="e#6353#6354#0" expanded="true" />
+            <element signature="e#6390#6391#0" expanded="true" />
+            <element signature="e#6492#6493#0" expanded="true" />
+            <element signature="e#6595#6596#0" expanded="true" />
+            <element signature="e#6664#6665#0" expanded="true" />
+            <element signature="e#6701#6702#0" expanded="true" />
+            <element signature="method#gt#2;class#ProblemLff#0" expanded="true" />
+            <element signature="e#6962#6963#0" expanded="true" />
+            <element signature="e#7065#7066#0" expanded="true" />
+            <element signature="e#7137#7138#0" expanded="true" />
+            <element signature="e#7174#7175#0" expanded="true" />
+            <element signature="e#7280#7281#0" expanded="true" />
+            <element signature="e#7383#7384#0" expanded="true" />
+            <element signature="e#7454#7455#0" expanded="true" />
+            <element signature="e#7543#7544#0" expanded="true" />
+            <element signature="method#plus#2;class#ProblemLff#0" expanded="true" />
+            <element signature="e#7808#7809#0" expanded="true" />
+            <element signature="e#7911#7912#0" expanded="true" />
+            <element signature="e#7985#7986#0" expanded="true" />
+            <element signature="e#8074#8075#0" expanded="true" />
+            <element signature="e#8184#8185#0" expanded="true" />
+            <element signature="e#8287#8288#0" expanded="true" />
+            <element signature="e#8359#8360#0" expanded="true" />
+            <element signature="e#8448#8449#0" expanded="true" />
+            <element signature="e#8523#8524#0" expanded="true" />
+            <element signature="e#8626#8627#0" expanded="true" />
+            <element signature="e#8701#8702#0" expanded="true" />
+            <element signature="e#8804#8805#0" expanded="true" />
+            <element signature="e#8879#8880#0" expanded="true" />
+            <element signature="e#8968#8969#0" expanded="true" />
+            <element signature="e#9077#9078#0" expanded="true" />
+            <element signature="e#9180#9181#0" expanded="true" />
+            <element signature="e#9251#9252#0" expanded="true" />
+            <element signature="e#9340#9341#0" expanded="true" />
+            <element signature="e#9414#9415#0" expanded="true" />
+            <element signature="e#9517#9518#0" expanded="true" />
+            <element signature="e#9591#9592#0" expanded="true" />
+            <element signature="e#9694#9695#0" expanded="true" />
+            <element signature="e#9768#9769#0" expanded="true" />
+            <element signature="e#9857#9858#0" expanded="true" />
+            <element signature="e#9963#9964#0" expanded="true" />
+            <element signature="e#10066#10067#0" expanded="true" />
+            <element signature="e#10136#10137#0" expanded="true" />
+            <element signature="e#10225#10226#0" expanded="true" />
+            <element signature="e#10298#10299#0" expanded="true" />
+            <element signature="e#10401#10402#0" expanded="true" />
+            <element signature="e#10474#10475#0" expanded="true" />
+            <element signature="e#10577#10578#0" expanded="true" />
+            <element signature="e#10650#10651#0" expanded="true" />
+            <element signature="e#10739#10740#0" expanded="true" />
+            <element signature="e#10833#10834#0" expanded="true" />
+            <element signature="e#10893#10894#0" expanded="true" />
+            <element signature="e#10940#10941#0" expanded="true" />
+            <element signature="e#11000#11001#0" expanded="true" />
+            <element signature="e#11049#11050#0" expanded="true" />
+            <element signature="e#11111#11112#0" expanded="true" />
+            <element signature="e#11158#11159#0" expanded="true" />
+            <element signature="e#11218#11219#0" expanded="true" />
+            <element signature="e#11266#11267#0" expanded="true" />
+            <element signature="e#11327#11328#0" expanded="true" />
+            <element signature="e#11375#11376#0" expanded="true" />
+            <element signature="e#11436#11437#0" expanded="true" />
+            <element signature="e#11484#11485#0" expanded="true" />
+            <element signature="e#11545#11546#0" expanded="true" />
+            <element signature="e#11592#11593#0" expanded="true" />
+            <element signature="e#11652#11653#0" expanded="true" />
+            <element signature="e#11699#11700#0" expanded="true" />
+            <element signature="e#11759#11760#0" expanded="true" />
+            <element signature="e#11807#11808#0" expanded="true" />
+            <element signature="e#11867#11868#0" expanded="true" />
+            <element signature="e#11930#11931#0" expanded="true" />
+            <element signature="e#11999#12000#0" expanded="true" />
+            <element signature="e#12062#12063#0" expanded="true" />
+            <element signature="e#12131#12132#0" expanded="true" />
+            <element signature="e#12194#12195#0" expanded="true" />
+            <element signature="e#12263#12264#0" expanded="true" />
+            <element signature="e#12326#12327#0" expanded="true" />
+            <element signature="e#12395#12396#0" expanded="true" />
+            <element signature="e#12458#12459#0" expanded="true" />
+            <element signature="e#12527#12528#0" expanded="true" />
+            <element signature="e#12590#12591#0" expanded="true" />
+            <element signature="e#12659#12660#0" expanded="true" />
+            <element signature="method#post#0;class#ProblemLff#0" expanded="true" />
+            <element signature="method#postLogicalOR#0;class#ProblemLff#0" expanded="true" />
+            <element signature="method#getValValueByName#0;class#ProblemLff#0" expanded="true" />
+            <element signature="method#getRealValue#0;class#ProblemLff#0" expanded="true" />
+            <element signature="method#getIntValue#0;class#ProblemLff#0" expanded="true" />
+            <element signature="e#14158#14159#0" expanded="true" />
+            <element signature="e#14204#14205#0" expanded="true" />
+            <element signature="e#14271#14272#0" expanded="true" />
+            <element signature="e#14290#14291#0" expanded="true" />
+            <element signature="e#14428#14429#0" expanded="true" />
+            <element signature="e#14466#14467#0" expanded="true" />
+            <element signature="e#14534#14535#0" expanded="true" />
+            <element signature="e#14572#14573#0" expanded="true" />
+            <element signature="e#14643#14644#0" expanded="true" />
+            <element signature="e#14681#14682#0" expanded="true" />
+            <element signature="e#14748#14749#0" expanded="true" />
+            <element signature="e#14786#14787#0" expanded="true" />
+            <element signature="e#14853#14854#0" expanded="true" />
+            <element signature="e#14891#14892#0" expanded="true" />
+            <element signature="e#14961#14962#0" expanded="true" />
+            <element signature="e#14999#15000#0" expanded="true" />
+            <element signature="e#15067#15068#0" expanded="true" />
+            <element signature="e#15105#15106#0" expanded="true" />
+            <element signature="e#15173#15174#0" expanded="true" />
+            <element signature="e#15211#15212#0" expanded="true" />
+            <element signature="e#15282#15283#0" expanded="true" />
+            <element signature="e#15320#15321#0" expanded="true" />
+            <element signature="e#15391#15392#0" expanded="true" />
+            <element signature="e#15429#15430#0" expanded="true" />
+            <element signature="e#15500#15501#0" expanded="true" />
+            <element signature="e#15538#15539#0" expanded="true" />
+            <element signature="e#15612#15613#0" expanded="true" />
+            <element signature="e#15650#15651#0" expanded="true" />
+            <element signature="e#15721#15722#0" expanded="true" />
+            <element signature="e#15759#15760#0" expanded="true" />
+            <element signature="e#15830#15831#0" expanded="true" />
+            <element signature="e#15868#15869#0" expanded="true" />
+            <element signature="e#15942#15943#0" expanded="true" />
+            <element signature="e#15980#15981#0" expanded="true" />
+            <element signature="e#16052#16053#0" expanded="true" />
+            <element signature="e#16090#16091#0" expanded="true" />
+            <element signature="e#16162#16163#0" expanded="true" />
+            <element signature="e#16200#16201#0" expanded="true" />
+            <element signature="e#16275#16276#0" expanded="true" />
+            <element signature="e#16313#16314#0" expanded="true" />
+            <element signature="e#16386#16387#0" expanded="true" />
+            <element signature="e#16424#16425#0" expanded="true" />
+            <element signature="e#16729#16730#0" expanded="true" />
+            <element signature="e#16758#16759#0" expanded="true" />
+            <element signature="e#16854#16855#0" expanded="true" />
+            <element signature="e#16900#16901#0" expanded="true" />
+            <element signature="e#16999#17000#0" expanded="true" />
+            <element signature="e#17064#17065#0" expanded="true" />
+            <element signature="method#toFunctionCallString#1;class#ProblemLff#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -595,7 +1561,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>jpf-core</last-edited>
+          <last-edited>jpf-symbc</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
