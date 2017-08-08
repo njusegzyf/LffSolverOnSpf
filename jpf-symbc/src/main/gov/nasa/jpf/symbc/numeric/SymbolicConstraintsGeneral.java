@@ -121,12 +121,8 @@ public class SymbolicConstraintsGeneral {
       System.out.println("## Warning: timed out/ don't know (returned PC not-satisfiable) " + pc);
       return false;
     }
-    if (result == Boolean.TRUE) {
-      return true;
-    } else {
-      return false;
-    }
 
+    return result == Boolean.TRUE;
   }
 
   public boolean isSatisfiableGreen(PathCondition pc) {
@@ -142,12 +138,7 @@ public class SymbolicConstraintsGeneral {
       System.out.println("## Warning: timed out/ don't know (returned PC not-satisfiable) " + pc);
       return false;
     }
-    if (result == Boolean.TRUE) {
-      return true;
-    } else {
-      return false;
-    }
-
+    return result == Boolean.TRUE;
   }
 
   public void cleanup() {

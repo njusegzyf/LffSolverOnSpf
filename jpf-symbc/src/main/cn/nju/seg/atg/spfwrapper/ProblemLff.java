@@ -1,20 +1,30 @@
 package cn.nju.seg.atg.spfwrapper;
 
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Strings;
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
 import cn.nju.seg.atg.parse.TestBuilder;
+import gov.nasa.jpf.JPF;
+import gov.nasa.jpf.symbc.SymbolicListener;
 import gov.nasa.jpf.symbc.numeric.solvers.ProblemGeneral;
 
 /**
  * @author Zhang Yifan
  * @implNote Since the underlying LFF solver uses a lot static variables and thus can only be called once at a time,
  * so the instances of this class are mutually exclusive.
- * The instance field {@link #id} and static field {@link #lastActiveInstanceId} are used to do the checks.
+ * The instance field {@link #id} and static field {@link #lastActiveInstanceId} are used to do the check.
  */
 public final class ProblemLff extends ProblemGeneral {
 
@@ -32,13 +42,15 @@ public final class ProblemLff extends ProblemGeneral {
 
   private final HashMap<String, Integer> valNameToIndexMap = Maps.newHashMap();
 
+  private final long createTime = System.currentTimeMillis();
+
+  private final ArrayList<String> logLines = Lists.newArrayList();
+
   //endregion Instance fields
 
   public ProblemLff() {
-    ++ProblemLff.idAcc;
-    ProblemLff.lastActiveInstanceId.set(ProblemLff.idAcc);
-
-    this.id = ProblemLff.idAcc;
+    this.id = ProblemLff.idAcc.getAndIncrement();
+    ProblemLff.lastActiveInstanceId.set(this.id);
   }
 
   private void checkExclusive() {
@@ -48,16 +60,75 @@ public final class ProblemLff extends ProblemGeneral {
   }
 
   @Override
+  public void post(final Object constraint) {
+    if (this.expressionBuilder.length() != 0) {
+      this.expressionBuilder.append(" && ");
+    }
+    this.expressionBuilder.append('(');
+    this.expressionBuilder.append(ProblemLff.castToExpInstance(constraint));
+    this.expressionBuilder.append(')');
+  }
+
+  @Override
+  public void postLogicalOR(final Object[] constraints) {
+    for (final Object constraint : constraints) {
+      assert constraint instanceof String;
+    }
+
+    final StringBuilder orResultBuilder = new StringBuilder("(");
+    Joiner.on("||").appendTo(orResultBuilder, constraints);
+    orResultBuilder.append(")");
+    this.post(orResultBuilder.toString());
+  }
+
+  @Override
   public Boolean solve() {
     this.checkExclusive();
 
-    return LffSolverUtils.solve(this.expressionBuilder.toString(),
-                                String.valueOf(this.id),
-                                this.valTypeBuilder.toString(),
-                                this.valNameBuilder.toString());
+    final JPF jpf = SymbolicListener.lastJpfInstance;
+    assert jpf != null;
+    final String testClassName = jpf.getReporter().getSuT();
+    this.logLines.add("");
+    this.logLines.add("Solve class: " + testClassName);
+
+    final String expression = this.expressionBuilder.toString();
+    final String valName = this.valNameBuilder.toString();
+    final String valType = this.valTypeBuilder.toString();
+
+    this.logLines.add("Variable names:");
+    this.logLines.add(valName);
+
+    this.logLines.add("Variable types:");
+    this.logLines.add(valType);
+
+    this.logLines.add("Expressions:");
+    this.logLines.add(expression);
+
+    final long beginSolveTime = System.currentTimeMillis();
+    this.logLines.add("Parse time: " + (beginSolveTime - this.createTime) / 1000.0 + " seconds.");
+
+    final Boolean solveResult = LffSolverUtils.solve(expression,
+                                                     String.valueOf(this.id),
+                                                     valType,
+                                                     valName);
+
+    final long endSolveTime = System.currentTimeMillis();
+    this.logLines.add("Solve time: " + (endSolveTime - beginSolveTime) / 1000.0 + " seconds.");
+
+    this.logToFile(testClassName);
+
+    return solveResult;
   }
 
-  //region Make var
+  private void logToFile(final String fileName) {
+    final Path logFile = ProblemLff.logDir.resolve(fileName + ".txt");
+    try {
+      Files.write(logFile, this.logLines, Charset.defaultCharset(),
+                  StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.APPEND);
+    } catch (final IOException ignored) {}
+  }
+
+  //region Mange variables
 
   @Override
   public Object makeIntVar(final String name, final int min, final int max) {
@@ -83,7 +154,44 @@ public final class ProblemLff extends ProblemGeneral {
     return name;
   }
 
-  //endregion Make var
+  private double getValValueByName(final String valName) {
+    assert !Strings.isNullOrEmpty(valName);
+
+    final int valIndex = this.valNameToIndexMap.get(valName).intValue();
+
+    assert valIndex > -1; // assert that we find the variable
+    assert TestBuilder.finalParams.length > valIndex;
+
+    return TestBuilder.finalParams[valIndex];
+  }
+
+  @Override
+  public double getRealValue(final Object dpVar) {
+    assert dpVar != null && dpVar instanceof String;
+
+    final double dpVarValue = this.getValValueByName((String) dpVar);
+    return dpVarValue;
+  }
+
+  @Override
+  public int getIntValue(final Object dpVar) {
+    assert dpVar != null && dpVar instanceof String;
+
+    final double dpVarValue = this.getValValueByName((String) dpVar);
+    return (int) dpVarValue;
+  }
+
+  @Override
+  public double getRealValueInf(final Object dpvar) {
+    return -1; // refer to `ProblemCoral`
+  }
+
+  @Override
+  public double getRealValueSup(final Object dpVar) {
+    return -1;
+  }
+
+  //endregion Mange variables
 
   //region eq
 
@@ -94,7 +202,7 @@ public final class ProblemLff extends ProblemGeneral {
 
   @Override
   public Object eq(final Object exp, final int value) {
-    return this.eq(value, exp);
+    return ProblemLff.toExprString(ProblemLff.castToExpInstance(exp), "==", String.valueOf(value));
   }
 
   @Override
@@ -109,7 +217,7 @@ public final class ProblemLff extends ProblemGeneral {
 
   @Override
   public Object eq(final Object exp, final double value) {
-    return this.eq(value, exp);
+    return ProblemLff.toExprString(ProblemLff.castToExpInstance(exp), "==", String.valueOf(value));
   }
 
   //endregion eq
@@ -123,7 +231,7 @@ public final class ProblemLff extends ProblemGeneral {
 
   @Override
   public Object neq(final Object exp, final int value) {
-    return this.neq(value, exp);
+    return ProblemLff.toExprString(ProblemLff.castToExpInstance(exp), "!=", String.valueOf(value));
   }
 
   @Override
@@ -138,7 +246,7 @@ public final class ProblemLff extends ProblemGeneral {
 
   @Override
   public Object neq(final Object exp, final double value) {
-    return this.neq(value, exp);
+    return ProblemLff.toExprString(ProblemLff.castToExpInstance(exp), "!=", String.valueOf(value));
   }
 
   //endregion neq
@@ -151,7 +259,7 @@ public final class ProblemLff extends ProblemGeneral {
   }
 
   @Override public Object leq(final Object exp, final int value) {
-    return this.gt(value, exp);
+    return ProblemLff.toExprString(ProblemLff.castToExpInstance(exp), "<=", String.valueOf(value));
   }
 
   @Override
@@ -166,7 +274,7 @@ public final class ProblemLff extends ProblemGeneral {
 
   @Override
   public Object leq(final Object exp, final double value) {
-    return this.gt(value, exp);
+    return ProblemLff.toExprString(ProblemLff.castToExpInstance(exp), "<=", String.valueOf(value));
   }
 
   //endregion leq
@@ -180,7 +288,7 @@ public final class ProblemLff extends ProblemGeneral {
 
   @Override
   public Object geq(final Object exp, final int value) {
-    return this.lt(value, exp);
+    return ProblemLff.toExprString(ProblemLff.castToExpInstance(exp), ">=", String.valueOf(value));
   }
 
   @Override
@@ -195,7 +303,7 @@ public final class ProblemLff extends ProblemGeneral {
 
   @Override
   public Object geq(final Object exp, final double value) {
-    return this.lt(value, exp);
+    return ProblemLff.toExprString(ProblemLff.castToExpInstance(exp), ">=", String.valueOf(value));
   }
 
   //endregion geq
@@ -209,7 +317,7 @@ public final class ProblemLff extends ProblemGeneral {
 
   @Override
   public Object lt(final Object exp, final int value) {
-    return this.geq(value, exp);
+    return ProblemLff.toExprString(ProblemLff.castToExpInstance(exp), "<", String.valueOf(value));
   }
 
   @Override
@@ -224,7 +332,7 @@ public final class ProblemLff extends ProblemGeneral {
 
   @Override
   public Object lt(final Object exp, final double value) {
-    return this.geq(value, exp);
+    return ProblemLff.toExprString(ProblemLff.castToExpInstance(exp), "<", String.valueOf(value));
   }
 
   //endregion lt
@@ -238,7 +346,7 @@ public final class ProblemLff extends ProblemGeneral {
 
   @Override
   public Object gt(final Object exp, final int value) {
-    return this.leq(value, exp);
+    return ProblemLff.toExprString(ProblemLff.castToExpInstance(exp), ">", String.valueOf(value));
   }
 
   @Override
@@ -253,7 +361,7 @@ public final class ProblemLff extends ProblemGeneral {
 
   @Override
   public Object gt(final Object exp, final double value) {
-    return this.leq(value, exp);
+    return ProblemLff.toExprString(ProblemLff.castToExpInstance(exp), ">", String.valueOf(value));
   }
 
   //endregion gt
@@ -428,17 +536,17 @@ public final class ProblemLff extends ProblemGeneral {
 
   @Override
   public Object power(Object exp1, Object exp2) {
-    return ProblemLff.toFunctionCallString("power", exp1, exp2);
+    return ProblemLff.toFunctionCallString("pow", exp1, exp2);
   }
 
   @Override
   public Object power(Object exp1, double exp2) {
-    return ProblemLff.toFunctionCallString("power", exp1, exp2);
+    return ProblemLff.toFunctionCallString("pow", exp1, exp2);
   }
 
   @Override
   public Object power(double exp1, Object exp2) {
-    return ProblemLff.toFunctionCallString("power", exp1, exp2);
+    return ProblemLff.toFunctionCallString("pow", exp1, exp2);
   }
 
   @Override
@@ -458,150 +566,139 @@ public final class ProblemLff extends ProblemGeneral {
 
   //endregion Math operations
 
+  //region bitwise and
+
   @Override
-  public void post(final Object constraint) {
-    if (this.expressionBuilder.length() != 0) {
-      this.expressionBuilder.append(" && ");
-    }
-    this.expressionBuilder.append('(');
-    this.expressionBuilder.append(ProblemLff.castToExpInstance(constraint));
-    this.expressionBuilder.append(')');
+  public Object and(final int value, final Object exp) {
+    return ProblemLff.toExprString(String.valueOf(value), "&", ProblemLff.castToExpInstance(exp));
   }
 
   @Override
-  public void postLogicalOR(final Object[] constraints) {
-    final StringBuilder orResultBuilder = new StringBuilder("(");
-    Joiner.on("||").appendTo(orResultBuilder, constraints);
-    orResultBuilder.append(")");
-    post(orResultBuilder.toString());
-  }
-
-  //region Get variable values
-
-  private double getValValueByName(final String valName) {
-    assert !Strings.isNullOrEmpty(valName);
-
-    final int valIndex = this.valNameToIndexMap.get(valName).intValue();
-
-    assert valIndex > -1; // assert that we find the variable
-    assert TestBuilder.finalParams.length > valIndex;
-
-    return TestBuilder.finalParams[valIndex];
+  public Object and(final Object exp, final int value) {
+    return ProblemLff.toExprString(ProblemLff.castToExpInstance(exp), "&", String.valueOf(value));
   }
 
   @Override
-  public double getRealValue(final Object dpVar) {
-    assert dpVar != null && dpVar instanceof String;
+  public Object and(final Object exp1, final Object exp2) {
+    return ProblemLff.toExprString(ProblemLff.castToExpInstance(exp1), "&", ProblemLff.castToExpInstance(exp2));
+  }
 
-    final double dpVarValue = this.getValValueByName((String) dpVar);
-    return dpVarValue;
+  //endregion bitwise and
+
+  //region bitwise or
+
+  @Override
+  public Object or(final int value, final Object exp) {
+    return ProblemLff.toExprString(String.valueOf(value), "|", ProblemLff.castToExpInstance(exp));
   }
 
   @Override
-  public int getIntValue(final Object dpVar) {
-    assert dpVar != null && dpVar instanceof String;
-
-    final double dpVarValue = this.getValValueByName((String) dpVar);
-    return (int) dpVarValue;
+  public Object or(final Object exp, final int value) {
+    return ProblemLff.toExprString(ProblemLff.castToExpInstance(exp), "|", String.valueOf(value));
   }
 
   @Override
-  public double getRealValueInf(final Object dpvar) {
-    return -1; // refer to `ProblemCoral`
+  public Object or(final Object exp1, final Object exp2) {
+    return ProblemLff.toExprString(ProblemLff.castToExpInstance(exp1), "|", ProblemLff.castToExpInstance(exp2));
+  }
+
+  //endregion bitwise or
+
+  //region bitwise xor
+
+  @Override
+  public Object xor(final int value, final Object exp) {
+    return ProblemLff.toExprString(String.valueOf(value), "^", ProblemLff.castToExpInstance(exp));
   }
 
   @Override
-  public double getRealValueSup(final Object dpVar) {
-    return -1;
+  public Object xor(final Object exp, final int value) {
+    return ProblemLff.toExprString(ProblemLff.castToExpInstance(exp), "^", String.valueOf(value));
   }
 
-  //endregion Get variable values
-
-  //region Unsupported operations
-
-  @Override public Object and(final int value, final Object exp) {
-    throw new RuntimeException();
+  @Override
+  public Object xor(final Object exp1, final Object exp2) {
+    return ProblemLff.toExprString(ProblemLff.castToExpInstance(exp1), "^", ProblemLff.castToExpInstance(exp2));
   }
 
-  @Override public Object and(final Object exp, final int value) {
-    throw new RuntimeException();
+  //endregion bitwise xor
+
+  //region shift left
+
+  @Override
+  public Object shiftL(final int value, final Object exp) {
+    return ProblemLff.toExprString(String.valueOf(value), "<<", ProblemLff.castToExpInstance(exp));
   }
 
-  @Override public Object and(final Object exp1, final Object exp2) {
-    throw new RuntimeException();
+  @Override
+  public Object shiftL(final Object exp, final int value) {
+    return ProblemLff.toExprString(ProblemLff.castToExpInstance(exp), "<<", String.valueOf(value));
   }
 
-  @Override public Object or(final int value, final Object exp) {
-    throw new RuntimeException();
+  @Override
+  public Object shiftL(final Object exp1, final Object exp2) {
+    return ProblemLff.toExprString(ProblemLff.castToExpInstance(exp1), "<<", ProblemLff.castToExpInstance(exp2));
   }
 
-  @Override public Object or(final Object exp, final int value) {
-    throw new RuntimeException();
+  //endregion shift left
+
+  //region singed shift right
+
+  @Override
+  public Object shiftR(final int value, final Object exp) {
+    return ProblemLff.toExprString(String.valueOf(value), ">>", ProblemLff.castToExpInstance(exp));
   }
 
-  @Override public Object or(final Object exp1, final Object exp2) {
-    throw new RuntimeException();
+  @Override
+  public Object shiftR(final Object exp, final int value) {
+    return ProblemLff.toExprString(ProblemLff.castToExpInstance(exp), ">>", String.valueOf(value));
   }
 
-  @Override public Object xor(final int value, final Object exp) {
-    throw new RuntimeException();
+  @Override
+  public Object shiftR(final Object exp1, final Object exp2) {
+    return ProblemLff.toExprString(ProblemLff.castToExpInstance(exp1), ">>", ProblemLff.castToExpInstance(exp2));
   }
 
-  @Override public Object xor(final Object exp, final int value) {
-    throw new RuntimeException();
+  //endregion singed shift right
+
+  //region unsigned shift right
+
+  @Override
+  public Object shiftUR(final int value, final Object exp) {
+    return ProblemLff.toExprString(String.valueOf(value), ">>>", ProblemLff.castToExpInstance(exp));
   }
 
-  @Override public Object xor(final Object exp1, final Object exp2) {
-    throw new RuntimeException();
+  @Override
+  public Object shiftUR(final Object exp, final int value) {
+    return ProblemLff.toExprString(ProblemLff.castToExpInstance(exp), ">>>", String.valueOf(value));
   }
 
-  @Override public Object shiftL(final int value, final Object exp) {
-    throw new RuntimeException();
+  @Override
+  public Object shiftUR(final Object exp1, final Object exp2) {
+    return ProblemLff.toExprString(ProblemLff.castToExpInstance(exp1), ">>>", ProblemLff.castToExpInstance(exp2));
   }
 
-  @Override public Object shiftL(final Object exp, final int value) {
-    throw new RuntimeException();
-  }
+  //endregion unsigned shift right
 
-  @Override public Object shiftL(final Object exp1, final Object exp2) {
-    throw new RuntimeException();
+  @Override
+  public Object mixed(final Object exp1, final Object exp2) {
+    return ProblemLff.toExprString(ProblemLff.castToExpInstance(exp1), "=", ProblemLff.castToExpInstance(exp2));// refer to ProblemIAsolver
   }
-
-  @Override public Object shiftR(final int value, final Object exp) {
-    throw new RuntimeException();
-  }
-
-  @Override public Object shiftR(final Object exp, final int value) {
-    throw new RuntimeException();
-  }
-
-  @Override public Object shiftR(final Object exp1, final Object exp2) {
-    throw new RuntimeException();
-  }
-
-  @Override public Object shiftUR(final int value, final Object exp) {
-    throw new RuntimeException();
-  }
-
-  @Override public Object shiftUR(final Object exp, final int value) {
-    throw new RuntimeException();
-  }
-
-  @Override public Object shiftUR(final Object exp1, final Object exp2) {
-    throw new RuntimeException();
-  }
-
-  @Override public Object mixed(final Object exp1, final Object exp2) {
-    throw new RuntimeException();
-  }
-
-  //endregion Unsupported operations
 
   //region Static fields
 
-  private static int idAcc = 0;
+  private static final AtomicInteger idAcc = new AtomicInteger(0);
 
-  private final static AtomicInteger lastActiveInstanceId = new AtomicInteger(-1);
+  private static final AtomicInteger lastActiveInstanceId = new AtomicInteger(-1);
+
+  // FIXME hard-coded log dir
+  private static final Path logDir = Paths.get("/home/njuseg/experiments/gen/LffLogs");
+
+  static {
+    try {
+      Files.createDirectories(logDir);
+    } catch (final IOException ignored) {}
+  }
 
   //endregion Static fields
 
@@ -616,7 +713,7 @@ public final class ProblemLff extends ProblemGeneral {
   }
 
   private static String toFunctionCallString(final String functionName, final Object parameter) {
-    return functionName +  "(" + parameter.toString() + ")";
+    return functionName + "(" + parameter.toString() + ")";
   }
 
   private static String toFunctionCallString(final String functionName, final Object parameter1, final Object parameter2) {

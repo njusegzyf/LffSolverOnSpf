@@ -1,7 +1,5 @@
 package cn.nju.seg.atg.spfwrapper;
 
-import com.google.common.base.Preconditions;
-
 import cn.nju.seg.atg.BEParse.BinaryExpressionParse;
 import cn.nju.seg.atg.parse.TestBuilder;
 import cn.nju.seg.atg.util.ATG;
@@ -10,7 +8,7 @@ import cn.nju.seg.atg.util.PCATG;
 /**
  * @author Zhang Yifan
  */
-class LffSolverUtils {
+final class LffSolverUtils {
 
   static Boolean solve(final String binaryExpression,
                               final String nodeName,
