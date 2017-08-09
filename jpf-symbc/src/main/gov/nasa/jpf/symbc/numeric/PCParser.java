@@ -19,6 +19,7 @@
 
 package gov.nasa.jpf.symbc.numeric;
 
+import cn.nju.seg.atg.spfwrapper.AbstractProblemLff;
 import cn.nju.seg.atg.spfwrapper.ProblemLff;
 import gov.nasa.jpf.symbc.SymbolicInstructionFactory;
 import gov.nasa.jpf.symbc.numeric.solvers.ProblemCompare;
@@ -765,6 +766,6 @@ public class PCParser {
    */
   private static boolean canDpHandleNonLinearIntegerConstraint() {
     return PCParser.pb instanceof ProblemCoral
-           || PCParser.pb instanceof ProblemLff;
+           || PCParser.pb instanceof AbstractProblemLff;
   }
 }

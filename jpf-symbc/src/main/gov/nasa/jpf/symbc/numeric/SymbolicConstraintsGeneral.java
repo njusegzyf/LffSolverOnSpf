@@ -25,6 +25,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import cn.nju.seg.atg.spfwrapper.ProblemLff;
+import cn.nju.seg.atg.spfwrapper.ProblemLffDebug;
 import gov.nasa.jpf.symbc.SymbolicInstructionFactory;
 import gov.nasa.jpf.symbc.numeric.solvers.DebugSolvers;
 import gov.nasa.jpf.symbc.numeric.solvers.ProblemCVC3;
@@ -94,6 +95,8 @@ public class SymbolicConstraintsGeneral {
       pb = new ProblemCompare(pc, this);
     } else if (dp[0].equalsIgnoreCase("lff")) { // add for LFF solver
       pb = new ProblemLff();
+    } else if (dp[0].equalsIgnoreCase("lff-debug")) { // add for LFF solver
+      pb = new ProblemLffDebug();
     }
     // added option to have no-solving
     // as a result symbolic execution will explore an over-approximation of the program paths
