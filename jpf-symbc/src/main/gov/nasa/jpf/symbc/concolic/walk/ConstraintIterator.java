@@ -31,7 +31,7 @@ import java.util.Iterator;
  * 
  * @author Peter Dinges <pdinges@acm.org>
  */
-class ConstraintIterator implements Iterator<Constraint> {
+public class ConstraintIterator implements Iterator<Constraint> {
 
   private Constraint nextConstraint;
 

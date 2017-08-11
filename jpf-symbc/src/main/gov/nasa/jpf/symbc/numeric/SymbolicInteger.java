@@ -26,7 +26,7 @@ import java.util.Random;
 
 public class SymbolicInteger extends LinearIntegerExpression
 {
-	public static int UNDEFINED = Integer.MIN_VALUE;;
+	public static int UNDEFINED = Integer.MIN_VALUE;
 	public int _min = 0;
 	public int _max = 0;
 	public int solution = UNDEFINED; // C

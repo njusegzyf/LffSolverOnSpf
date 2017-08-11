@@ -20,6 +20,7 @@ package gov.nasa.jpf.symbc.concolic.walk;
 import static gov.nasa.jpf.symbc.concolic.walk.ExpressionClassifier.expressionType;
 import static gov.nasa.jpf.symbc.concolic.walk.Util.defaultStringRepresentation;
 import static gov.nasa.jpf.symbc.concolic.walk.Util.preVisitAllAfterCast;
+
 import gov.nasa.jpf.symbc.concolic.walk.ExpressionClassifier.ExpressionType;
 import gov.nasa.jpf.symbc.numeric.Constraint;
 import gov.nasa.jpf.symbc.numeric.ConstraintExpressionVisitor;
@@ -33,15 +34,17 @@ import gov.nasa.jpf.symbc.numeric.RealConstraint;
 /**
  * Constraint visitor that separates the linear {@link Constraint}s in a
  * {@link PathCondition} from the non-linear constraints.
- * 
+ *
  * Instead of using the visitor directly, use the
  * {@link #splitInto(PathCondition, PathCondition, PathCondition)} method to
  * separate the constraints in a PathCondition.
- * 
+ *
  * @author Peter Dinges <pdinges@acm.org>
  */
-class ConstraintSplitter extends ConstraintExpressionVisitor {
+public class ConstraintSplitter extends ConstraintExpressionVisitor {
+
   private final PathCondition linearConstraints;
+
   private final PathCondition nonLinearConstraints;
 
   private ConstraintSplitter(PathCondition linearConstraints, PathCondition nonLinearConstraints) {

@@ -27,11 +27,13 @@ import static gov.nasa.jpf.symbc.concolic.walk.Util.isSatisfied;
 import static gov.nasa.jpf.symbc.concolic.walk.Util.printDebug;
 import static gov.nasa.jpf.symbc.concolic.walk.Util.union;
 import static gov.nasa.jpf.symbc.concolic.walk.Util.variablesIn;
-import gov.nasa.jpf.symbc.concolic.walk.ConstraintSplitter;
-import gov.nasa.jpf.symbc.concolic.walk.RealVector;
-import gov.nasa.jpf.symbc.concolic.walk.RealVectorSpace;
+
+import cn.nju.seg.atg.spfwrapper.LffSolverConfigs;
+import cn.nju.seg.atg.spfwrapper.SpfUtils;
+import cn.nju.seg.atg.spfwrapper.Utils;
 import gov.nasa.jpf.symbc.numeric.Comparator;
 import gov.nasa.jpf.symbc.numeric.Constraint;
+import gov.nasa.jpf.symbc.numeric.Expression;
 import gov.nasa.jpf.symbc.numeric.PathCondition;
 import gov.nasa.jpf.symbc.numeric.SymbolicConstraintsGeneral;
 import gov.nasa.jpf.symbc.numeric.SymbolicInteger;
@@ -48,22 +50,25 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
+import com.google.common.collect.Lists;
+
 /**
  * Implementation of the <em>Concolic Walk</em> algorithm for solving complex
  * arithmetic path conditions.
- * 
+ *
  * <p>
  * The {@link gov.nasa.jpf.symbc.concolic.PCAnalyzer} uses this algorithm to
  * determine the satisfiability of path conditions if the
  * {@link gov.nasa.jpf.symbc.SymbolicInstructionFactory#heuristicWalkMode} flag
  * is set (via the {@code symbolic.heuristic_walk} configuration key).
- * 
+ *
  * <p>
  * The paper "Solving Complex Path Conditions through Heuristic Search on
  * Induced Polytopes" by Peter Dinges and Gul Agha, 2014, describes
  * the algorithm in detail.  In particular, see section 3.
- * 
- * @author Peter Dinges <pdinges@acm.org>
+ *
+ * @author Peter Dinges <pdinges@acm.org>, Zhang Yifan
+ * @version 0.1
  */
 public class ConcolicWalkSolver {
 
@@ -72,15 +77,17 @@ public class ConcolicWalkSolver {
   /**
    * Number of algorithm iterations added for each constraint in the path
    * condition. The paper speaks of <em>steps</em> instead of iterations and
-   * denotes this constant as <em>I</em>. 
+   * denotes this constant as <em>I</em>.
    */
   public static int ITERATIONS_PER_CONSTRAINT = 150;
+
   /**
    * Number of random neighbor {@link RealVector points} to generate per iteration.
    * The paper calls points <em>environments</em> and denotes this constant
-   * as <em>R</em>.  
+   * as <em>R</em>.
    */
   public static int NEIGHBORS_GENERATED_PER_ITERATION = 10;
+
   /**
    * Multiplier for computing how many iterations a variable is tabu if changing
    * it failed to yield a better point. The paper uses this constant and
@@ -88,27 +95,32 @@ public class ConcolicWalkSolver {
    * <em>T</em>.
    */
   public static float TABU_ITERATIONS_PER_VARIABLE = 0.5f;
+
   /**
    * Minimum number of iterations that a variable is tabu if changing it failed
    * to yield a better point. See {@link #TABU_ITERATIONS_PER_VARIABLE} above.
    */
   public static int MIN_TABU_ITERATIONS = 3;
+
   /**
    * Enable trying the hard-coded {@link #SEEDED_VALUES} for the changed variable?
    */
   public static boolean ENABLE_SEEDING = false;
+
   /**
    * Enable estimating additional neighbors that <em>should</em> satisfy one
    * of the constraints violated by the current variable if the constraint was
    * linear?  See the discussion of Finding Neighbors in section 3.3 of the paper.
    */
   public static boolean ENABLE_BISECTION = true;
-  
+
   private final static int RANDOMIZATION_RADIUS_EXPONENT = 12;
+
   /** Error value used if the error function of a constraint returns NaN */
   private final static double NAN_ERROR = 0.125 * Double.MAX_VALUE;
+
   private final static double[] SEEDED_VALUES =
-    { 0.0, 1.0, -1.0, Double.MAX_VALUE, Double.MIN_VALUE };
+      { 0.0, 1.0, -1.0, Double.MAX_VALUE, Double.MIN_VALUE };
 
   private final static Random random = new Random();
 
@@ -122,11 +134,11 @@ public class ConcolicWalkSolver {
   /**
    * Returns {@code true} if the Concolic Walk algorithm could find a solution
    * for the given path condition; {@code false} otherwise.
-   * 
+   *
    * If a solution is found, the method sets the {@code flagSolved} of the given
    * {@code pc} to {@code true} and assigns the solution's values to the
    * variables in the {@code pc}.
-   * 
+   *
    * <p>
    * The Concolic Walk algorithm is incomplete, which means that the method may
    * return {@code false} despite the path condition being satisfiable.
@@ -157,19 +169,17 @@ public class ConcolicWalkSolver {
    * Returns {@code true} if the Concolic Walk algorithm could find a solution
    * for the given non-linear constraints on the polytope described by the given
    * linear constraints.
-   * 
+   *
    * If a solution is found, the method assigns the solution's values to the
    * variables in the {@code nonLinearPc}.
-   * 
-   * @param linearPc
-   *          the polytope (described by a set of linear constraints) in which
-   *          the algorithm searches for solutions. The method assumes that the
-   *          linear constraints have been solved and that the solution values
-   *          have been assigned to the appearing variables.
-   * @param nonLinearPc
-   *          the non-linear constraints to solve.
-   * 
-   * @see Algorithms 1 and 3 in the paper.
+   *
+   * @param linearPc    the polytope (described by a set of linear constraints) in which
+   *                    the algorithm searches for solutions. The method assumes that the
+   *                    linear constraints have been solved and that the solution values
+   *                    have been assigned to the appearing variables.
+   * @param nonLinearPc the non-linear constraints to solve.
+   *
+   * @see "Algorithms 1 and 3 in the paper."
    */
   private static boolean solveWithAdaptiveVariableSearch(PathCondition linearPc, PathCondition nonLinearPc) {
     assert !isEmpty(nonLinearPc);
@@ -179,14 +189,43 @@ public class ConcolicWalkSolver {
 
     // NOTE: End-of-line comments give the variable names and line numbers
     //       used in Algorithms 1 and 2 of the paper.
-    
+
     // Interpret every variable in the path condition as a dimension
     // in a real-valued vector space.
-    RealVectorSpace vectorSpace =
-        RealVectorSpace.forDimensions(union(variablesIn(linearPc), variablesIn(nonLinearPc)));
-    int numberOfVariables = vectorSpace.dimensions().size();
+    final Set<Expression> linearPcVars = variablesIn(linearPc);
+    final RealVectorSpace vectorSpace = RealVectorSpace.forDimensions(Util.<Expression>union(linearPcVars, variablesIn(nonLinearPc)));
+    final int numberOfVariables = vectorSpace.dimensions().size();
 
-    RealVector p = makeVectorFromSolutions(vectorSpace, variablesIn(linearPc));  // Alg. 1: \alpha, line 4
+    RealVector p = makeVectorFromSolutions(vectorSpace, linearPcVars);  // Alg. 1: \alpha, line 4
+
+    //region Log start point
+
+    // @since 0.1
+    if (LffSolverConfigs.IS_LOG_CONCOLIC_WALKER_START_POINTS) {
+      // log `p`, which is a start point for adaptive variable search
+      final String[] allVariableNames = new String[numberOfVariables];
+      final double[] allVariableSolutions = new double[numberOfVariables];
+
+      for (int i = 0; i < numberOfVariables; ++i) {
+        final String variableName = SpfUtils.getVariableName(vectorSpace.dimensions().get(i));
+        allVariableNames[i] = variableName;
+      }
+
+      // put all solutions of linearPcVars (stored in `p`) to `allVariableSolutions`
+      for (final Expression variable : linearPcVars) {
+        final int variableIndex = vectorSpace.indexOf(variable);
+        assert variableIndex >= 0;
+
+        allVariableSolutions[variableIndex] = p.values[variableIndex];
+      }
+
+      final String testClassName = SpfUtils.getLastJpfTestClassName();
+      Utils.logToFile(LffSolverConfigs.CONCOLIC_WALKER_START_POINTS_LOG_DIR.resolve(testClassName + ".txt"),
+                      Lists.newArrayList(Arrays.toString(allVariableNames),
+                                         Arrays.toString(allVariableSolutions)));
+    }
+
+    //endregion Log start point
 
     printDebug(ConcolicWalkSolver.class, "Linear PC: ", linearPc);
     printDebug(ConcolicWalkSolver.class, "Linear PC solution: ", p);
@@ -238,7 +277,7 @@ public class ConcolicWalkSolver {
       printDebug(ConcolicWalkSolver.class, "Wiggling ", wiggleVar);
 
       // Find best neighbor (Algorithm 3)
-      
+
       double minError = Double.POSITIVE_INFINITY;  // Alg. 3: e_\mu
       RealVector minNeighbor = null;
       for (int i = 0; i < NEIGHBORS_GENERATED_PER_ITERATION; ++i) {
@@ -316,8 +355,8 @@ public class ConcolicWalkSolver {
    * Returns a new point in the {@code polytope} that differs from the given
    * {@code point} in the given {@code variable} (= dimension), or {@code null}
    * if no such point could be found.
-   * 
-   * @see Algorithm 4 in the paper.
+   *
+   * @see "Algorithm 4 in the paper."
    */
   private static RealVector makeRandomNeighborInPolytope(RealVector point, PathCondition polytope, Object variable) {
     // Implement this as Dikin walk, see Kannan and Narayanan "Random Walks
@@ -345,10 +384,10 @@ public class ConcolicWalkSolver {
    * Returns a point {@code r} where the linear function {@code f} with
    * {@code f(p) = valueAtP} and {@code f(q) = valueAtQ} is zero, that is,
    * {@code f(r) = 0}.
-   * 
-   * <p> 
+   *
+   * <p>
    * NOTE: The returned point does not necessarily lie within the polytope.
-   * 
+   *
    * <p>
    * This is the BisectionStep function that appears in the paper.
    */
@@ -366,13 +405,14 @@ public class ConcolicWalkSolver {
   }
 
   private final static String SYM_INT_SUFFIX = SymbolicInteger.SYM_INT_SUFFIX;
+
   private final static String SYM_REAL_SUFFIX = "_SYMREAL";
 
   /**
    * Returns a point in the {@code vectorSpace} that is described by the
    * solution values attached to the given set of {@code variables}.
    */
-  private static RealVector makeVectorFromSolutions(RealVectorSpace vectorSpace, Set<Object> variables) {
+  public static RealVector makeVectorFromSolutions(RealVectorSpace vectorSpace, Set<Expression> variables) {
     RealVector.Builder builder = vectorSpace.makeVector();
     if (variables.isEmpty()) {
       return builder.build();
@@ -417,7 +457,7 @@ public class ConcolicWalkSolver {
   /**
    * Returns the cumulative error score for the constraints in the given path
    * condition at the given valuation point.
-   * 
+   *
    * <p>
    * This is Algorithm 2 in the paper.
    */
@@ -459,7 +499,7 @@ public class ConcolicWalkSolver {
   }
 
   static void incrementElements(double[] values, BitSet selectedIndices, double increment) {
-    for (int i = selectedIndices.nextSetBit(0); i >= 0; i = selectedIndices.nextSetBit(i+1)) {
+    for (int i = selectedIndices.nextSetBit(0); i >= 0; i = selectedIndices.nextSetBit(i + 1)) {
       values[i] += increment;
     }
   }
@@ -488,7 +528,10 @@ public class ConcolicWalkSolver {
     return currentMaxIndex;
   }
 
-  static void populateLookupTables(RealVectorSpace space, PathCondition pc, List<Constraint>[] constraintsByVariableIndex, Map<Constraint, BitSet> variableIndicesByConstraint) {
+  static void populateLookupTables(RealVectorSpace space,
+                                   PathCondition pc,
+                                   List<Constraint>[] constraintsByVariableIndex,
+                                   Map<Constraint, BitSet> variableIndicesByConstraint) {
     int numberOfVariables = space.dimensions().size();
     for (Constraint constraint : eachConstraint(pc)) {
       BitSet variableIndices = new BitSet(numberOfVariables);
@@ -502,5 +545,17 @@ public class ConcolicWalkSolver {
         constraintsByVariableIndex[varIndex].add(constraint);
       }
     }
+  }
+
+  /**
+   * @since 0.1
+   */
+  public static RealVector makeVectorFromPcs(final PathCondition linearPc, final PathCondition nonLinearPc) {
+    com.google.common.base.Preconditions.checkNotNull(linearPc);
+    com.google.common.base.Preconditions.checkNotNull(nonLinearPc);
+
+    final RealVectorSpace vectorSpace = RealVectorSpace.forDimensions(union(variablesIn(linearPc), variablesIn(nonLinearPc)));
+    final RealVector p = ConcolicWalkSolver.makeVectorFromSolutions(vectorSpace, variablesIn(linearPc));
+    return p;
   }
 }

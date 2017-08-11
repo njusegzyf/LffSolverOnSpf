@@ -34,7 +34,7 @@ public abstract class ATG {
   /**
    * 用户定制的输入参数值
    */
-  private static final double[] CUSTOMIZED_PARAMS = {};
+  public static double[] CUSTOMIZED_PARAMS = {};
 
   /**
    * 结束一次查找前，预测出的参数个数的上限(100,200,400) --- T

@@ -24,17 +24,18 @@ import java.util.List;
 
 /**
  * Immutable point in a {@link RealVectorSpace}.
- * 
+ *
  * Every RealVector belongs to a RealVectorSpace.  Vector operations require
  * that both operands belong to the same space, which prevents accidentally
  * mixing entries that mean different things.
- * 
+ *
  * @author Peter Dinges <pdinges@acm.org>
  */
-final class RealVector {
+public final class RealVector {
 
-  private final RealVectorSpace space;
-  private final double[] values;
+  public final RealVectorSpace space;
+
+  public final double[] values;
 
   private RealVector(RealVectorSpace space, double[] values) {
     assert space.dimensions().size() == values.length;
@@ -60,7 +61,7 @@ final class RealVector {
     }
     RealVector otherVector = (RealVector) other;
     return this.space == otherVector.space
-        && Arrays.equals(this.values, otherVector.values);
+           && Arrays.equals(this.values, otherVector.values);
   }
 
   @Override
@@ -130,6 +131,7 @@ final class RealVector {
   public static class Builder {
 
     private final RealVectorSpace space;
+
     private final double[] values;
 
     public Builder(RealVectorSpace space) {
@@ -146,7 +148,7 @@ final class RealVector {
       values[space.indexOf(dimension)] = value;
       return this;
     }
-    
+
     public RealVector build() {
       return new RealVector(space, Arrays.copyOf(values, values.length));
     }

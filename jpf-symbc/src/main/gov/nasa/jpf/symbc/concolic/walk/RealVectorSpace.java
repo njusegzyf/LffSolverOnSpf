@@ -17,6 +17,7 @@
 
 package gov.nasa.jpf.symbc.concolic.walk;
 
+import gov.nasa.jpf.symbc.numeric.Expression;
 import gov.nasa.jpf.symbc.numeric.SymbolicInteger;
 import gov.nasa.jpf.symbc.numeric.SymbolicReal;
 
@@ -33,16 +34,17 @@ import java.util.Set;
 /**
  * Real vector space that uses {@link SymbolicInteger}s and {@link SymbolicReal}s
  * to label its dimensions.
- * 
+ *
  * The RealVectorSpace maps the dimension labels to unique integer indices,
  * which allows {@link RealVector}s to store their values in arrays (instead of
  * maps).
- * 
+ *
  * @author Peter Dinges <pdinges@acm.org>
  */
-class RealVectorSpace {
+public final class RealVectorSpace {
 
   private final List<Object> dimensions;
+
   private final Map<Object, Integer> dimensionIndices;
 
   private RealVectorSpace(List<Object> dimensions) {
@@ -116,7 +118,7 @@ class RealVectorSpace {
     }
   }
 
-  public static RealVectorSpace forDimensions(Set<Object> symbolicVariables) {
+  public static RealVectorSpace forDimensions(Set<? super Expression> symbolicVariables) {
     for (Object var : symbolicVariables) {
       if (!(var instanceof SymbolicInteger || var instanceof SymbolicReal)) {
         throw new IllegalArgumentException("Unknown symbolic variable type: " + var);
@@ -127,8 +129,8 @@ class RealVectorSpace {
     return new RealVectorSpace(sortedDimensions);
   }
 
-  public static RealVectorSpace forDimensions(Object... symbolicVariables) {
-    return forDimensions(new HashSet<Object>(Arrays.asList(symbolicVariables)));
+  public static RealVectorSpace forDimensions(Expression... symbolicVariables) {
+    return forDimensions(new HashSet<Expression>(Arrays.asList(symbolicVariables)));
   }
 
   public static RealVectorSpace extend(RealVectorSpace space, Set<Object> extraVariables) {

@@ -766,6 +766,6 @@ public class PCParser {
    */
   private static boolean canDpHandleNonLinearIntegerConstraint() {
     return PCParser.pb instanceof ProblemCoral
-           || PCParser.pb instanceof AbstractProblemLff;
+           || AbstractProblemLff.isProblemLff(PCParser.pb);
   }
 }

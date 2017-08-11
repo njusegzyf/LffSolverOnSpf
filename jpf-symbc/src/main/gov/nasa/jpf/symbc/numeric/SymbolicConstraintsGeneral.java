@@ -45,11 +45,11 @@ import gov.nasa.jpf.symbc.numeric.solvers.ProblemZ3;
 
 public class SymbolicConstraintsGeneral {
 
-  protected ProblemGeneral pb;
+  public ProblemGeneral pb;
 
   protected Boolean result; // tells whether result is satisfiable or not
 
-  public boolean isSatisfiable(PathCondition pc) {
+  public boolean isSatisfiable(final PathCondition pc) {
     if (pc == null || pc.count == 0) {
       if (SymbolicInstructionFactory.debugMode) { System.out.println("## Warning: empty path condition"); }
       return true;
@@ -88,13 +88,12 @@ public class SymbolicConstraintsGeneral {
       pb = new ProblemYices();
     } else if (dp[0].equalsIgnoreCase("z3")) {
       pb = new ProblemZ3();
-
     } else if (dp[0].equalsIgnoreCase("debug")) {
       pb = new DebugSolvers(pc);
     } else if (dp[0].equalsIgnoreCase("compare")) {
       pb = new ProblemCompare(pc, this);
     } else if (dp[0].equalsIgnoreCase("lff")) { // add for LFF solver
-      pb = new ProblemLff();
+      pb = new ProblemLff(pc);
     } else if (dp[0].equalsIgnoreCase("lff-debug")) { // add for LFF solver
       pb = new ProblemLffDebug();
     }

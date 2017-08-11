@@ -18,6 +18,7 @@
 package gov.nasa.jpf.symbc.concolic.walk;
 
 import static gov.nasa.jpf.symbc.concolic.walk.ConstraintIterator.eachConstraint;
+
 import gov.nasa.jpf.symbc.SymbolicInstructionFactory;
 import gov.nasa.jpf.symbc.numeric.Comparator;
 import gov.nasa.jpf.symbc.numeric.Constraint;
@@ -66,7 +67,7 @@ final class Util {
     }
   }
 
-  public static Set<Object> variablesIn(PathCondition pc) {
+  public static Set<Expression> variablesIn(PathCondition pc) {
     if (isEmpty(pc)) {
       return Collections.emptySet();
     }
@@ -77,7 +78,7 @@ final class Util {
     return cvv.getVariables();
   }
 
-  public static Set<Object> variablesIn(Constraint constraint) {
+  public static Set<Expression> variablesIn(Constraint constraint) {
     if (constraint == null) {
       return Collections.emptySet();
     }
@@ -86,7 +87,7 @@ final class Util {
     return cvv.getVariables();
   }
 
-  public static Set<Object> variablesIn(Expression expression) {
+  public static Set<Expression> variablesIn(Expression expression) {
     if (expression == null || expression instanceof IntegerConstant || expression instanceof RealConstant) {
       return Collections.emptySet();
     }
@@ -184,7 +185,7 @@ final class Util {
 
   // The overloaded methods help to avoid generating a costly string representation
   // before we find out whether we actually need it.
-  
+
   public static void printDebug(Class<?> source, Object message) {
     if (!SymbolicInstructionFactory.debugMode) {
       return;
@@ -212,7 +213,6 @@ final class Util {
     }
     printDebug(source, message1.toString() + message2 + message3 + message4);
   }
-
 
   public static void printDebug(Class<?> source, Object message1, Object message2, Object message3, Object message4, Object... messages) {
     if (!SymbolicInstructionFactory.debugMode) {
@@ -249,7 +249,6 @@ final class Util {
     sb.append("}");
     return sb.toString();
   }
-
 
   private Util() {
     throw new AssertionError("not constructible");

@@ -2,11 +2,16 @@ package cn.nju.seg.atg.spfwrapper;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
+import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
 
 import cn.nju.seg.atg.parse.TestBuilder;
-import gov.nasa.jpf.JPF;
-import gov.nasa.jpf.symbc.SymbolicListener;
+import cn.nju.seg.atg.spfwrapper.SpfUtils.SplitPathCondition;
+import cn.nju.seg.atg.util.ATG;
+import gov.nasa.jpf.symbc.concolic.walk.ConcolicWalkSolver;
+import gov.nasa.jpf.symbc.concolic.walk.RealVector;
+import gov.nasa.jpf.symbc.numeric.PathCondition;
+import gov.nasa.jpf.symbc.numeric.SymbolicConstraintsGeneral;
 
 /**
  * @author Zhang Yifan
@@ -22,11 +27,17 @@ public final class ProblemLff extends AbstractProblemLff {
 
   private final long createTime = System.currentTimeMillis();
 
+  private final PathCondition pathCondition;
+
   //endregion Instance fields
 
-  public ProblemLff() {
+  public ProblemLff(final PathCondition pathCondition) {
+    Preconditions.checkNotNull(pathCondition);
+
     this.id = ProblemLff.idAcc.getAndIncrement();
     ProblemLff.lastActiveInstanceId.set(this.id);
+
+    this.pathCondition = pathCondition;
   }
 
   private void checkExclusive() {
@@ -39,9 +50,7 @@ public final class ProblemLff extends AbstractProblemLff {
   public Boolean solve() {
     this.checkExclusive();
 
-    final JPF jpf = SymbolicListener.lastJpfInstance;
-    assert jpf != null;
-    final String testClassName = jpf.getReporter().getSuT();
+    final String testClassName = SpfUtils.getLastJpfTestClassName();
     this.logLines.add("");
     this.logLines.add("Solve class: " + testClassName);
 
@@ -60,6 +69,35 @@ public final class ProblemLff extends AbstractProblemLff {
 
     final long beginSolveTime = System.currentTimeMillis();
     this.logLines.add("Parse time: " + (beginSolveTime - this.createTime) / 1000.0 + " seconds.");
+
+    //region Use an extra solver to get a start point
+
+    if (LffSolverConfigs.IS_USE_EXTRA_SOLVER_FOR_START_POINT) {
+      final SymbolicConstraintsGeneral extraSymbolicConstraintsGeneral = LffSolverConfigs.createExtraSymbolicConstraintsGeneral();
+      final SplitPathCondition splitPathCondition = SpfUtils.splitPathCondition(this.pathCondition);
+      final PathCondition linearPc = splitPathCondition.linearPc;
+      final PathCondition nonLinearPc = splitPathCondition.nonLinearPc;
+      final boolean linearPcSolved = extraSymbolicConstraintsGeneral.solve(splitPathCondition.linearPc);
+
+      // linear path condition is solved, set the solution as start point
+      if (linearPcSolved) {
+        final RealVector p = ConcolicWalkSolver.makeVectorFromPcs(linearPc, nonLinearPc);
+        // set start point
+        final double[] startPoint = new double[p.space.dimensions().size()];
+        for (final Object variable : p.space.dimensions()) {
+          final String variableName = SpfUtils.getVariableName(variable);
+          final int index1 = this.valNameToIndexMap.get(variableName);
+          assert index1 >=0;
+          final int index2 = p.space.indexOf(variable);
+          assert index2 >=0;
+
+          startPoint[index1] = p.values[index2];
+        }
+        ATG.CUSTOMIZED_PARAMS = startPoint;
+      }
+    }
+
+    //endregion Use an extra solver to get a start point
 
     final Boolean solveResult = LffSolverUtils.solve(expression,
                                                      String.valueOf(this.id),

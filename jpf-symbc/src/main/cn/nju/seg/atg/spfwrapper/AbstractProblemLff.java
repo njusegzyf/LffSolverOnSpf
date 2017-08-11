@@ -1,16 +1,10 @@
 package cn.nju.seg.atg.spfwrapper;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.google.common.base.Joiner;
+import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
@@ -58,11 +52,9 @@ public abstract class AbstractProblemLff extends IProblemLffParser {
   }
 
   protected void logToFile(final String fileName) {
-    final Path logFile = AbstractProblemLff.logDir.resolve(fileName + ".txt");
-    try {
-      Files.write(logFile, this.logLines, Charset.defaultCharset(),
-                  StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.APPEND);
-    } catch (final IOException ignored) {}
+    assert !Strings.isNullOrEmpty(fileName);
+
+    Utils.logToFile(LffSolverConfigs.LFF_LOG_DIR.resolve(fileName + ".txt"), this.logLines);
   }
 
   //region Mange variables
@@ -121,29 +113,7 @@ public abstract class AbstractProblemLff extends IProblemLffParser {
 
   //endregion Mange variables
 
-  //region Static fields
-
-  // FIXME hard-coded log dir
-  private static final Path logDir = Paths.get("/home/njuseg/experiments/gen/LffLogs");
-
-  private static final boolean IS_CLEAN_LOG_DIR = false;
-
-  static {
-    try {
-      Files.createDirectories(logDir);
-    } catch (final IOException ignored) {}
-
-    if (AbstractProblemLff.IS_CLEAN_LOG_DIR) {
-      for (final File logFile : logDir.toFile().listFiles()) {
-        final Path logFilePath = logFile.toPath();
-        if (Files.isRegularFile(logFilePath)) {
-          try {
-            Files.delete(logFilePath);
-          } catch (final IOException ignored) {}
-        }
-      }
-    }
+  public static boolean isProblemLff(final Object problemGeneral) {
+    return problemGeneral instanceof AbstractProblemLff;
   }
-
-  //endregion Static fields
 }
