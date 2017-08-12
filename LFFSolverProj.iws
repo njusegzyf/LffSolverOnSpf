@@ -2,22 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f78841da-5fe1-4156-80d0-fd73e9bf4faf" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/parse/LineChart.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LFFSolverProj.iws" afterPath="$PROJECT_DIR$/LFFSolverProj.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/parse/TestBuilder.java" afterPath="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/parse/TestBuilder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/AbstractProblemLff.java" afterPath="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/AbstractProblemLff.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/LffSolverConfigs.java" afterPath="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/LffSolverConfigs.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/LffSolverUtils.java" afterPath="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/LffSolverUtils.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/ProblemLff.java" afterPath="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/ProblemLff.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/ProblemLffDebug.java" afterPath="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/ProblemLffDebug.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/SpfUtils.java" afterPath="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/SpfUtils.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/Utils.java" afterPath="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/Utils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/util/ATG.java" afterPath="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/util/ATG.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/PCAnalyzer.java" afterPath="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/PCAnalyzer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/walk/ConcolicWalkSolver.java" afterPath="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/walk/ConcolicWalkSolver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/walk/ConstraintIterator.java" afterPath="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/walk/ConstraintIterator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/walk/ConstraintSplitter.java" afterPath="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/walk/ConstraintSplitter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/walk/RealVector.java" afterPath="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/walk/RealVector.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/walk/RealVectorSpace.java" afterPath="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/walk/RealVectorSpace.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/walk/Util.java" afterPath="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/walk/Util.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/numeric/PCParser.java" afterPath="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/numeric/PCParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/numeric/SymbolicConstraintsGeneral.java" afterPath="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/numeric/SymbolicConstraintsGeneral.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/numeric/SymbolicInteger.java" afterPath="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/numeric/SymbolicInteger.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/numeric/visitors/CollectVariableVisitor.java" afterPath="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/numeric/visitors/CollectVariableVisitor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/SymbolicInstructionFactory.java" afterPath="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/SymbolicInstructionFactory.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,7 +24,124 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="ConcolicWalkSolver.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/walk/ConcolicWalkSolver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="364">
+              <caret line="126" column="2" lean-forward="true" selection-start-line="126" selection-start-column="2" selection-end-line="126" selection-end-column="2" />
+              <folding>
+                <element signature="docComment;method#isSatisfiable#0;class#ConcolicWalkSolver#0" expanded="true" />
+                <element signature="e#5108#5109#0" expanded="true" />
+                <element signature="e#5142#5143#0" expanded="true" />
+                <element signature="method#solve#0;class#ConcolicWalkSolver#0" expanded="true" />
+                <element signature="method#makeVectorFromPcs#0;class#ConcolicWalkSolver#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProblemLff.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/ProblemLff.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="598">
+              <caret line="104" column="22" lean-forward="true" selection-start-line="104" selection-start-column="22" selection-end-line="104" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#ProblemLff#0;class#ProblemLff#0" expanded="true" />
+                <element signature="method#checkExclusive#0;class#ProblemLff#0" expanded="true" />
+                <element signature="e#2867#4549#0" expanded="true" />
+                <element signature="e#3186#3253#0" expanded="false" />
+                <element signature="e#4548#4549#0" expanded="true" />
+                <element signature="method#getValValueByName#0;class#ProblemLff#0" expanded="true" />
+                <element signature="method#logSolveLinearPathConditionRes#0;class#ProblemLff#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProblemCoral.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/numeric/solvers/ProblemCoral.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="61" column="25" lean-forward="false" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="25" />
+              <folding>
+                <element signature="method#cleanup#0;class#ProblemCoral#0" expanded="true" />
+                <element signature="method#solve#0;class#ProblemCoral#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LffSolverConfigs.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/LffSolverConfigs.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="449">
+              <caret line="62" column="65" lean-forward="false" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="65" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="docComment;class#LffSolverConfigs#0" expanded="true" />
+                <element signature="e#471#515#0" expanded="false" />
+                <element signature="initializer##1;class#LffSolverConfigs#0" expanded="true" />
+                <element signature="class#SymbolicConstraintsGeneralFunction#0;class#LffSolverConfigs#0" expanded="true" />
+                <element signature="method#useExtraSymbolicConstraintsGeneral#0;class#LffSolverConfigs#0" expanded="true" />
+                <element signature="method#LffSolverConfigs#0;class#LffSolverConfigs#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SymbolicConstraintsGeneral.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/numeric/SymbolicConstraintsGeneral.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1665">
+              <caret line="166" column="66" lean-forward="false" selection-start-line="166" selection-start-column="66" selection-end-line="166" selection-end-column="66" />
+              <folding>
+                <element signature="method#isSatisfiable#0;class#SymbolicConstraintsGeneral#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/Utils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="13" column="19" lean-forward="false" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SpfUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/SpfUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="507">
+              <caret line="152" column="29" lean-forward="false" selection-start-line="152" selection-start-column="29" selection-end-line="152" selection-end-column="29" />
+              <folding>
+                <element signature="docComment;class#SpfUtils#0" expanded="true" />
+                <element signature="method#getLastJpfTestClassName#0;class#SpfUtils#0" expanded="true" />
+                <element signature="docComment;method#splitPathCondition#0;class#SpfUtils#0" expanded="true" />
+                <element signature="method#splitPathCondition#0;class#SpfUtils#0" expanded="true" />
+                <element signature="docComment;class#SplitPathCondition#0;class#SpfUtils#0" expanded="true" />
+                <element signature="class#SplitPathCondition#0;class#SpfUtils#0" expanded="true" />
+                <element signature="docComment;method#SplitPathCondition#0;class#SplitPathCondition#0;class#SpfUtils#0" expanded="true" />
+                <element signature="method#SplitPathCondition#0;class#SplitPathCondition#0;class#SpfUtils#0" expanded="true" />
+                <element signature="method#collectVariablesIn#0;class#SpfUtils#0" expanded="true" />
+                <element signature="docComment;class#CollectVariableVisitor2#0;class#SpfUtils#0" expanded="true" />
+                <element signature="class#CollectVariableVisitor2#0;class#SpfUtils#0" expanded="true" />
+                <element signature="method#postVisit#0;class#CollectVariableVisitor2#0;class#SpfUtils#0" expanded="true" />
+                <element signature="method#postVisit#1;class#CollectVariableVisitor2#0;class#SpfUtils#0" expanded="true" />
+                <element signature="method#totalVariableCount#0;class#CollectVariableVisitor2#0;class#SpfUtils#0" expanded="true" />
+                <element signature="method#getIndex#0;class#CollectVariableVisitor2#0;class#SpfUtils#0" expanded="true" />
+                <element signature="method#getVariableName#0;class#SpfUtils#0" expanded="true" />
+                <element signature="method#SpfUtils#0;class#SpfUtils#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -40,13 +152,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>or</find>
-      <find>POst</find>
-      <find>post</find>
-      <find>UnsupportedOperationException</find>
-      <find>Post</find>
-      <find>heuristic</find>
-      <find>&lt;</find>
       <find>MIJ</find>
       <find>MI</find>
       <find>M</find>
@@ -70,6 +175,13 @@
       <find>Arg</find>
       <find>line</find>
       <find>Unknown symbolic variable type</find>
+      <find>o path conditions for</find>
+      <find>no path conditions for</find>
+      <find>i</find>
+      <find>is</find>
+      <find>isE</find>
+      <find>isEm</find>
+      <find>choco</find>
     </findStrings>
     <replaceStrings>
       <replace>throw new UnsupportedOperationException();</replace>
@@ -91,19 +203,19 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/numeric/SymbolicConstraintsGeneral.java" />
-        <option value="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/util/ATG.java" />
-        <option value="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/LffSolverConfigs.java" />
-        <option value="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/numeric/SymbolicInteger.java" />
-        <option value="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/numeric/visitors/CollectVariableVisitor.java" />
-        <option value="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/walk/Util.java" />
         <option value="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/walk/ConstraintIterator.java" />
-        <option value="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/SpfUtils.java" />
         <option value="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/walk/RealVector.java" />
-        <option value="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/AbstractProblemLff.java" />
-        <option value="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/ProblemLff.java" />
         <option value="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/walk/ConcolicWalkSolver.java" />
         <option value="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/walk/RealVectorSpace.java" />
+        <option value="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/parse/TestBuilder.java" />
+        <option value="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/Utils.java" />
+        <option value="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/ProblemLffDebug.java" />
+        <option value="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/LffSolverUtils.java" />
+        <option value="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/AbstractProblemLff.java" />
+        <option value="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/SpfUtils.java" />
+        <option value="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/ProblemLff.java" />
+        <option value="$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/LffSolverConfigs.java" />
+        <option value="$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/SymbolicInstructionFactory.java" />
       </list>
     </option>
   </component>
@@ -672,7 +784,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="visitors" />
+              <option name="myItemId" value="solvers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -702,11 +814,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="numeric" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="solvers" />
+              <option name="myItemId" value="heap" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -799,10 +907,6 @@
               <option name="myItemId" value="atg" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -852,97 +956,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="atg" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LFFSolverProj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LffSolverProj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jpf-symbc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="atg" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="parse" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LFFSolverProj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LffSolverProj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jpf-symbc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="atg" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LFFSolverProj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LffSolverProj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jpf-symbc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="annotations" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="symbc" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -961,6 +975,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/ProjsIdea/LffSolverProj/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/ProblemLff.java" />
+    <property name="extract.method.default.visibility" value="private" />
   </component>
   <component name="RecentsManager">
     <key name="MoveMembersDialog.RECENTS_KEY">
@@ -1154,9 +1169,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2733189" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2733189" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1164,9 +1180,9 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.59002167" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21268657" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23933902" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2635575" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2635575" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33131617" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1233,73 +1249,77 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/numeric/SymbolicInteger.java">
+    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/LffSolverUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="30" column="22" lean-forward="true" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+        <state relative-caret-position="540">
+          <caret line="38" column="39" lean-forward="false" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
           <folding>
-            <element signature="method#solution#0;class#SymbolicInteger#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#solve#0;class#LffSolverUtils#0" expanded="true" />
+            <element signature="method#LffSolverUtils#0;class#LffSolverUtils#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/AbstractProblemLff.java">
+    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/walk/ConstraintSplitter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <element signature="method#makeVar#0;class#AbstractProblemLff#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/walk/RealVector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="35" column="30" lean-forward="false" selection-start-line="35" selection-start-column="15" selection-end-line="35" selection-end-column="30" />
-          <folding>
-            <element signature="class#Builder#0;class#RealVector#0" expanded="true" />
-            <element signature="method#Builder#0;class#Builder#0;class#RealVector#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/ProblemLff.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="82" column="27" lean-forward="false" selection-start-line="82" selection-start-column="27" selection-end-line="82" selection-end-column="27" />
+        <state relative-caret-position="305">
+          <caret line="115" column="24" lean-forward="false" selection-start-line="115" selection-start-column="4" selection-end-line="115" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/numeric/visitors/CollectVariableVisitor.java">
+    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/walk/Util.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        <state relative-caret-position="540">
+          <caret line="170" column="24" lean-forward="false" selection-start-line="170" selection-start-column="24" selection-end-line="170" selection-end-column="24" />
           <folding>
-            <element signature="e#690#691#0" expanded="false" />
-            <element signature="e#716#717#0" expanded="false" />
+            <element signature="method#preVisitAllAfterCast#0;class#Util#0" expanded="true" />
+            <element signature="e#6281#6282#0" expanded="true" />
+            <element signature="e#6315#6316#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/jdk7u45/src.zip!/java/util/List.java">
+    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/numeric/PathCondition.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="108" column="17" lean-forward="false" selection-start-line="108" selection-start-column="17" selection-end-line="108" selection-end-column="17" />
-          <folding />
+        <state relative-caret-position="135">
+          <caret line="35" column="13" lean-forward="false" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+          <folding>
+            <element signature="method#make_copy#0;class#PathCondition#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/PCAnalyzer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="52" column="28" lean-forward="false" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getEQExtraConstraints#0;class#PCAnalyzer#0" expanded="true" />
+            <element signature="method#mixedIsSatisfiable#0;class#PCAnalyzer#0" expanded="true" />
+            <element signature="method#solve#0;class#PCAnalyzer#0" expanded="true" />
+            <element signature="method#splitPathCondition#0;class#PCAnalyzer#0" expanded="true" />
+            <element signature="method#isComplex#0;class#PCAnalyzer#0" expanded="true" />
+            <element signature="method#eqConcolicConstraint#0;class#PCAnalyzer#0" expanded="true" />
+            <element signature="method#getExpression#0;class#PCAnalyzer#0" expanded="true" />
+            <element signature="method#traverseConstraint#0;class#PCAnalyzer#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/SpfUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-134">
-          <caret line="10" column="40" lean-forward="true" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+        <state relative-caret-position="507">
+          <caret line="152" column="29" lean-forward="false" selection-start-line="152" selection-start-column="29" selection-end-line="152" selection-end-column="29" />
           <folding>
             <element signature="docComment;class#SpfUtils#0" expanded="true" />
             <element signature="method#getLastJpfTestClassName#0;class#SpfUtils#0" expanded="true" />
             <element signature="docComment;method#splitPathCondition#0;class#SpfUtils#0" expanded="true" />
             <element signature="method#splitPathCondition#0;class#SpfUtils#0" expanded="true" />
+            <element signature="docComment;class#SplitPathCondition#0;class#SpfUtils#0" expanded="true" />
+            <element signature="class#SplitPathCondition#0;class#SpfUtils#0" expanded="true" />
             <element signature="docComment;method#SplitPathCondition#0;class#SplitPathCondition#0;class#SpfUtils#0" expanded="true" />
             <element signature="method#SplitPathCondition#0;class#SplitPathCondition#0;class#SpfUtils#0" expanded="true" />
             <element signature="method#collectVariablesIn#0;class#SpfUtils#0" expanded="true" />
@@ -1315,76 +1335,86 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/walk/Util.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="176" column="27" lean-forward="false" selection-start-line="176" selection-start-column="27" selection-end-line="176" selection-end-column="27" />
-          <folding>
-            <element signature="method#variablesIn#0;class#Util#0" expanded="true" />
-            <element signature="method#variablesIn#1;class#Util#0" expanded="true" />
-            <element signature="method#variablesIn#2;class#Util#0" expanded="true" />
-            <element signature="method#union#0;class#Util#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/walk/ConcolicWalkSolver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="195" column="69" lean-forward="false" selection-start-line="195" selection-start-column="56" selection-end-line="195" selection-end-column="69" />
+        <state relative-caret-position="364">
+          <caret line="126" column="2" lean-forward="true" selection-start-line="126" selection-start-column="2" selection-end-line="126" selection-end-column="2" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#ConcolicWalkSolver#0" expanded="true" />
-            <element signature="docComment;method#solve#0;class#ConcolicWalkSolver#0" expanded="true" />
+            <element signature="docComment;method#isSatisfiable#0;class#ConcolicWalkSolver#0" expanded="true" />
+            <element signature="e#5108#5109#0" expanded="true" />
+            <element signature="e#5142#5143#0" expanded="true" />
             <element signature="method#solve#0;class#ConcolicWalkSolver#0" expanded="true" />
-            <element signature="docComment;method#solveWithAdaptiveVariableSearch#0;class#ConcolicWalkSolver#0" expanded="true" />
-            <element signature="e#7854#7866#0" expanded="true" />
-            <element signature="e#9686#9716#1" expanded="true" />
-            <element signature="docComment;method#makeRandomNeighborInPolytope#0;class#ConcolicWalkSolver#0" expanded="true" />
-            <element signature="method#makeVectorFromSolutions#0;class#ConcolicWalkSolver#0" expanded="true" />
-            <element signature="method#computeError#0;class#ConcolicWalkSolver#0" expanded="true" />
-            <element signature="docComment;method#makeVectorFromPcs#0;class#ConcolicWalkSolver#0" expanded="true" />
             <element signature="method#makeVectorFromPcs#0;class#ConcolicWalkSolver#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/walk/ConstraintIterator.java">
+    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="33" column="31" lean-forward="false" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="31" />
+        <state relative-caret-position="75">
+          <caret line="13" column="19" lean-forward="false" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/numeric/SymbolicConstraintsGeneral.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1665">
+          <caret line="166" column="66" lean-forward="false" selection-start-line="166" selection-start-column="66" selection-end-line="166" selection-end-column="66" />
           <folding>
-            <element signature="method#eachConstraint#0;class#ConstraintIterator#0" expanded="true" />
+            <element signature="method#isSatisfiable#0;class#SymbolicConstraintsGeneral#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/tests/gov/nasa/jpf/symbc/concolic/walk/TestExpressionEvaluator.java">
+    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/ProblemLff.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="44" column="33" lean-forward="false" selection-start-line="44" selection-start-column="33" selection-end-line="44" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/tests/gov/nasa/jpf/symbc/concolic/walk/TestConcolicWalkSolver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="45" column="33" lean-forward="false" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/concolic/walk/RealVectorSpace.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="130" column="0" lean-forward="true" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+        <state relative-caret-position="598">
+          <caret line="104" column="22" lean-forward="true" selection-start-line="104" selection-start-column="22" selection-end-line="104" selection-end-column="22" />
           <folding>
-            <element signature="method#RealVectorSpace#0;class#RealVectorSpace#0" expanded="true" />
-            <element signature="e#2275#2276#0" expanded="true" />
-            <element signature="e#2320#2321#0" expanded="true" />
-            <element signature="method#forDimensions#0;class#RealVectorSpace#0" expanded="true" />
-            <element signature="method#forDimensions#1;class#RealVectorSpace#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#ProblemLff#0;class#ProblemLff#0" expanded="true" />
+            <element signature="method#checkExclusive#0;class#ProblemLff#0" expanded="true" />
+            <element signature="e#2867#4549#0" expanded="true" />
+            <element signature="e#3186#3253#0" expanded="false" />
+            <element signature="e#4548#4549#0" expanded="true" />
+            <element signature="method#getValValueByName#0;class#ProblemLff#0" expanded="true" />
+            <element signature="method#logSolveLinearPathConditionRes#0;class#ProblemLff#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/numeric/solvers/ProblemCoral.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="61" column="25" lean-forward="false" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="25" />
+          <folding>
+            <element signature="method#cleanup#0;class#ProblemCoral#0" expanded="true" />
+            <element signature="method#solve#0;class#ProblemCoral#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/gov/nasa/jpf/symbc/SymbolicInstructionFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="549" column="55" lean-forward="false" selection-start-line="549" selection-start-column="55" selection-end-line="549" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jpf-symbc/src/main/cn/nju/seg/atg/spfwrapper/LffSolverConfigs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="62" column="65" lean-forward="false" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#LffSolverConfigs#0" expanded="true" />
+            <element signature="e#471#515#0" expanded="false" />
+            <element signature="initializer##1;class#LffSolverConfigs#0" expanded="true" />
+            <element signature="class#SymbolicConstraintsGeneralFunction#0;class#LffSolverConfigs#0" expanded="true" />
+            <element signature="method#useExtraSymbolicConstraintsGeneral#0;class#LffSolverConfigs#0" expanded="true" />
+            <element signature="method#LffSolverConfigs#0;class#LffSolverConfigs#0" expanded="true" />
           </folding>
         </state>
       </provider>

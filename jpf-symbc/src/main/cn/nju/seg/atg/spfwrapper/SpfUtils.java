@@ -49,7 +49,10 @@ public final class SpfUtils {
     return new SplitPathCondition(linearPc, nonLinearPc);
   }
 
-  static class SplitPathCondition {
+  /**
+   * Represents the result of splitting a `PathCondition` into a linear part and a non-linear part.
+   */
+  static final class SplitPathCondition {
 
     public final PathCondition linearPc;
 
@@ -76,6 +79,9 @@ public final class SpfUtils {
   }
 
   /**
+   * A visitor used to collect and store variables ({@link gov.nasa.jpf.symbc.numeric.SymbolicInteger} and {@link gov.nasa.jpf.symbc.numeric.SymbolicReal})
+   * in a {@link gov.nasa.jpf.symbc.numeric.PathCondition}.
+   *
    * @see gov.nasa.jpf.symbc.numeric.visitors.CollectVariableVisitor
    */
   public static final class CollectVariableVisitor2 extends ConstraintExpressionVisitor {
@@ -141,5 +147,12 @@ public final class SpfUtils {
     }
   }
 
-  private SpfUtils() {throw new UnsupportedOperationException();}
+  public static boolean isEmptyPathCondition(final PathCondition pc) {
+    Preconditions.checkNotNull(pc);
+
+    return pc.header == null;
+  }
+
+  @Deprecated
+  private SpfUtils() { throw new UnsupportedOperationException(); }
 }

@@ -51,11 +51,6 @@ public abstract class AbstractProblemLff extends IProblemLffParser {
     this.post(orResultBuilder.toString());
   }
 
-  protected void logToFile(final String fileName) {
-    assert !Strings.isNullOrEmpty(fileName);
-
-    Utils.logToFile(LffSolverConfigs.LFF_LOG_DIR.resolve(fileName + ".txt"), this.logLines);
-  }
 
   //region Mange variables
 
@@ -113,7 +108,34 @@ public abstract class AbstractProblemLff extends IProblemLffParser {
 
   //endregion Mange variables
 
+  protected final void appendToLogLines(final String testClassName, final String expression, final String valName, final String valType) {
+    this.logLines.add("");
+    this.logLines.add("Solve class: " + testClassName);
+
+    this.logLines.add("Variable names:");
+    this.logLines.add(valName);
+
+    this.logLines.add("Variable types:");
+    this.logLines.add(valType);
+
+    this.logLines.add("Expressions:");
+    this.logLines.add(expression);
+  }
+
+  protected final boolean logToFile(final String fileName) {
+    assert !Strings.isNullOrEmpty(fileName);
+
+    final boolean logRes = Utils.logToFile(LffSolverConfigs.LFF_LOG_DIR.resolve(fileName + ".txt"), this.logLines, true);
+    this.logLines.clear();
+
+    return logRes;
+  }
+
+  //region Static help methods
+
   public static boolean isProblemLff(final Object problemGeneral) {
     return problemGeneral instanceof AbstractProblemLff;
   }
+
+  //endregion Static help methods
 }

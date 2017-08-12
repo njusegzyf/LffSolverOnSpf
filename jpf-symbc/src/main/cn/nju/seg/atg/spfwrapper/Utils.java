@@ -6,18 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 
-import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Lists;
-
-import gov.nasa.jpf.symbc.SymbolicInstructionFactory;
-import gov.nasa.jpf.symbc.numeric.Constraint;
-import gov.nasa.jpf.symbc.numeric.LinearIntegerConstraint;
-import gov.nasa.jpf.symbc.numeric.LogicalORLinearIntegerConstraints;
-import gov.nasa.jpf.symbc.numeric.MixedConstraint;
-import gov.nasa.jpf.symbc.numeric.NonLinearIntegerConstraint;
-import gov.nasa.jpf.symbc.numeric.PathCondition;
-import gov.nasa.jpf.symbc.numeric.RealConstraint;
 
 /**
  * @author Zhang Yifan
@@ -56,5 +45,6 @@ public final class Utils {
     return Utils.logToFile(logFile, ImmutableList.of(appendLogLine), true);
   }
 
-  private Utils() {throw new UnsupportedOperationException();}
+  @Deprecated
+  private Utils() { throw new UnsupportedOperationException(); }
 }

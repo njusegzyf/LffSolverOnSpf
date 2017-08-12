@@ -6,8 +6,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import gov.nasa.jpf.symbc.SymbolicInstructionFactory;
 import gov.nasa.jpf.symbc.numeric.SymbolicConstraintsGeneral;
-import gov.nasa.jpf.symbc.numeric.solvers.ProblemChoco;
 
 /**
  * @author Zhang Yifan
@@ -15,7 +15,7 @@ import gov.nasa.jpf.symbc.numeric.solvers.ProblemChoco;
 public final class LffSolverConfigs {
 
   // FIXME hard-coded log dir
-  static final Path LOG_HOME = Paths.get("/home/njuseg/experiments/gen");
+  private static final Path LOG_HOME = Paths.get("/home/njuseg/experiments/gen");
 
   //region Configs for logging of `ProblemLff`
 
@@ -60,16 +60,34 @@ public final class LffSolverConfigs {
 
   //region Configs for Lff solver start points
 
-  static final boolean IS_USE_EXTRA_SOLVER_FOR_START_POINT = false;
+  public static final boolean IS_USE_EXTRA_SOLVER_FOR_START_POINT = true;
 
-  static SymbolicConstraintsGeneral createExtraSymbolicConstraintsGeneral() {
+  private static String[] DP_FOR_EXTRA_SYMBOLIC_CONSTRAINTS_GENERAL = { "coral" };
+
+  public interface SymbolicConstraintsGeneralFunction<T> {
+
+    T apply(SymbolicConstraintsGeneral sc);
+  }
+
+  static <T> T useExtraSymbolicConstraintsGeneral(final SymbolicConstraintsGeneralFunction<T> func) {
+    assert func != null;
+
+    // record current dp
+    final String[] currentDp = SymbolicInstructionFactory.dp;
+
+    SymbolicInstructionFactory.dp = LffSolverConfigs.DP_FOR_EXTRA_SYMBOLIC_CONSTRAINTS_GENERAL;
+
     final SymbolicConstraintsGeneral sc = new SymbolicConstraintsGeneral();
-    sc.pb = new ProblemChoco();
+    final T res = func.apply(sc);
 
-    return sc;
+    // restore current dp
+    SymbolicInstructionFactory.dp = currentDp;
+
+    return res;
   }
 
   //endregion Configs for Lff solver start points
 
+  @Deprecated
   private LffSolverConfigs() { throw new UnsupportedOperationException(); }
 }
