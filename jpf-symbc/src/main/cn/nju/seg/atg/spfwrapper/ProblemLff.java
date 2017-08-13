@@ -9,6 +9,7 @@ import com.google.common.base.Strings;
 import cn.nju.seg.atg.parse.TestBuilder;
 import cn.nju.seg.atg.spfwrapper.LffSolverConfigs.SymbolicConstraintsGeneralFunction;
 import cn.nju.seg.atg.spfwrapper.SpfUtils.SplitPathCondition;
+import gov.nasa.jpf.symbc.concolic.PCAnalyzer;
 import gov.nasa.jpf.symbc.concolic.walk.ConcolicWalkSolver;
 import gov.nasa.jpf.symbc.concolic.walk.RealVector;
 import gov.nasa.jpf.symbc.numeric.PathCondition;
@@ -97,12 +98,17 @@ public final class ProblemLff extends AbstractProblemLff {
                     startPoint[index1] = p.values[index2];
                   }
 
+                  // set start point
                   LffSolverUtils.setStartPoint(startPoint);
 
                   ProblemLff.this.logSolveLinearPathConditionRes(testClassName, true, startPoint);
                   return Boolean.TRUE;
                 } else {
                   // linear path condition is not solved
+
+                  // clear start point
+                  LffSolverUtils.clearStartPoint();
+
                   ProblemLff.this.logSolveLinearPathConditionRes(testClassName, false, null);
                   return Boolean.FALSE;
                 }
@@ -124,6 +130,8 @@ public final class ProblemLff extends AbstractProblemLff {
 
       } else { // empty linear pc
         ProblemLff.this.logLines.add("Skip empty linear path condition.");
+        // clear start point
+        LffSolverUtils.clearStartPoint();
       }
     }
 

@@ -39,6 +39,12 @@ final class LffSolverUtils {
     ATG.CUSTOMIZED_PARAMS = startPoint;
   }
 
+  static void clearStartPoint() {
+    ATG.CUSTOMIZED_PARAMS = LffSolverUtils.DEFAULT_START_POINT;
+  }
+
+  private static final double[] DEFAULT_START_POINT = {};
+
   @Deprecated
   private LffSolverUtils() { throw new UnsupportedOperationException(); }
 }

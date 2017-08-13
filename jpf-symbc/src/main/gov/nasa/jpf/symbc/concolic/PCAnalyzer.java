@@ -2,11 +2,38 @@ package gov.nasa.jpf.symbc.concolic;
 
 import java.util.ArrayList;
 
+import cn.nju.seg.atg.spfwrapper.LffSolverConfigs;
+import cn.nju.seg.atg.spfwrapper.LffSolverConfigs.SymbolicConstraintsGeneralFunction;
+import cn.nju.seg.atg.spfwrapper.SpfUtils;
 import gov.nasa.jpf.symbc.SymbolicInstructionFactory;
 import gov.nasa.jpf.symbc.concolic.walk.ConcolicWalkSolver;
-import gov.nasa.jpf.symbc.numeric.*;
+import gov.nasa.jpf.symbc.numeric.BinaryNonLinearIntegerExpression;
+import gov.nasa.jpf.symbc.numeric.BinaryRealExpression;
+import gov.nasa.jpf.symbc.numeric.Comparator;
+import gov.nasa.jpf.symbc.numeric.Constraint;
+import gov.nasa.jpf.symbc.numeric.Expression;
+import gov.nasa.jpf.symbc.numeric.IntegerConstant;
+import gov.nasa.jpf.symbc.numeric.IntegerExpression;
+import gov.nasa.jpf.symbc.numeric.LinearIntegerConstraint;
+import gov.nasa.jpf.symbc.numeric.LogicalORLinearIntegerConstraints;
+import gov.nasa.jpf.symbc.numeric.MathFunction;
+import gov.nasa.jpf.symbc.numeric.MathRealExpression;
+import gov.nasa.jpf.symbc.numeric.MixedConstraint;
+import gov.nasa.jpf.symbc.numeric.NonLinearIntegerConstraint;
+import gov.nasa.jpf.symbc.numeric.Operator;
+import gov.nasa.jpf.symbc.numeric.PathCondition;
+import gov.nasa.jpf.symbc.numeric.RealConstant;
+import gov.nasa.jpf.symbc.numeric.RealConstraint;
+import gov.nasa.jpf.symbc.numeric.RealExpression;
+import gov.nasa.jpf.symbc.numeric.SymbolicConstraintsGeneral;
+import gov.nasa.jpf.symbc.numeric.SymbolicInteger;
+import gov.nasa.jpf.symbc.numeric.SymbolicReal;
 
-public class PCAnalyzer {
+/**
+ * @author CW, Zhang Yifan
+ * @version 0.1
+ */
+public final class PCAnalyzer {
 
   private final ConcolicWalkSolver delegateSolver = new ConcolicWalkSolver();
 
@@ -417,5 +444,44 @@ public class PCAnalyzer {
 
   public PathCondition getSimplifiedPC() {
     return simplePC;
+  }
+
+  /**
+   * @since 0.1
+   */
+  public static PathCondition simplifyPathCondition(final PathCondition pathCondition) {
+    if (SpfUtils.isEmptyPathCondition(pathCondition)) {
+      return pathCondition;
+    }
+
+    return new PCAnalyzer().simplifyPathCondition2(pathCondition);
+  }
+
+  /**
+   * @since 0.1
+   */
+  private PathCondition simplifyPathCondition2(final PathCondition pathCondition) {
+    assert !SpfUtils.isEmptyPathCondition(pathCondition);
+
+    // since `splitPathCondition` will change the passed `PathCondition`, we must make a copy
+    final PathCondition pc = pathCondition.make_copy();
+
+    this.splitPathCondition(pc);
+    if (SpfUtils.isEmptyPathCondition(this.simplePC) || SpfUtils.isEmptyPathCondition(this.concolicPC)) {
+      return pathCondition;
+    }
+
+    final Boolean isSimplePcSolved = LffSolverConfigs.useExtraSymbolicConstraintsGeneral(new SymbolicConstraintsGeneralFunction<Boolean>() {
+      @Override public Boolean apply(final SymbolicConstraintsGeneral sc) {
+        return sc.solve(PCAnalyzer.this.simplePC);
+      }
+    });
+
+    if (isSimplePcSolved) {
+      this.createSimplifiedPC();
+      return this.getSimplifiedPC();
+    } else {
+      return pathCondition;
+    }
   }
 }

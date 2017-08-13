@@ -27,6 +27,7 @@ import java.util.Set;
 import cn.nju.seg.atg.spfwrapper.ProblemLff;
 import cn.nju.seg.atg.spfwrapper.ProblemLffDebug;
 import gov.nasa.jpf.symbc.SymbolicInstructionFactory;
+import gov.nasa.jpf.symbc.concolic.PCAnalyzer;
 import gov.nasa.jpf.symbc.numeric.solvers.DebugSolvers;
 import gov.nasa.jpf.symbc.numeric.solvers.ProblemCVC3;
 import gov.nasa.jpf.symbc.numeric.solvers.ProblemCVC3BitVector;
@@ -49,7 +50,7 @@ public class SymbolicConstraintsGeneral {
 
   protected Boolean result; // tells whether result is satisfiable or not
 
-  public boolean isSatisfiable(final PathCondition pc) {
+  public boolean isSatisfiable(PathCondition pc) {
     if (pc == null || pc.count == 0) {
       if (SymbolicInstructionFactory.debugMode) { System.out.println("## Warning: empty path condition"); }
       return true;
@@ -69,7 +70,7 @@ public class SymbolicConstraintsGeneral {
     //		if (SymbolicInstructionFactory.debugMode)
     //			System.out.println("checking: PC "+pc);
 
-    String[] dp = SymbolicInstructionFactory.dp;
+    final String[] dp = SymbolicInstructionFactory.dp;
     if (dp == null) { // default: use choco
       pb = new ProblemChoco();
     } else if (dp[0].equalsIgnoreCase("choco")) {
@@ -93,6 +94,8 @@ public class SymbolicConstraintsGeneral {
     } else if (dp[0].equalsIgnoreCase("compare")) {
       pb = new ProblemCompare(pc, this);
     } else if (dp[0].equalsIgnoreCase("lff")) { // add for LFF solver
+      // simplify pc
+      pc = PCAnalyzer.simplifyPathCondition(pc);
       pb = new ProblemLff(pc);
     } else if (dp[0].equalsIgnoreCase("lff-debug")) { // add for LFF solver
       pb = new ProblemLffDebug();

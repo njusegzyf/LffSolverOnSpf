@@ -69,7 +69,7 @@ public final class LffSolverConfigs {
     T apply(SymbolicConstraintsGeneral sc);
   }
 
-  static <T> T useExtraSymbolicConstraintsGeneral(final SymbolicConstraintsGeneralFunction<T> func) {
+  public static <T> T useExtraSymbolicConstraintsGeneral(final SymbolicConstraintsGeneralFunction<T> func) {
     assert func != null;
 
     // record current dp
