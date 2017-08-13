@@ -2,6 +2,7 @@ package cn.nju.seg.atg.spfwrapper;
 
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
 
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
@@ -9,7 +10,6 @@ import com.google.common.base.Strings;
 import cn.nju.seg.atg.parse.TestBuilder;
 import cn.nju.seg.atg.spfwrapper.LffSolverConfigs.SymbolicConstraintsGeneralFunction;
 import cn.nju.seg.atg.spfwrapper.SpfUtils.SplitPathCondition;
-import gov.nasa.jpf.symbc.concolic.PCAnalyzer;
 import gov.nasa.jpf.symbc.concolic.walk.ConcolicWalkSolver;
 import gov.nasa.jpf.symbc.concolic.walk.RealVector;
 import gov.nasa.jpf.symbc.numeric.PathCondition;
@@ -30,6 +30,8 @@ public final class ProblemLff extends AbstractProblemLff {
   private final long createTime = System.currentTimeMillis();
 
   private final PathCondition pathCondition;
+
+  private SymbolicConstraintsGeneral linearPartSolver = null;
 
   //endregion Instance fields
 
@@ -73,10 +75,13 @@ public final class ProblemLff extends AbstractProblemLff {
       final PathCondition nonLinearPc = splitPathCondition.nonLinearPc;
 
       if (!SpfUtils.isEmptyPathCondition(linearPc)) { // non-empty linear pc
+
+        final AtomicReference<SymbolicConstraintsGeneral> linearPartSolverRef = new AtomicReference<>(null);
         final Boolean solveLinearPcResult =
             LffSolverConfigs.useExtraSymbolicConstraintsGeneral(new SymbolicConstraintsGeneralFunction<Boolean>() {
               @Override public Boolean apply(final SymbolicConstraintsGeneral extraSymbolicConstraintsGeneral) {
 
+                linearPartSolverRef.set(extraSymbolicConstraintsGeneral);
                 final boolean linearPcSolved = extraSymbolicConstraintsGeneral.solve(linearPc);
 
                 if (linearPcSolved) {
@@ -115,6 +120,8 @@ public final class ProblemLff extends AbstractProblemLff {
               }
             });
 
+        this.linearPartSolver = linearPartSolverRef.get();
+
         if (!solveLinearPcResult.booleanValue()) {
           // if linear path condition is not solved, directly return false and do not use LFF solver
           return Boolean.FALSE;
@@ -151,6 +158,28 @@ public final class ProblemLff extends AbstractProblemLff {
   }
 
   @Override
+  public double getRealValue(final Object dpVar) {
+    if (dpVar instanceof String) {
+      return super.getRealValue(dpVar);
+    } else {
+      assert this.linearPartSolver != null;
+
+      return this.linearPartSolver.pb.getRealValue(dpVar);
+    }
+  }
+
+  @Override
+  public int getIntValue(final Object dpVar) {
+    if (dpVar instanceof String) {
+      return super.getIntValue(dpVar);
+    } else {
+      assert this.linearPartSolver != null;
+
+      return this.linearPartSolver.pb.getIntValue(dpVar);
+    }
+  }
+
+  @Override
   protected double getValValueByName(final String valName) {
     assert !Strings.isNullOrEmpty(valName);
 
@@ -172,6 +201,9 @@ public final class ProblemLff extends AbstractProblemLff {
     }
 
     return this.logToFile(testClassName);
+  }
+
+  public void cleanup() {
   }
 
   //region Static fields

@@ -80,6 +80,8 @@ public final class LffSolverConfigs {
     final SymbolicConstraintsGeneral sc = new SymbolicConstraintsGeneral();
     final T res = func.apply(sc);
 
+    sc.cleanup();
+
     // restore current dp
     SymbolicInstructionFactory.dp = currentDp;
 

@@ -10,9 +10,9 @@ import cn.nju.seg.atg.util.PCATG;
 /**
  * @author Zhang Yifan
  */
-final class LffSolverUtils {
+public final class LffSolverUtils {
 
-  static Boolean solve(final String binaryExpression,
+  public static Boolean solve(final String binaryExpression,
                        final String nodeName,
                        final String typeString,
                        final String nameString) {
@@ -33,13 +33,13 @@ final class LffSolverUtils {
     return Boolean.valueOf(isCovered != -1);
   }
 
-  static void setStartPoint(final double[] startPoint) {
+  public static void setStartPoint(final double[] startPoint) {
     assert startPoint != null && startPoint.length != 0;
 
     ATG.CUSTOMIZED_PARAMS = startPoint;
   }
 
-  static void clearStartPoint() {
+  public static void clearStartPoint() {
     ATG.CUSTOMIZED_PARAMS = LffSolverUtils.DEFAULT_START_POINT;
   }
 

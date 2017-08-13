@@ -55,11 +55,12 @@ public abstract class AbstractProblemLff extends IProblemLffParser {
   //region Mange variables
 
   @Override
-  public Object makeIntVar(final String name, final int min, final int max) {
+  public String makeIntVar(final String name, final int min, final int max) {
     return this.makeVar(name, "int");
   }
 
-  @Override public Object makeRealVar(final String name, final double min, final double max) {
+  @Override
+  public String makeRealVar(final String name, final double min, final double max) {
     return this.makeVar(name, "double");
   }
 

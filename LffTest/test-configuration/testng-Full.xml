@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="FullSuite" parallel="classes" thread-count="4" verbose="1">
+  <test name="LffTest">
+    <packages>
+      <package name="cn.nju.seg.zhangyf.lfftest"/>
+    </packages>
+  </test> <!-- LffTest -->
+
+  <test name="JUnitTest" junit="true" enabled="false">
+  </test>
+</suite> <!-- FullSuite -->

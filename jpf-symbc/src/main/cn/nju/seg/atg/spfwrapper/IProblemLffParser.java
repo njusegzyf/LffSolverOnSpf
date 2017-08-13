@@ -346,7 +346,7 @@ public abstract class IProblemLffParser extends ProblemGeneral {
 
   @Override
   public Object sqrt(Object exp) {
-    return IProblemLffParser.toFunctionCallString("exp", exp);
+    return IProblemLffParser.toFunctionCallString("sqrt", exp);
   }
 
   @Override

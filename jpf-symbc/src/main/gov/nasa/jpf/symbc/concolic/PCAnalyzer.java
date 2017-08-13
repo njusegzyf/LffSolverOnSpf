@@ -123,7 +123,7 @@ public final class PCAnalyzer {
           }
 
           Constraint cRef = extraPC.header;
-          int length = extraPC.count();
+          // int length = extraPC.count();
           while (cRef != null) {
             cRef.setComparator(Comparator.GT); // TODO: should be NE but choco can not handle it
             cRef = cRef.and;
@@ -432,7 +432,7 @@ public final class PCAnalyzer {
         System.out.println("--------------------");
       }
 
-      simplePC.flagSolved = false;
+      PathCondition.flagSolved = false;
 
       //		if (true /*SymbolicInstructionFactory.debugMode*/) {
       //			System.out.println("--------------------");
@@ -454,7 +454,11 @@ public final class PCAnalyzer {
       return pathCondition;
     }
 
-    return new PCAnalyzer().simplifyPathCondition2(pathCondition);
+    try { // FIXME
+      return new PCAnalyzer().simplifyPathCondition2(pathCondition);
+    } catch (final RuntimeException ignored) {
+      return pathCondition;
+    }
   }
 
   /**
@@ -463,21 +467,20 @@ public final class PCAnalyzer {
   private PathCondition simplifyPathCondition2(final PathCondition pathCondition) {
     assert !SpfUtils.isEmptyPathCondition(pathCondition);
 
-    // since `splitPathCondition` will change the passed `PathCondition`, we must make a copy
-    final PathCondition pc = pathCondition.make_copy();
-
-    this.splitPathCondition(pc);
+    this.splitPathCondition(pathCondition);
     if (SpfUtils.isEmptyPathCondition(this.simplePC) || SpfUtils.isEmptyPathCondition(this.concolicPC)) {
       return pathCondition;
     }
 
     final Boolean isSimplePcSolved = LffSolverConfigs.useExtraSymbolicConstraintsGeneral(new SymbolicConstraintsGeneralFunction<Boolean>() {
       @Override public Boolean apply(final SymbolicConstraintsGeneral sc) {
-        return sc.solve(PCAnalyzer.this.simplePC);
+        final Boolean res = Boolean.valueOf(sc.solve(PCAnalyzer.this.simplePC));
+        PathCondition.flagSolved = true;
+        return res;
       }
     });
 
-    if (isSimplePcSolved) {
+    if (isSimplePcSolved.booleanValue()) {
       this.createSimplifiedPC();
       return this.getSimplifiedPC();
     } else {

@@ -95,7 +95,7 @@ public class SymbolicConstraintsGeneral {
       pb = new ProblemCompare(pc, this);
     } else if (dp[0].equalsIgnoreCase("lff")) { // add for LFF solver
       // simplify pc
-      pc = PCAnalyzer.simplifyPathCondition(pc);
+      // pc = PCAnalyzer.simplifyPathCondition(pc);
       pb = new ProblemLff(pc);
     } else if (dp[0].equalsIgnoreCase("lff-debug")) { // add for LFF solver
       pb = new ProblemLffDebug();
@@ -151,6 +151,8 @@ public class SymbolicConstraintsGeneral {
       ((ProblemCVC3) pb).cleanup();
     } else if (pb instanceof ProblemCoral) {
       ((ProblemCoral) pb).cleanup();
+    } else if (pb instanceof ProblemLff) {
+      ((ProblemLff) pb).cleanup();
     }
   }
 
