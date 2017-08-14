@@ -6,6 +6,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import com.google.common.collect.Lists;
+
 import gov.nasa.jpf.symbc.SymbolicInstructionFactory;
 import gov.nasa.jpf.symbc.numeric.SymbolicConstraintsGeneral;
 
@@ -44,15 +46,24 @@ public final class LffSolverConfigs {
 
   //region Configs for logging CW start points
 
-  public static final boolean IS_LOG_CONCOLIC_WALKER_START_POINTS = true;
+  public static final boolean IS_LOG_CONCOLIC_WALKER = true;
 
   public static final Path CONCOLIC_WALKER_START_POINTS_LOG_DIR = LffSolverConfigs.LOG_HOME.resolve("ConcolicWalkerStartPoints");
 
   static {
-    if (LffSolverConfigs.IS_LOG_CONCOLIC_WALKER_START_POINTS) {
+    if (LffSolverConfigs.IS_LOG_CONCOLIC_WALKER) {
       try {
         Files.createDirectories(LffSolverConfigs.CONCOLIC_WALKER_START_POINTS_LOG_DIR);
       } catch (final IOException ignored) {}
+    }
+  }
+
+  public static void logConcolicWalker(final String... appendLogLines) {
+    if (LffSolverConfigs.IS_LOG_CONCOLIC_WALKER) {
+      final String testClassName = SpfUtils.getLastJpfTestClassName();
+      Utils.logToFile(LffSolverConfigs.CONCOLIC_WALKER_START_POINTS_LOG_DIR.resolve(testClassName + ".txt"),
+                      Lists.asList("", // insert a blank line
+                                   appendLogLines));
     }
   }
 

@@ -5,8 +5,11 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
+import java.util.Arrays;
 
+import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
+
 
 /**
  * @author Zhang Yifan
@@ -22,7 +25,10 @@ public final class Utils {
 
   public static final char EOL = '\n';
 
-  public static boolean logToFile(final Path logFile, final Iterable<String> logLines, final boolean isAppend) {
+  public static boolean logToFile(final Path logFile, final boolean isAppend, final Iterable<String> logLines) {
+    Preconditions.checkNotNull(logFile);
+    Preconditions.checkNotNull(logFile);
+
     try {
       if (isAppend) {
         Files.write(logFile, logLines, Charset.defaultCharset(),
@@ -37,12 +43,20 @@ public final class Utils {
     }
   }
 
+  public static boolean logToFile(final Path logFile, final boolean isAppend, final String... logLines) {
+    return Utils.logToFile(logFile, isAppend, Arrays.<String>asList(logLines));
+  }
+
   public static boolean logToFile(final Path logFile, final Iterable<String> logLines) {
-    return Utils.logToFile(logFile, logLines, true);
+    return Utils.logToFile(logFile, true, logLines);
+  }
+
+  public static boolean logToFile(final Path logFile, final String... logLines) {
+    return Utils.logToFile(logFile, true, logLines);
   }
 
   public static boolean appendToLogFile(final Path logFile, final String appendLogLine) {
-    return Utils.logToFile(logFile, ImmutableList.of(appendLogLine), true);
+    return Utils.logToFile(logFile, true, ImmutableList.of(appendLogLine));
   }
 
   @Deprecated

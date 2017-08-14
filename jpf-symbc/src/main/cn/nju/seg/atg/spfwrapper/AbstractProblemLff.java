@@ -126,7 +126,7 @@ public abstract class AbstractProblemLff extends IProblemLffParser {
   protected final boolean logToFile(final String fileName) {
     assert !Strings.isNullOrEmpty(fileName);
 
-    final boolean logRes = Utils.logToFile(LffSolverConfigs.LFF_LOG_DIR.resolve(fileName + ".txt"), this.logLines, true);
+    final boolean logRes = Utils.logToFile(LffSolverConfigs.LFF_LOG_DIR.resolve(fileName + ".txt"), true, this.logLines);
     this.logLines.clear();
 
     return logRes;

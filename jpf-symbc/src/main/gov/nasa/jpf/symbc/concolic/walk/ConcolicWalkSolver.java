@@ -28,17 +28,6 @@ import static gov.nasa.jpf.symbc.concolic.walk.Util.printDebug;
 import static gov.nasa.jpf.symbc.concolic.walk.Util.union;
 import static gov.nasa.jpf.symbc.concolic.walk.Util.variablesIn;
 
-import cn.nju.seg.atg.spfwrapper.LffSolverConfigs;
-import cn.nju.seg.atg.spfwrapper.SpfUtils;
-import cn.nju.seg.atg.spfwrapper.Utils;
-import gov.nasa.jpf.symbc.numeric.Comparator;
-import gov.nasa.jpf.symbc.numeric.Constraint;
-import gov.nasa.jpf.symbc.numeric.Expression;
-import gov.nasa.jpf.symbc.numeric.PathCondition;
-import gov.nasa.jpf.symbc.numeric.SymbolicConstraintsGeneral;
-import gov.nasa.jpf.symbc.numeric.SymbolicInteger;
-import gov.nasa.jpf.symbc.numeric.SymbolicReal;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.BitSet;
@@ -50,7 +39,14 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
-import com.google.common.collect.Lists;
+import cn.nju.seg.atg.spfwrapper.LffSolverConfigs;
+import gov.nasa.jpf.symbc.numeric.Comparator;
+import gov.nasa.jpf.symbc.numeric.Constraint;
+import gov.nasa.jpf.symbc.numeric.Expression;
+import gov.nasa.jpf.symbc.numeric.PathCondition;
+import gov.nasa.jpf.symbc.numeric.SymbolicConstraintsGeneral;
+import gov.nasa.jpf.symbc.numeric.SymbolicInteger;
+import gov.nasa.jpf.symbc.numeric.SymbolicReal;
 
 /**
  * Implementation of the <em>Concolic Walk</em> algorithm for solving complex
@@ -119,8 +115,7 @@ public class ConcolicWalkSolver {
   /** Error value used if the error function of a constraint returns NaN */
   private final static double NAN_ERROR = 0.125 * Double.MAX_VALUE;
 
-  private final static double[] SEEDED_VALUES =
-      { 0.0, 1.0, -1.0, Double.MAX_VALUE, Double.MIN_VALUE };
+  private final static double[] SEEDED_VALUES = { 0.0, 1.0, -1.0, Double.MAX_VALUE, Double.MIN_VALUE };
 
   private final static Random random = new Random();
 
@@ -153,13 +148,22 @@ public class ConcolicWalkSolver {
     PathCondition nonLinearPc = new PathCondition();
     ConstraintSplitter.splitInto(pc, linearPc, nonLinearPc);  // Algorithm 1, lines 2--3
 
+    // @since 0.1
+
+    LffSolverConfigs.logConcolicWalker("CW Solve:",
+                                       "Linear PC: " + linearPc,
+                                       "Non-linear PC: " + nonLinearPc);
+
     if (!solver.solve(linearPc)) {  // lines 4--5
+      LffSolverConfigs.logConcolicWalker("Linear PC not solved.");
       return false;
     }
     if (isEmpty(nonLinearPc)) {
+      LffSolverConfigs.logConcolicWalker("Linear PC solved and no non-linear PC.");
       PathCondition.flagSolved = true;
       return true;
     }
+
     PathCondition.flagSolved = solveWithAdaptiveVariableSearch(linearPc, nonLinearPc);
 
     return PathCondition.flagSolved;
@@ -181,7 +185,7 @@ public class ConcolicWalkSolver {
    *
    * @see "Algorithms 1 and 3 in the paper."
    */
-  private static boolean solveWithAdaptiveVariableSearch(PathCondition linearPc, PathCondition nonLinearPc) {
+  private static boolean solveWithAdaptiveVariableSearch(final PathCondition linearPc, final PathCondition nonLinearPc) {
     assert !isEmpty(nonLinearPc);
 
     // Partially based on the paper "Yet Another Local Search Method for Constraint Solving"
@@ -201,28 +205,37 @@ public class ConcolicWalkSolver {
     //region Log start point
 
     // @since 0.1
-    if (LffSolverConfigs.IS_LOG_CONCOLIC_WALKER_START_POINTS) {
-      // log `p`, which is a start point for adaptive variable search
-      final String[] allVariableNames = new String[numberOfVariables];
-      final double[] allVariableSolutions = new double[numberOfVariables];
+    if (LffSolverConfigs.IS_LOG_CONCOLIC_WALKER) {
+      LffSolverConfigs.logConcolicWalker("CW AdaptiveVariableSearch:",
+                                         "Linear PC: " + linearPc,
+                                         "Linear PC solution: " + p,
+                                         "Solving non-linear PC\n" + nonLinearPc);
 
-      for (int i = 0; i < numberOfVariables; ++i) {
-        final String variableName = SpfUtils.getVariableName(vectorSpace.dimensions().get(i));
-        allVariableNames[i] = variableName;
-      }
+      //region Log names and values apart
 
-      // put all solutions of linearPcVars (stored in `p`) to `allVariableSolutions`
-      for (final Expression variable : linearPcVars) {
-        final int variableIndex = vectorSpace.indexOf(variable);
-        assert variableIndex >= 0;
+      //      // log `p`, which is a start point for adaptive variable search
+      //      final String[] allVariableNames = new String[numberOfVariables];
+      //      final double[] allVariableSolutions = new double[numberOfVariables];
+      //
+      //      for (int i = 0; i < numberOfVariables; ++i) {
+      //        final String variableName = SpfUtils.getVariableName(vectorSpace.dimensions().get(i));
+      //        allVariableNames[i] = variableName;
+      //      }
+      //
+      //      // put all solutions of linearPcVars (stored in `p`) to `allVariableSolutions`
+      //      for (final Expression variable : linearPcVars) {
+      //        final int variableIndex = vectorSpace.indexOf(variable);
+      //        assert variableIndex >= 0;
+      //
+      //        allVariableSolutions[variableIndex] = p.values[variableIndex];
+      //      }
 
-        allVariableSolutions[variableIndex] = p.values[variableIndex];
-      }
+      //      final String testClassName = SpfUtils.getLastJpfTestClassName();
+      //      Utils.logToFile(LffSolverConfigs.CONCOLIC_WALKER_START_POINTS_LOG_DIR.resolve(testClassName + ".txt"),
+      //                      Lists.newArrayList(Arrays.toString(allVariableNames),
+      //                                         Arrays.toString(allVariableSolutions)));
 
-      final String testClassName = SpfUtils.getLastJpfTestClassName();
-      Utils.logToFile(LffSolverConfigs.CONCOLIC_WALKER_START_POINTS_LOG_DIR.resolve(testClassName + ".txt"),
-                      Lists.newArrayList(Arrays.toString(allVariableNames),
-                                         Arrays.toString(allVariableSolutions)));
+      //endregion Log names and values apart
     }
 
     //endregion Log start point
@@ -348,6 +361,10 @@ public class ConcolicWalkSolver {
     }
     printDebug(ConcolicWalkSolver.class, "Found solution: ", p);
     vectorSpace.assignToVariables(p);
+
+    LffSolverConfigs.logConcolicWalker("CW Found solution:",
+                                       "Solution: " + p);
+
     return true;
   }
 

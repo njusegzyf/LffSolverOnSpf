@@ -35,11 +35,28 @@ public final class ComputeEngine {
       myCtx.set(CFGBuilder.parameterNames[i], paraForNow[i]);
     }
 
-    double finalRes = 0.0;
-    try {
-      Object result = myFelEngine.eval(calaStr);
-      finalRes = Double.parseDouble(result.toString());
-    } catch (EvalException e) {
+    double finalRes = 0;
+    if (!calaStr.contains("atan2") && !calaStr.contains("atan")) {
+      try {
+        Object result = myFelEngine.eval(calaStr);
+        finalRes = Double.parseDouble(result.toString());
+      } catch (EvalException e) {
+        System.err.println(calaStr);
+        System.err.println("EvalException !!!!!");
+      } catch (ClassCastException e) {
+        e.printStackTrace();
+        System.err.println(calaStr);
+        System.err.println("ClassCastException !!!!!");
+      } catch (IllegalArgumentException e) {
+        e.printStackTrace();
+        System.err.println(calaStr);
+        System.err.println("IllegalArgumentException: argument type mismatch !!!!!");
+      } catch (ParseException e) {
+        e.printStackTrace();
+        System.err.println(calaStr);
+        System.err.println("ParseException !!!!!");
+      }
+    } else {
       //备用方案
       StringBuilder tmpBuilder = new StringBuilder();
       for (int i = 0; i < CFGBuilder.parameterNames.length; i++) {
@@ -54,67 +71,8 @@ public final class ComputeEngine {
       } catch (ScriptException e1) {
         e1.printStackTrace();
       }
-
-      System.err.println(calaStr);
-      System.err.println("EvalException !!!!!");
-    } catch (ClassCastException e) {
-      //备用方案
-      StringBuilder tmpBuilder = new StringBuilder();
-      for (int i = 0; i < CFGBuilder.parameterNames.length; i++) {
-        tmpBuilder.append(CFGBuilder.parameterNames[i]);
-        tmpBuilder.append("=");
-        tmpBuilder.append(paraForNow[i]);
-        tmpBuilder.append(";");
-      }
-      tmpBuilder.append(calaStr);
-      try {
-        finalRes = (double) se.eval(tmpBuilder.toString());
-      } catch (ScriptException e1) {
-        e1.printStackTrace();
-      }
-
-      e.printStackTrace();
-      System.err.println(calaStr);
-      System.err.println("ClassCastException !!!!!");
-    } catch (IllegalArgumentException e) {
-      //备用方案
-      StringBuilder tmpBuilder = new StringBuilder();
-      for (int i = 0; i < CFGBuilder.parameterNames.length; i++) {
-        tmpBuilder.append(CFGBuilder.parameterNames[i]);
-        tmpBuilder.append("=");
-        tmpBuilder.append(paraForNow[i]);
-        tmpBuilder.append(";");
-      }
-      tmpBuilder.append(calaStr);
-      try {
-        finalRes = (double) se.eval(tmpBuilder.toString());
-      } catch (ScriptException e1) {
-        e1.printStackTrace();
-      }
-
-      e.printStackTrace();
-      System.err.println(calaStr);
-      System.err.println("IllegalArgumentException: argument type mismatch !!!!!");
-    } catch (ParseException e) {
-      //备用方案
-      StringBuilder tmpBuilder = new StringBuilder();
-      for (int i = 0; i < CFGBuilder.parameterNames.length; i++) {
-        tmpBuilder.append(CFGBuilder.parameterNames[i]);
-        tmpBuilder.append("=");
-        tmpBuilder.append(paraForNow[i]);
-        tmpBuilder.append(";");
-      }
-      tmpBuilder.append(calaStr);
-      try {
-        finalRes = (double) se.eval(tmpBuilder.toString());
-      } catch (ScriptException e1) {
-        e1.printStackTrace();
-      }
-
-      e.printStackTrace();
-      System.err.println(calaStr);
-      System.err.println("ParseException !!!!!");
     }
+
     return finalRes;
   }
 
@@ -124,38 +82,56 @@ public final class ComputeEngine {
     }
 
     boolean finalRes = false;
-    try {
-      Object result = myFelEngine.eval(calaStr);
-      finalRes = Boolean.parseBoolean(result.toString());
-    } catch (EvalException e) {
-      // TODO: handle exception
-      e.printStackTrace();
-      System.err.println(calaStr);
-      System.err.println("EvalException !!!!!");
-    } catch (ClassCastException e) {
-      // TODO: handle exception
-      e.printStackTrace();
-      System.err.println(calaStr);
-      System.err.println("ClassCastException !!!!!");
-    } catch (IllegalArgumentException e) {
-      // TODO: handle exception
-      e.printStackTrace();
-      System.err.println(calaStr);
-      System.err.println("IllegalArgumentException: argument type mismatch !!!!!");
-    } catch (ParseException e) {
-      // TODO: handle exception
-      e.printStackTrace();
-      System.err.println(calaStr);
-      System.err.println("ParseException !!!!!");
+    if (!calaStr.contains("atan2") && !calaStr.contains("atan")) {
+      try {
+        Object result = myFelEngine.eval(calaStr);
+        finalRes = Boolean.parseBoolean(result.toString());
+      } catch (EvalException e) {
+        // TODO: handle exception
+        e.printStackTrace();
+        System.err.println(calaStr);
+        System.err.println("EvalException !!!!!");
+      } catch (ClassCastException e) {
+        // TODO: handle exception
+        e.printStackTrace();
+        System.err.println(calaStr);
+        System.err.println("ClassCastException !!!!!");
+      } catch (IllegalArgumentException e) {
+        // TODO: handle exception
+        e.printStackTrace();
+        System.err.println(calaStr);
+        System.err.println("IllegalArgumentException: argument type mismatch !!!!!");
+      } catch (ParseException e) {
+        // TODO: handle exception
+        e.printStackTrace();
+        System.err.println(calaStr);
+        System.err.println("ParseException !!!!!");
+      }
+    } else {
+      //备用方案
+      StringBuilder tmpBuilder = new StringBuilder();
+      for (int i = 0; i < CFGBuilder.parameterNames.length; i++) {
+        tmpBuilder.append(CFGBuilder.parameterNames[i]);
+        tmpBuilder.append("=");
+        tmpBuilder.append(paraForNow[i]);
+        tmpBuilder.append(";");
+      }
+      tmpBuilder.append(calaStr);
+      try {
+        finalRes = (boolean) se.eval(tmpBuilder.toString());
+      } catch (ScriptException e1) {
+        System.out.println();
+        e1.printStackTrace();
+      }
     }
     return finalRes;
   }
 
-//  public static synchronized void printAllParam() {
-//    System.out.println("********** All Param is as Following **********");
-//    for (int i = 0; i < CFGBuilder.parameterNames.length; i++) {
-//      System.out.print(CFGBuilder.parameterNames[i] + " " + myCtx.get(CFGBuilder.parameterNames[i]) + " ");
-//    }
-//    System.out.println();
-//  }
+  //  public static synchronized void printAllParam() {
+  //    System.out.println("********** All Param is as Following **********");
+  //    for (int i = 0; i < CFGBuilder.parameterNames.length; i++) {
+  //      System.out.print(CFGBuilder.parameterNames[i] + " " + myCtx.get(CFGBuilder.parameterNames[i]) + " ");
+  //    }
+  //    System.out.println();
+  //  }
 }

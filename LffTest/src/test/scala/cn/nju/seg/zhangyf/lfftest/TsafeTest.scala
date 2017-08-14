@@ -1,9 +1,8 @@
 package cn.nju.seg.zhangyf.lfftest
 
-import javax.annotation.ParametersAreNonnullByDefault
+import javax.annotation.{ Nonnull, ParametersAreNonnullByDefault }
 
-import org.testng.annotations.Test
-import Math._
+import java.lang.Math._
 
 /**
   * @author Zhang Yifan
@@ -13,15 +12,56 @@ final class TsafeTest {
 
   //region Conflict
 
-  private def testConflict(index: Int)(pathCondition: Array[Double] => Boolean): Option[Array[Double]] = {
-    val solveRes: Option[Array[Double]] = this.cwConflictTestCases.find { pathCondition }
+  @Nonnull
+  private def testConflict(name: String)
+                          (pathCondition: Array[Double] => Boolean)
+  : Option[Array[Double]] = {
+    val solveRes: Option[Array[Double]] = TsafeTest.cwConflictTestCases.find { pathCondition }
     if (solveRes.isDefined) {
-      println(s"CW solve Conflict $index with : ${ solveRes.get.mkString(",") }")
+      println(s"CW solve Tsafe Conflict $name with : ${ solveRes.get.mkString(",") }")
     } else {
-      println(s"CW can not solve Conflict $index.")
+      println(s"CW can not solve Tsafe Conflict $name.")
     }
     solveRes
   }
+
+  def testConflict01(): Unit = {
+    val solveRes: Option[Array[Double]] =
+      this.testConflict("01") { startPoint =>
+        val Array(psi1_1_SYMREAL, vA_2_SYMREAL, vC_3_SYMREAL, xC0_4_SYMREAL, yC0_5_SYMREAL, psiC_6_SYMREAL, bank_ang_7_SYMREAL) = startPoint
+        //region  @formatter:off
+        exp(pow(xC0_4_SYMREAL + ((1.0 * ((pow(vC_3_SYMREAL, 2.0) / tan(0.017453292519943295 * bank_ang_7_SYMREAL)) / 68443.0)) * (cos(psiC_6_SYMREAL) - cos(psiC_6_SYMREAL + (((1.0 * (((0.0 - (0.017453292519943295 * psi1_1_SYMREAL)) * ((pow(vA_2_SYMREAL, 2.0) / tan(0.017453292519943295 * bank_ang_7_SYMREAL)) / 68443.0)) / vA_2_SYMREAL)) * vC_3_SYMREAL) / ((pow(vC_3_SYMREAL, 2.0) / tan(0.017453292519943295 * bank_ang_7_SYMREAL)) / 68443.0))))) - ((-1.0 * ((pow(vA_2_SYMREAL, 2.0) / tan(0.017453292519943295 * bank_ang_7_SYMREAL)) / 68443.0)) * (1.0 - cos(0.017453292519943295 * psi1_1_SYMREAL))), 2.0) + pow((yC0_5_SYMREAL - ((1.0 * ((pow(vC_3_SYMREAL, 2.0) / tan(0.017453292519943295 * bank_ang_7_SYMREAL)) / 68443.0)) * (sin(psiC_6_SYMREAL) - sin(psiC_6_SYMREAL + (((1.0 * (((0.0 - (0.017453292519943295 * psi1_1_SYMREAL)) * ((pow(vA_2_SYMREAL, 2.0) / tan((0.017453292519943295 * bank_ang_7_SYMREAL))) / 68443.0)) / vA_2_SYMREAL)) * vC_3_SYMREAL) / ((pow(vC_3_SYMREAL, 2.0) / tan( 0.017453292519943295 * bank_ang_7_SYMREAL )) / 68443.0)))))) - ((-1.0 * ((pow(vA_2_SYMREAL, 2.0) / tan(0.017453292519943295 * bank_ang_7_SYMREAL)) / 68443.0)) * sin(0.017453292519943295 * psi1_1_SYMREAL)), 2.0)) < 999.0 && ((pow(vC_3_SYMREAL, 2.0) / tan(0.017453292519943295 * bank_ang_7_SYMREAL)) / 68443.0) != 0.0 && vA_2_SYMREAL != 0.0 && tan(0.017453292519943295 * bank_ang_7_SYMREAL) != 0.0 && tan(0.017453292519943295 * bank_ang_7_SYMREAL) != 0.0 && (0.017453292519943295 * psi1_1_SYMREAL) < 0.0
+        //endregion  @formatter:on
+      }
+  }
+
+  //endregion Conflict
+
+  //region 
+
+  @Nonnull
+  private def testTurnLogic(name: String)
+                           (pathCondition: Array[Double] => Boolean)
+  : Option[Array[Double]] = {
+    val solveRes: Option[Array[Double]] = TsafeTest.cwTurnLogicTestCases.find { pathCondition }
+    if (solveRes.isDefined) {
+      println(s"CW solve Tsafe Conflict $name with : ${ solveRes.get.mkString(",") }")
+    } else {
+      println(s"CW can not solve Tsafe Conflict $name.")
+    }
+    solveRes
+  }
+
+  //endregion
+
+  @org.testng.annotations.BeforeClass
+  def setUp(): Unit = {}
+
+  @org.testng.annotations.AfterClass
+  def tearDown(): Unit = {}
+}
+
+private object TsafeTest {
 
   val cwConflictTestCases: Vector[Array[Double]] =
     Vector(Array(0.0, 0, 0, 0, 0, 0, 0.0),
@@ -48,31 +88,6 @@ final class TsafeTest {
            Array(-8.0, -8.0, 384.6739356718183, 5.015466584677637E-12, 0.0, 0.0, 3.675275996186175E-4),
            Array(-8.0, -8.0, 544.3425580053249, 0.0, 0.0, 0.0, 0.23058904129158647),
            Array(-8.0, -8.0, 5799354.949400331, 0.0, 0.0, 0.0, 3.5205540257840755))
-
-  @Test
-  def testConflict01(): Unit = {
-    val solveRes: Option[Array[Double]] =
-      this.testConflict(1) { startPoint =>
-        val Array(psi1_1_SYMREAL, vA_2_SYMREAL, vC_3_SYMREAL, xC0_4_SYMREAL, yC0_5_SYMREAL, psiC_6_SYMREAL, bank_ang_7_SYMREAL) = startPoint
-        //region  @formatter:off
-        exp(pow(xC0_4_SYMREAL + ((1.0 * ((pow(vC_3_SYMREAL, 2.0) / tan(0.017453292519943295 * bank_ang_7_SYMREAL)) / 68443.0)) * (cos(psiC_6_SYMREAL) - cos(psiC_6_SYMREAL + (((1.0 * (((0.0 - (0.017453292519943295 * psi1_1_SYMREAL)) * ((pow(vA_2_SYMREAL, 2.0) / tan(0.017453292519943295 * bank_ang_7_SYMREAL)) / 68443.0)) / vA_2_SYMREAL)) * vC_3_SYMREAL) / ((pow(vC_3_SYMREAL, 2.0) / tan(0.017453292519943295 * bank_ang_7_SYMREAL)) / 68443.0))))) - ((-1.0 * ((pow(vA_2_SYMREAL, 2.0) / tan(0.017453292519943295 * bank_ang_7_SYMREAL)) / 68443.0)) * (1.0 - cos(0.017453292519943295 * psi1_1_SYMREAL))), 2.0) + pow((yC0_5_SYMREAL - ((1.0 * ((pow(vC_3_SYMREAL, 2.0) / tan(0.017453292519943295 * bank_ang_7_SYMREAL)) / 68443.0)) * (sin(psiC_6_SYMREAL) - sin(psiC_6_SYMREAL + (((1.0 * (((0.0 - (0.017453292519943295 * psi1_1_SYMREAL)) * ((pow(vA_2_SYMREAL, 2.0) / tan((0.017453292519943295 * bank_ang_7_SYMREAL))) / 68443.0)) / vA_2_SYMREAL)) * vC_3_SYMREAL) / ((pow(vC_3_SYMREAL, 2.0) / tan( 0.017453292519943295 * bank_ang_7_SYMREAL )) / 68443.0)))))) - ((-1.0 * ((pow(vA_2_SYMREAL, 2.0) / tan(0.017453292519943295 * bank_ang_7_SYMREAL)) / 68443.0)) * sin(0.017453292519943295 * psi1_1_SYMREAL)), 2.0)) < 999.0 && ((pow(vC_3_SYMREAL, 2.0) / tan(0.017453292519943295 * bank_ang_7_SYMREAL)) / 68443.0) != 0.0 && vA_2_SYMREAL != 0.0 && tan(0.017453292519943295 * bank_ang_7_SYMREAL) != 0.0 && tan(0.017453292519943295 * bank_ang_7_SYMREAL) != 0.0 && (0.017453292519943295 * psi1_1_SYMREAL) < 0.0
-        //endregion  @formatter:on
-      }
-  }
-
-  //endregion Conflict
-
-  //region 
-
-  private def testTurnLogic(index: Int)(pathCondition: Array[Double] => Boolean): Option[Array[Double]] = {
-    val solveRes: Option[Array[Double]] = this.cwTurnLogicTestCases.find { pathCondition }
-    if (solveRes.isDefined) {
-      println(s"CW solve Conflict $index with : ${ solveRes.get.mkString(",") }")
-    } else {
-      println(s"CW can not solve Conflict $index.")
-    }
-    solveRes
-  }
 
   val cwTurnLogicTestCases: Vector[Array[Double]] =
     Vector(Array(1292.434143341451, 0.0, 0, -8.0, -1.0, -7.999999000000001, 0.0, 0),
@@ -132,12 +147,4 @@ final class TsafeTest {
            Array(-8.0, -8.0, 0, -8.0, -7.999999000000001, -8.0, -8.0, 0),
            Array(-8.0, -8.0, 0, -8.0, -8.0, 0, 0, 0),
            Array(86.92268081810761, 0.14643285486101443, 0, -7.884016483217668, 2162223.8515410097, -7.884016483351377, 0.0024750595335540845, 0))
-
-  //endregion
-
-  @org.testng.annotations.BeforeClass
-  def setUp(): Unit = {}
-
-  @org.testng.annotations.AfterClass
-  def tearDown(): Unit = {}
 }

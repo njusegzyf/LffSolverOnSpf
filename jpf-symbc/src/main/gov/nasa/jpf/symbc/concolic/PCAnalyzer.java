@@ -1,10 +1,14 @@
 package gov.nasa.jpf.symbc.concolic;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+
+import com.google.common.collect.Lists;
 
 import cn.nju.seg.atg.spfwrapper.LffSolverConfigs;
 import cn.nju.seg.atg.spfwrapper.LffSolverConfigs.SymbolicConstraintsGeneralFunction;
 import cn.nju.seg.atg.spfwrapper.SpfUtils;
+import cn.nju.seg.atg.spfwrapper.Utils;
 import gov.nasa.jpf.symbc.SymbolicInstructionFactory;
 import gov.nasa.jpf.symbc.concolic.walk.ConcolicWalkSolver;
 import gov.nasa.jpf.symbc.numeric.BinaryNonLinearIntegerExpression;
@@ -245,12 +249,20 @@ public final class PCAnalyzer {
       }
       cRef = cRef.and;
     }
+
     if (SymbolicInstructionFactory.debugMode) {
       System.out.println("--------begin after splitting------------");
       System.out.println("originalPC " + pc);
       System.out.println("concolicPC " + concolicPC);
       System.out.println("simplePC " + simplePC);
       System.out.println("--------end after splitting------------");
+    }
+
+    if (LffSolverConfigs.IS_LOG_CONCOLIC_WALKER) {
+      LffSolverConfigs.logConcolicWalker("PCAnalyzer plitting PathCondition",
+                                         "Original PC " + pc,
+                                         "Simple PC " + this.simplePC,
+                                         "Concolic PC " + this.concolicPC);
     }
   }
 
@@ -439,6 +451,11 @@ public final class PCAnalyzer {
       //			System.out.println("simplifiedPC " + simplePC);
       //			System.out.println("--------------------");
       //		}
+    }
+
+    if (LffSolverConfigs.IS_LOG_CONCOLIC_WALKER) {
+      LffSolverConfigs.logConcolicWalker("Create simplified PC",
+                                         "Simplified PC " + this.simplePC);
     }
   }
 
