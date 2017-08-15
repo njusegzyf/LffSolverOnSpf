@@ -48,7 +48,7 @@ public final class LffSolverConfigs {
 
   public static final boolean IS_LOG_CONCOLIC_WALKER = true;
 
-  public static final Path CONCOLIC_WALKER_START_POINTS_LOG_DIR = LffSolverConfigs.LOG_HOME.resolve("ConcolicWalkerStartPoints");
+  public static final Path CONCOLIC_WALKER_START_POINTS_LOG_DIR = LffSolverConfigs.LOG_HOME.resolve("ConcolicWalkerLogs");
 
   static {
     if (LffSolverConfigs.IS_LOG_CONCOLIC_WALKER) {

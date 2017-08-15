@@ -40,6 +40,7 @@ import java.util.Random;
 import java.util.Set;
 
 import cn.nju.seg.atg.spfwrapper.LffSolverConfigs;
+import cn.nju.seg.atg.spfwrapper.SpfUtils;
 import gov.nasa.jpf.symbc.numeric.Comparator;
 import gov.nasa.jpf.symbc.numeric.Constraint;
 import gov.nasa.jpf.symbc.numeric.Expression;
@@ -159,7 +160,15 @@ public class ConcolicWalkSolver {
       return false;
     }
     if (isEmpty(nonLinearPc)) {
-      LffSolverConfigs.logConcolicWalker("Linear PC solved and no non-linear PC.");
+      final Set<Expression> linearPcVars = variablesIn(linearPc);
+      final RealVectorSpace vectorSpace = RealVectorSpace.forDimensions(Util.<Expression>union(linearPcVars, variablesIn(nonLinearPc)));
+      RealVector p = makeVectorFromSolutions(vectorSpace, linearPcVars);
+
+      LffSolverConfigs.logConcolicWalker("Linear PC solved and no non-linear PC.",
+                                         "Solution: " + p.toString(),
+                                         "Solution ordered by index: " + Arrays.toString(SpfUtils.orderSolutionValuesByVarIndex(p)));
+
+
       PathCondition.flagSolved = true;
       return true;
     }
@@ -363,7 +372,8 @@ public class ConcolicWalkSolver {
     vectorSpace.assignToVariables(p);
 
     LffSolverConfigs.logConcolicWalker("CW Found solution:",
-                                       "Solution: " + p);
+                                       "Solution: " + p,
+                                       "Solution ordered by index: " + Arrays.toString(SpfUtils.orderSolutionValuesByVarIndex(p)));
 
     return true;
   }

@@ -1,15 +1,24 @@
 package cn.nju.seg.atg.spfwrapper;
 
 import static gov.nasa.jpf.symbc.concolic.walk.ConstraintIterator.eachConstraint;
+import static gov.nasa.jpf.symbc.concolic.walk.RealVectorSpace.labelDimension;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.google.common.base.Preconditions;
 
+import org.eclipse.emf.ecore.xml.type.internal.RegEx;
+
+import choco.cp.solver.constraints.global.geost.geometricPrim.Obj;
 import gov.nasa.jpf.JPF;
 import gov.nasa.jpf.symbc.SymbolicListener;
 import gov.nasa.jpf.symbc.concolic.walk.ConstraintSplitter;
+import gov.nasa.jpf.symbc.concolic.walk.RealVector;
+import gov.nasa.jpf.symbc.concolic.walk.RealVectorSpace;
 import gov.nasa.jpf.symbc.numeric.Constraint;
 import gov.nasa.jpf.symbc.numeric.ConstraintExpressionVisitor;
 import gov.nasa.jpf.symbc.numeric.Expression;
@@ -151,6 +160,51 @@ public final class SpfUtils {
     Preconditions.checkNotNull(pc);
 
     return pc.header == null;
+  }
+
+  /**
+   * Note: SPF index variables from 1.
+   */
+  public static int getIndexFromVarName(final String varName) {
+    Preconditions.checkNotNull(varName);
+
+    final boolean isFindIndex = varIndexMatcher.reset(varName).find();
+    if (isFindIndex) {
+      return Integer.parseInt(SpfUtils.varIndexMatcher.group(1));
+    } else {
+      return -1;
+    }
+  }
+
+  private static final String varIndexPatternString = "_(\\d?\\d)_SYM";
+
+  private static final Matcher varIndexMatcher = Pattern.compile(varIndexPatternString).matcher("");
+
+
+  public static int getIndexFromDimension(final Object dimension) {
+    Preconditions.checkNotNull(dimension);
+
+    final String varName = RealVectorSpace.labelDimension(dimension);
+    return SpfUtils.getIndexFromVarName(varName);
+  }
+
+  public static double[] orderSolutionValuesByVarIndex(final RealVector solutionVector) {
+    int maxIndex = -1;
+    final List<Object> dimensions = solutionVector.space.dimensions();
+    for (final Object dimension : dimensions) {
+      final int varIndex = SpfUtils.getIndexFromDimension(dimension);
+      if (varIndex > maxIndex) {
+        maxIndex = varIndex;
+      }
+    }
+
+    final double[] solution = new double[maxIndex];
+    for (int i = 0; i < dimensions.size(); ++i) {
+      final int varIndex = SpfUtils.getIndexFromDimension(dimensions.get(i));
+      solution[varIndex - 1] = solutionVector.values[i];
+    }
+
+    return solution;
   }
 
   @Deprecated
