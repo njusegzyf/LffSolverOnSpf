@@ -9,8 +9,19 @@ import javax.annotation.ParametersAreNonnullByDefault
 object Tsafes {
 
   def main(args: Array[String]): Unit = {
-    println(InputUtils.convertToInputConfStringLines(Tsafes.cwConflictTestCases))
-    println(InputUtils.convertToInputConfStringLines(Tsafes.cwTurnLogicTestCases))
+    println("CW conflict:")
+    println("No error fix:")
+    println(InputUtils.convertToInputConfStringLines(Tsafes.cwConflictTestCases, argFixer = { d => d }))
+    println("With error fix:")
+    println(InputUtils.convertToInputConfStringLines(Tsafes.cwConflictTestCases, argFixer = InputUtils.defaultArgFixer))
+
+    println()
+
+    println("CW turnLogic:")
+    println("No error fix:")
+    println(InputUtils.convertToInputConfStringLines(Tsafes.cwTurnLogicTestCases, argFixer = { d => d }))
+    println("With error fix:")
+    println(InputUtils.convertToInputConfStringLines(Tsafes.cwTurnLogicTestCases, argFixer = InputUtils.defaultArgFixer))
   }
 
   val cwConflictTestCases: Vector[Array[Double]] =

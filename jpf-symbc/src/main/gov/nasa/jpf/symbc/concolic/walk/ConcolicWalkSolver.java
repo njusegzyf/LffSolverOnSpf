@@ -268,6 +268,7 @@ public class ConcolicWalkSolver {
     while (!isSatisfied(nonLinearPc, p)) {  // Alg. 1: line 7
       if (iterationCount > iterationLimit) {  // Alg. 1: line 8
         printDebug(ConcolicWalkSolver.class, "Could not find solution within ", iterationLimit, " iterations");
+        LffSolverConfigs.logConcolicWalker("CW could Not found solution.");
         return false;
       }
       ++iterationCount;  // Alg. 1: line 9
@@ -288,6 +289,7 @@ public class ConcolicWalkSolver {
         for (int i = 0; i < tabuVariables.length; ++i) {
           p = makeRandomNeighborInPolytope(p, linearPc, vectorSpace.dimensions().get(i));
           if (p == null) {
+            LffSolverConfigs.logConcolicWalker("CW could Not found solution.");
             return false;
           }
           tabuVariables[i] = 0;

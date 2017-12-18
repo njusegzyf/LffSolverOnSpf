@@ -22,6 +22,12 @@
     <file url="file://$PROJECT_DIR$/LffTest" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
+  <component name="HydraSettings">
+    <option name="hydraStorePath" value="C:\ProjsIdea\LffSolverProj\.hydra\idea" />
+    <option name="noOfCores" value="4" />
+    <option name="projectRoot" value="C:\ProjsIdea\LffSolverProj" />
+    <option name="sourcePartitioner" value="auto" />
+  </component>
   <component name="InspectionProjectProfileManager">
     <profile version="1.0">
       <option name="myName" value="Project Default" />
